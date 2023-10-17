@@ -1,0 +1,18 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--black);
+  padding: 18px 80px 18px 56px;
+
+  .blogName {
+    color: var(--white);
+  }
+
+  .controls {
+    display: flex;
+    gap: 36px;
+    align-items: center;
+  }
+}

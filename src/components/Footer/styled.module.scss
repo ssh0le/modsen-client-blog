@@ -1,0 +1,76 @@
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--black);
+  padding: 59px 80px 56px;
+  gap: 48px;
+
+  .top,
+  .body,
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .top {
+    align-items: center;
+  }
+
+  .blogName,
+  .message {
+    color: var(--white);
+  }
+
+  .body {
+    padding: 80px 64px;
+    gap: 64px;
+    background-color: var(--footer-dark-gray);
+  }
+
+  .message {
+    word-spacing: -1px;
+    letter-spacing: -2px;
+  }
+
+  .form {
+    display: flex;
+    gap: 24px;
+  }
+
+  .input {
+    width: 323px;
+    padding: 14px 25px;
+    font-size: 16px;
+    background-color: transparent;
+    border: 1px solid var(--dark-gray);
+    color: var(--white);
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: var(--medium-gray);
+    }
+  }
+
+  .bottom {
+    display: flex;
+    gap: 24px;
+    color: var(--white);
+  }
+
+  .companyInfo {
+    opacity: 70%;
+    span {
+      line-height: 28px;
+    }
+  }
+
+  .media {
+    display: flex;
+    gap: 27px;
+  }
+}

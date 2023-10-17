@@ -1,0 +1,19 @@
+.button {
+  padding: 16px 48px;
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 18px;
+  font-weight: 700;
+
+  &:hover {
+    background-color: var(--light-gray);
+  }
+}
+
+.colored {
+  background-color: var(--yellow);
+
+  &:hover {
+    background-color: var(--yellow);
+  }
+}
