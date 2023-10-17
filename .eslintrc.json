@@ -1,44 +1,42 @@
 {
-  "New item": {
-    "root": true,
-    "env": {
-      "browser": true,
-      "es2020": true
-    },
-    "extends": [
-      "next/core-web-vitals",
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:react-hooks/recommended"
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2020": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "ignorePatterns": ["dist", ".eslintrc.json", "cypress.config.ts"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "prettier",
+    "react-refresh",
+    "simple-import-sort"
+  ],
+  "rules": {
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^@?\\w"],
+          ["@/styles/\\w*.css$", "^@/", "^@helpers", "^@UI"],
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          ["^\\u0000", "^\\./\\w"]
+        ]
+      }
     ],
-    "ignorePatterns": ["dist", ".eslintrc.json", "cypress.config.ts"],
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint",
-      "react",
-      "prettier",
-      "react-refresh",
-      "simple-import-sort"
-    ],
-    "rules": {
-      "simple-import-sort/imports": [
-        "error",
-        {
-          "groups": [
-            ["^@?\\w"],
-            ["@/styles/\\w*.css$", "^@/", "^@helpers", "^@UI"],
-            ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
-            ["^\\u0000", "^\\./\\w"]
-          ]
-        }
-      ],
-      "simple-import-sort/exports": "error",
-      "react-refresh/only-export-components": [
-        "warn",
-        {
-          "allowConstantExport": true
-        }
-      ]
-    }
+    "simple-import-sort/exports": "error",
+    "react-refresh/only-export-components": [
+      "warn",
+      {
+        "allowConstantExport": true
+      }
+    ]
   }
 }
