@@ -1,0 +1,38 @@
+@use '../../styles/global.scss' as g;
+
+.author-card-container {
+  background-color: g.$color-light-gray;
+  padding: 40px 28px;
+  max-width: 296px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+
+  .card-avatar {
+    height: 128px;
+    width: 128px;
+    border-radius: 50%;
+  }
+
+  .author-media-links {
+    display: flex;
+    gap: 16px;
+  }
+
+  .author-card-info {
+    h3 {
+      text-align: center;
+    }
+
+    div {
+      font-size: 14px;
+      color: g.$color-medium-gray;
+    }
+  }
+
+  &:hover {
+    background-color: var(--light-yellow)
+  }
+}

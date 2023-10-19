@@ -1,6 +1,6 @@
-import { LinkInfo } from '@/interfaces/linkInfo';
+import { LinkInfo } from '@/types/linkInfo';
 
-import { icons } from './icons';
+import { mediaIcons } from './images';
 import { routePathes } from './routePaths';
 
 const { home, blog, about, contact, privacyPolicy } = routePathes;
@@ -32,7 +32,7 @@ export const footerLinks: LinkInfo[] = [
   },
 ];
 
-const { facebook, instagram, twitter, linkedin } = icons;
+const { facebook, instagram, twitter, linkedin } = mediaIcons;
 
 export const mediaLinks: LinkInfo[] = [
   {

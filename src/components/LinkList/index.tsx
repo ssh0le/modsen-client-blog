@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { LinkInfo } from '@/interfaces/linkInfo';
+import { LinkInfo } from '@/types/linkInfo';
 
 import styles from './styled.module.scss';
 

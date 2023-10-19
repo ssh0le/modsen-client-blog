@@ -1,19 +1,20 @@
-.button {
-  padding: 16px 48px;
-  background-color: var(--white);
-  color: var(--black);
-  font-size: 18px;
-  font-weight: 700;
+@mixin button-style($base-back, $hover-back) {
+  background-color: $base-back;
 
   &:hover {
-    background-color: var(--light-gray);
+    background-color: $hover-back;
   }
 }
 
-.colored {
-  background-color: var(--yellow);
+.button {
+  padding: 16px 48px;
+  color: var(--black);
+  font-size: 18px;
+  font-weight: 700;
+  @include button-style(var(--white), var(--light-gray));
+  width: fit-content;
+}
 
-  &:hover {
-    background-color: var(--yellow);
-  }
+.colored {
+  @include button-style(var(--yellow), var(--dark-yellow));
 }
