@@ -1,8 +1,10 @@
 import { ReactNode } from 'react';
 
+import { Color, FontSize, Weight } from '@/types';
+
 export interface CustomTextProps {
-  color?: 'yellow' | 'purple' | 'black';
-  weight?: '500' | '600';
-  size?: '14';
+  color?: Color;
+  weight?: Weight;
+  size?: FontSize;
   children: ReactNode;
 }

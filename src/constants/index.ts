@@ -4,3 +4,4 @@ export * from './images';
 export * from './links';
 export * from './posts';
 export * from './routePaths';
+export * from './staticText';

@@ -210,8 +210,13 @@ section {
     position: relative;
   }
 
-  img {
+  .image-container {
     width: 100%;
+    overflow-x: hidden;
+  }
+
+  img {
+    // width: 100%;
   }
 
   .message-body {

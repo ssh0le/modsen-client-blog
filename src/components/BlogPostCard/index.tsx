@@ -7,7 +7,7 @@ import styles from './styled.module.scss';
 
 const { blogtitle, blogpost, info } = styles;
 
-const BlogPost = (props: BlogPostProps) => {
+const BlogPostCard = (props: BlogPostProps) => {
   const { image, title, description, tag } = props;
   return (
     <div className={blogpost}>
@@ -25,4 +25,4 @@ const BlogPost = (props: BlogPostProps) => {
   );
 };
 
-export default BlogPost;
+export default BlogPostCard;

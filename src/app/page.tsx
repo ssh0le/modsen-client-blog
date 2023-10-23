@@ -116,7 +116,7 @@ export default function Home() {
       </section>
       <CategoryList title="Choose a category" />
       <section className="reason">
-        <div>
+        <div className="image-container">
           <Image src={reason} alt="Why we started" />
         </div>
         <div className="message">

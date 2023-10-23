@@ -1,7 +1,8 @@
 import { CustomTextProps } from './interfaces';
 import styles from './styles.module.scss';
 
-const { yellow, purple, black, w500, w600, size14 } = styles;
+const { yellow, purple, black, mediumGray, darkGray, w500, w600, size14 } =
+  styles;
 
 export const CustomText = ({
   color = 'black',
@@ -25,6 +26,10 @@ const getColor = (color: CustomTextProps['color']): string => {
       return purple;
     case 'yellow':
       return yellow;
+    case 'medium-gray':
+      return mediumGray;
+    case 'dark-gray':
+      return darkGray;
     default:
       return black;
   }

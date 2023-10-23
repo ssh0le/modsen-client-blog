@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import { CategoryList, Invitation } from '@/components/blocks';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
-import BlogPost from '@/components/BlogPost';
+import BlogPostCard from '@/components/BlogPostCard';
 import { blogPosts, images } from '@/constants';
 import { Button, Cap, CustomText, ListHeading } from '@UI';
 
@@ -21,7 +21,7 @@ const {
 } = styles;
 const { blogHero } = images;
 
-export default function Home() {
+export default function Blog() {
   return (
     <div className={blog}>
       <ArticleWrapper className={hero}>
@@ -51,7 +51,7 @@ export default function Home() {
             All posts
           </ListHeading>
           {blogPosts.map((blogpost, key) => (
-            <BlogPost key={key} {...blogpost} />
+            <BlogPostCard key={key} {...blogpost} />
           ))}
         </div>
         <div className={blogpostsControls}>

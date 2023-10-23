@@ -8,6 +8,6 @@ export const ArticleWrapper = ({
   className,
 }: SectionWrapperProps) => {
   return (
-    <article className={`${className ?? ''} ${wrapper} `}>{children}</article>
+    <article className={`${wrapper} ${className ?? ''}`}>{children}</article>
   );
 };
