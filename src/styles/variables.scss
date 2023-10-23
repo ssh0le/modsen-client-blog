@@ -9,3 +9,44 @@ $color-medium-gray: #6d6e76;
 $color-light-gray: #f4f4f4;
 $color-lavender: #f4f0f8;
 $color-footer-dark-gray: #2e3040;
+
+@mixin flex() {
+  display: flex;
+}
+
+@mixin flexCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexColumn() {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin absolute-strecth {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin heading($size, $line, $spacing) {
+  font-size: $size;
+  line-height: $line;
+  letter-spacing: $spacing;
+}
+
+@mixin basepadding {
+  padding: 0 80px;
+}
+
+.display {
+  @include heading(56px, 64px, -2px);
+  line-height: 64px;
+  font-size: 56px;
+  font-weight: 700;
+  font-family: var(--font-sen);
+}

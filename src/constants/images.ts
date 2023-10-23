@@ -13,6 +13,7 @@ import rightArrow from '@/assets/icons/rightArrow.svg';
 import startup from '@/assets/icons/startup.svg';
 import technology from '@/assets/icons/technology.svg';
 import twitter from '@/assets/icons/twitter.svg';
+import blogHero from '@/assets/images/blogHero.png';
 import post1 from '@/assets/images/featPost1.png';
 import homeHero from '@/assets/images/homeHero.png';
 import reason from '@/assets/images/reason.png';
@@ -43,6 +44,7 @@ export const categoriesIcons = {
 } as const;
 
 export const images = {
+  blogHero,
   homeHero,
   post1,
   reason,

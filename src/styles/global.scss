@@ -12,19 +12,7 @@
   --footer-dark-gray: #2e3040;
 }
 
-$color-black: #232536;
-$color-white: #fff;
-$color-dark-yellow: #edc14a;
-$color-yellow: #ffd050;
-$color-light-yellow: #fbf6ea;
-$color-purple: #592ea9;
-$color-dark-gray: #4c4c4c;
-$color-medium-gray: #6d6e76;
-$color-light-gray: #f4f4f4;
-$color-lavender: #f4f0f8;
-$color-footer-dark-gray: #2e3040;
-
-@mixin header($size, $line, $spacing) {
+@mixin heading($size, $line, $spacing) {
   font-size: $size;
   line-height: $line;
   letter-spacing: $spacing;
@@ -64,7 +52,7 @@ p {
 
 .display,
 h1 {
-  @include header(56px, 64px, -2px);
+  @include heading(56px, 64px, -2px);
   line-height: 64px;
   font-size: 56px;
   font-weight: 700;
@@ -88,15 +76,15 @@ h1 {
 }
 
 h2 {
-  @include header(36px, 48px, -2px);
+  @include heading(36px, 48px, -2px);
 }
 
 h3 {
-  @include header(28px, 40px, -2px);
+  @include heading(28px, 40px, -2px);
 }
 
 h4 {
-  @include header(24px, 32px, 0);
+  @include heading(24px, 32px, 0);
 }
 
 html,

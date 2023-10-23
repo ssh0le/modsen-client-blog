@@ -1,3 +1,7 @@
+@mixin basepadding {
+  padding: 0 80px;
+}
+
 @mixin absolute-strecth {
   position: absolute;
   width: 100%;
@@ -22,10 +26,6 @@ p {
   color: var(--purple);
 }
 
-@mixin basepadding {
-  padding: 0 80px;
-}
-
 @mixin top-bottom-padding($top, $bottom) {
   padding-top: $top;
   padding-bottom: $bottom;
@@ -42,6 +42,7 @@ section {
 
   .hero__image {
     @include absolute-strecth;
+
     overflow: hidden;
     justify-content: flex-start;
 
@@ -209,6 +210,10 @@ section {
     position: relative;
   }
 
+  img {
+    width: 100%;
+  }
+
   .message-body {
     padding: 80px;
     position: absolute;
@@ -270,6 +275,8 @@ section {
 
     .delimiter {
       height: 100%;
+      margin-left: 80px;
+      margin-right: 96px;
       border-right: 1px solid var(--medium-gray);
     }
   }
@@ -278,6 +285,7 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-grow: 1;
 
     h4 {
       max-width: 469px;

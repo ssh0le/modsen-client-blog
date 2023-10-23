@@ -1,0 +1,62 @@
+@use '../../../styles/variables.scss' as vars;
+
+.hero {
+  position: relative;
+  padding-top: 128px;
+  padding-bottom: 192px;
+
+  .image {
+    @include vars.absolute-strecth();
+    @include vars.flexCenter();
+
+    justify-content: flex-start;
+    overflow: hidden;
+
+    .overlay {
+      @include vars.absolute-strecth();
+
+      height: 100%;
+      z-index: 2;
+      background: radial-gradient(#0000, #0009);
+    }
+  }
+
+  .content {
+    @include vars.flexColumn();
+
+    margin-bottom: 48px;
+    position: relative;
+    color: vars.$color-white;
+    gap: 24px;
+    z-index: 3;
+
+    .host {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+
+      span {
+        font-weight: 900;
+      }
+    }
+
+    .display {
+      letter-spacing: -2px;
+      max-width: 803px;
+      width: 100%;
+    }
+
+    .author {
+      color: vars.$color-yellow;
+    }
+
+    p {
+      max-width: 600px;
+      color: vars.$color-white;
+    }
+  }
+
+  & button {
+    position: relative;
+    z-index: 3;
+  }
+}

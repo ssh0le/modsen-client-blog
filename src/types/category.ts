@@ -1,3 +1,3 @@
-import { categoriesIcons } from "@/constants"
+import { categoriesIcons } from '@/constants';
 
 export type Category = keyof typeof categoriesIcons;

@@ -1,7 +1,7 @@
-@use '../../styles/global.scss' as g;
+@use '../../styles/variables.scss' as vars;
 
 .author-card-container {
-  background-color: g.$color-light-gray;
+  background-color: vars.$color-light-gray;
   padding: 40px 28px;
   max-width: 296px;
   width: 100%;
@@ -28,11 +28,11 @@
 
     div {
       font-size: 14px;
-      color: g.$color-medium-gray;
+      color: vars.$color-medium-gray;
     }
   }
 
   &:hover {
-    background-color: var(--light-yellow)
+    background-color: vars.$color-light-yellow;
   }
 }

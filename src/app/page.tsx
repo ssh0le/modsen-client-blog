@@ -2,9 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import AuthorCard from '@/components/AuthorCard';
-import CategoryCard from '@/components/CategoryCard';
+import { CategoryList, HomeHero, Invitation } from '@/components/blocks';
 import { Button } from '@/components/UI';
-import { authors, categories } from '@/constants';
+import { authors } from '@/constants';
 import {
   authorsAvatars,
   controlsIcons,
@@ -15,7 +15,7 @@ import { Post } from '@/types';
 
 import './styles/page.scss';
 
-const { post1, homeHero, reason } = images;
+const { post1, reason } = images;
 
 const post: Post = {
   author: 'John Deo',
@@ -28,31 +28,7 @@ const posts = [post, post, post, post];
 export default function Home() {
   return (
     <div className="home flex column">
-      <section className="hero">
-        <div className="hero__image flex center">
-          <div className="overlay"></div>
-          <Image src={homeHero} alt="Home hero" />
-        </div>
-        <div className="hero__content flex column">
-          <div>
-            <span className="host">
-              posted on <span className="bold">startup</span>
-            </span>
-          </div>
-          <div className="display">
-            <span>Step-by-step guide to choosing great font pairs</span>
-          </div>
-          <span>
-            By <span className="author">James West</span> | May 23, 2022
-          </span>
-          <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident.
-          </p>
-        </div>
-        <Button styleType="colored">Read More &gt;</Button>
-      </section>
+      <HomeHero />
       <section className="posts flex">
         <div className="selected-post">
           <h2>Featured Post</h2>
@@ -138,14 +114,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="categories">
-        <h2>Choose A Catagory</h2>
-        <div className="category-list flex">
-          {categories.map((category) => (
-            <CategoryCard key={category} name={category} />
-          ))}
-        </div>
-      </section>
+      <CategoryList title="Choose a category" />
       <section className="reason">
         <div>
           <Image src={reason} alt="Why we started" />
@@ -193,7 +162,9 @@ export default function Home() {
 
       <section className="testimonials">
         <div className="description">
-          <span className="cap">Testimonials</span>
+          <div className="cap">
+            <span className="w600">Testimonials</span>
+          </div>
           <h2>What people say about our blog</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -203,7 +174,7 @@ export default function Home() {
         <div className="delimiter-container">
           <div className="delimiter"></div>
         </div>
-        <div className='corousel'>
+        <div className="corousel">
           <h4>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -229,16 +200,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="invitation">
-        <div>
-          <h2>Join our team to be a part of our story</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt.
-          </p>
-          <Button styleType="colored">Join Now</Button>
-        </div>
-      </section>
+      <Invitation />
     </div>
   );
 }
