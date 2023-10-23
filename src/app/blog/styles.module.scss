@@ -1,0 +1,57 @@
+@use '../../styles/variables.scss' as vars;
+
+.blog {
+  @include vars.flexColumn();
+  gap: 128px;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px;
+  background-color: vars.$color-lavender;
+
+  .content {
+    @include vars.flexColumn();
+    max-width: 624px;
+
+    .message {
+      @include vars.flexColumn();
+      gap: 16px;
+      margin-top: 20px;
+      margin-bottom: 32px;
+    }
+  }
+}
+
+.listHeading {
+  padding: 32px;
+  border-bottom: 1px solid vars.$color-medium-gray;
+}
+
+.blogposts {
+  @include vars.flexColumn();
+  gap: 64px;
+}
+
+.blogpostsControls {
+  display: flex;
+  justify-content: center;
+  gap: 17px;
+  margin-top: 64px;
+
+  .controlsContainer {
+    max-width: 170px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 28px;
+  }
+
+  .controlInactive {
+    color: vars.$color-medium-gray;
+    font-size: 24px;
+  }
+}

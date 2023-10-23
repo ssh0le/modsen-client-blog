@@ -14,6 +14,10 @@ import startup from '@/assets/icons/startup.svg';
 import technology from '@/assets/icons/technology.svg';
 import twitter from '@/assets/icons/twitter.svg';
 import blogHero from '@/assets/images/blogHero.png';
+import blogPost1 from '@/assets/images/blogPost1.png';
+import blogPost2 from '@/assets/images/blogPost2.png';
+import blogPost3 from '@/assets/images/blogPost3.png';
+import blogPost4 from '@/assets/images/blogPost4.png';
 import post1 from '@/assets/images/featPost1.png';
 import homeHero from '@/assets/images/homeHero.png';
 import reason from '@/assets/images/reason.png';
@@ -56,4 +60,11 @@ export const authorsAvatars = {
   jenny,
   leslie,
   jonathan,
+};
+
+export const blogpostsImages = {
+  blogPost1,
+  blogPost2,
+  blogPost3,
+  blogPost4,
 };

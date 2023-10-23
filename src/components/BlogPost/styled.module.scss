@@ -1,0 +1,17 @@
+@use '../../styles/variables.scss' as vars;
+
+.blogpost {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  .info {
+    @include vars.flexColumn();
+    max-width: 624px;
+
+    .blogtitle {
+      margin-top: 20px;
+      margin-bottom: 16px;
+    }
+  }
+}

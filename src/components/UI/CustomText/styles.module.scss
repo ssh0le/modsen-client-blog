@@ -1,0 +1,25 @@
+@use '../../../styles/variables.scss' as vars;
+
+.yellow {
+  color: vars.$color-yellow;
+}
+
+.purple {
+  color: vars.$color-purple;
+}
+
+.black {
+  color: vars.$color-black;
+}
+
+.w500 {
+  font-weight: 500;
+}
+
+.w600 {
+  font-weight: 600;
+}
+
+.size14 {
+  font-size: 14px;
+}
