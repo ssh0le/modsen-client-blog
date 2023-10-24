@@ -8,7 +8,10 @@ $color-dark-gray: #4c4c4c;
 $color-medium-gray: #6d6e76;
 $color-light-gray: #f4f4f4;
 $color-lavender: #f4f0f8;
+$color-gray: #9497a1;
 $color-footer-dark-gray: #2e3040;
+
+$font-family-sen: var(--font-sen);
 
 @mixin flex() {
   display: flex;

@@ -1,3 +1,5 @@
 import { BlogPost } from '@/types';
 
-export interface BlogPostProps extends BlogPost {}
+export interface BlogPostProps extends BlogPost {
+  imageSize?: 'minimal';
+}

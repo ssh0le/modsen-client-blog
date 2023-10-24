@@ -1,0 +1,17 @@
+@use '../../styles/variables.scss' as vars;
+
+.wrapper {
+  height: 48px;
+  @include vars.flexCenter();
+  font-size: 14px;
+  font-family: vars.$font-family-sen;
+  border: 2px solid vars.$color-medium-gray;
+  opacity: 0.7;
+  border-radius: 28px;
+  padding: 0 11px;
+}
+
+.wrapper.active {
+  opacity: 1;
+  border: 3px solid vars.$color-yellow;
+}

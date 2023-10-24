@@ -140,7 +140,7 @@ export default function Home() {
       <section className="authors">
         <h2>List of Authors</h2>
         <div className="flex">
-          {authors.map(({ name, photo, position }) => (
+          {authors.slice(0, 4).map(({ name, photo, position }) => (
             <AuthorCard
               key={name}
               name={name}

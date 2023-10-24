@@ -1,8 +1,11 @@
 import { ListProps } from './interfaces';
 import styles from './styles.module.scss';
 
-const { list } = styles;
+const { list, column } = styles;
 
-export function List<T>({ options, renderItem }: ListProps<T>) {
-  return <div className={list}>{options.map(renderItem)}</div>;
+export function List<T>({ options, renderItem, direction }: ListProps<T>) {
+  const columnClass = direction === 'column' ? column : '';
+  return (
+    <div className={`${list} ${columnClass}`}>{options.map(renderItem)}</div>
+  );
 }

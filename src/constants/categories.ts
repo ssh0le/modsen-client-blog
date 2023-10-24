@@ -6,3 +6,12 @@ export const categories: Category[] = [
   'economy',
   'technology',
 ];
+
+export const tags = [
+  'Business',
+  'Experience',
+  'Screen',
+  'Technology',
+  'Marketing',
+  'Life',
+];

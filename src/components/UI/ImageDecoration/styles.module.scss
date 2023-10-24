@@ -1,0 +1,28 @@
+@use '../../../styles/variables.scss' as vars;
+
+.wrapper {
+  position: relative;
+  display: flex;
+}
+
+.circle {
+  position: absolute;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background-color: vars.$color-purple;
+  bottom: 0;
+  left: 107px;
+  transform: translateY(50%);
+}
+
+.rectange {
+  position: absolute;
+  background-color: vars.$color-yellow;
+  width: 103px;
+  height: 116px;
+  left: 0;
+  top: 114px;
+  transform: translateX(-57px);
+  border-top-left-radius: 43px;
+}
