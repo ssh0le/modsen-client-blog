@@ -1,8 +1,12 @@
 import dianne from '@/assets/avatars/dianne.png';
+import eleanor from '@/assets/avatars/eleanor.png';
 import floyd from '@/assets/avatars/floyd.png';
+import guy from '@/assets/avatars/guy.png';
+import jacob from '@/assets/avatars/jacob.png';
 import jenny from '@/assets/avatars/jenny.png';
 import jonathan from '@/assets/avatars/jonathan.jpg';
 import leslie from '@/assets/avatars/leslie.png';
+import robert from '@/assets/avatars/robert.png';
 import business from '@/assets/icons/business.svg';
 import economy from '@/assets/icons/economy.svg';
 import facebook from '@/assets/icons/facebook.svg';
@@ -13,6 +17,7 @@ import rightArrow from '@/assets/icons/rightArrow.svg';
 import startup from '@/assets/icons/startup.svg';
 import technology from '@/assets/icons/technology.svg';
 import twitter from '@/assets/icons/twitter.svg';
+import aboutHero from '@/assets/images/aboutHero.jpg';
 import blogHero from '@/assets/images/blogHero.png';
 import blogPost1 from '@/assets/images/blogPost1.png';
 import blogPost2 from '@/assets/images/blogPost2.png';
@@ -21,7 +26,9 @@ import blogPost4 from '@/assets/images/blogPost4.png';
 import blogPostHero from '@/assets/images/blogPostHero.png';
 import post1 from '@/assets/images/featPost1.png';
 import homeHero from '@/assets/images/homeHero.png';
-import reason from '@/assets/images/reason.png';
+import reasonHome from '@/assets/images/reason.png';
+import reason1 from '@/assets/images/reason1.jpg';
+import reason2 from '@/assets/images/reason2.jpg';
 import logo1 from '@/assets/logos/logo1.svg';
 import logo2 from '@/assets/logos/logo2.svg';
 import logo3 from '@/assets/logos/logo3.svg';
@@ -53,7 +60,10 @@ export const images = {
   homeHero,
   blogPostHero,
   post1,
-  reason,
+  reason: reasonHome,
+  reason1,
+  reason2,
+  aboutHero,
 };
 
 export const authorsAvatars = {
@@ -62,6 +72,10 @@ export const authorsAvatars = {
   jenny,
   leslie,
   jonathan,
+  guy,
+  eleanor,
+  robert,
+  jacob,
 };
 
 export const blogpostsImages = {

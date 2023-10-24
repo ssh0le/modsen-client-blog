@@ -1,7 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { footerLinks, mediaLinks } from '@/constants';
+import { useTranslation } from '@/app/i18n';
+import { blogName, footerLinks, mediaLinks } from '@/constants';
+import { createLocaleLinks } from '@/helpers';
+import { LocaleComponentProps } from '@/types';
 
 import LinkList from '../LinkList';
 import { Button } from '../UI';
@@ -13,7 +16,7 @@ const {
   top,
   body,
   bottom,
-  blogName,
+  blogName: blogNameStyle,
   input,
   form,
   message,
@@ -21,20 +24,26 @@ const {
   media,
 } = styles;
 
-const Footer = () => {
+const Footer = async ({ lng }: LocaleComponentProps) => {
+  const { t } = await useTranslation(lng, 'footer');
+
   return (
     <footer className={footer}>
       <div className={top}>
-        <h4 className={blogName}>Modsen Client Blog</h4>
-        <LinkList links={footerLinks} />
+        <h4 className={blogNameStyle}>{blogName}</h4>
+        <LinkList
+          lng={lng}
+          links={createLocaleLinks(
+            footerLinks,
+            t('links', { returnObjects: true }),
+          )}
+        />
       </div>
       <div className={body}>
-        <h2 className={message}>
-          Subscribe to our news letter to get latest updates and news
-        </h2>
+        <h2 className={message}>{t('heading')}</h2>
         <form className={form}>
-          <input className={input} type="text" placeholder="Enter Your Email" />
-          <Button styleType="colored">Subscribe</Button>
+          <input className={input} type="text" placeholder={t('placeholder')} />
+          <Button styleType="colored">{t('subscribeButton')}</Button>
         </form>
       </div>
       <div>

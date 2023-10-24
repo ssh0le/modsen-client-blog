@@ -1,10 +1,13 @@
 import Image from 'next/image';
 
+import { useTranslation } from '@/app/i18n';
+import AuthorAndDate from '@/components/AuthorAndDate';
 import { CategoryList, Invitation } from '@/components/blocks';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import BlogPostCard from '@/components/BlogPostCard';
 import { blogPosts, images } from '@/constants';
-import { Button, Cap, CustomText, ListHeading } from '@UI';
+import { LocaleParams } from '@/types';
+import { Button, Cap, ListHeading } from '@UI';
 
 import styles from './styles.module.scss';
 
@@ -21,25 +24,29 @@ const {
 } = styles;
 const { blogHero } = images;
 
-export default function Blog() {
+export default async function Blog({ params: { lng } }: LocaleParams) {
+  const { t } = await useTranslation(lng, 'blog');
+  const { t: tCommon } = await useTranslation(lng, 'common');
+
   return (
     <div className={blog}>
       <ArticleWrapper className={hero}>
         <div className={content}>
-          <Cap>Featured Post</Cap>
+          <Cap>{t('recommendedPostHeading')}</Cap>
           <div className={message}>
-            <h2>Step-by-step guide to choosing great font pairs</h2>
-            <CustomText weight="500" size="14">
-              By <CustomText color="purple">James West</CustomText> | May 23,
-              2022
-            </CustomText>
+            <h2>{t('header')}</h2>
+            <AuthorAndDate
+              author="James West"
+              date={new Date()}
+              authorColor="purple"
+            />
             <p>
               Duis aute irure dolor in reprehenderit in voluptate velit esse
               cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
               cupidatat non proident.
             </p>
           </div>
-          <Button styleType="colored">Read More &gt;</Button>
+          <Button styleType="colored">{tCommon('readMoreButton')}</Button>
         </div>
         <div>
           <Image src={blogHero} alt="Blog hero image" />
@@ -48,7 +55,7 @@ export default function Blog() {
       <ArticleWrapper>
         <div className={blogposts}>
           <ListHeading className={listHeading} align="left">
-            All posts
+            {t('postHeader')}
           </ListHeading>
           {blogPosts.map((blogpost, key) => (
             <BlogPostCard key={key} {...blogpost} />
@@ -56,13 +63,13 @@ export default function Blog() {
         </div>
         <div className={blogpostsControls}>
           <div className={controlsContainer}>
-            <h2 className={controlInactive}>&lt; Prev</h2>
-            <h4>Next &gt;</h4>
+            <h2 className={controlInactive}>{t('prevArrow')}</h2>
+            <h4>{t('nextArrow')}</h4>
           </div>
         </div>
       </ArticleWrapper>
-      <CategoryList title="All categories" headingAlign="left" />
-      <Invitation />
+      <CategoryList title={t('categoriesHeader')} headingAlign="left" />
+      <Invitation lng={lng} />
     </div>
   );
 }

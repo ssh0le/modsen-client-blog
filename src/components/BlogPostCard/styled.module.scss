@@ -5,6 +5,13 @@
   align-items: center;
   gap: 32px;
 
+  .imageContainer {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    max-width: 490px;
+  }
+
   .info {
     @include vars.flexColumn();
     max-width: 624px;

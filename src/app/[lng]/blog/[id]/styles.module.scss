@@ -1,4 +1,4 @@
-@use '../../../styles/variables.scss' as vars;
+@use '../../../../styles/variables.scss' as vars;
 
 .postblog {
   @include vars.flexColumn();
@@ -8,6 +8,7 @@
 
 .main {
   @include vars.flexColumn();
+
   gap: 64px;
   align-items: center;
 }
@@ -33,6 +34,10 @@
 
 .article {
   max-width: 843px;
+}
+
+.nextReadHeading {
+  margin-bottom: 0;
 }
 
 .list {

@@ -1,8 +1,9 @@
-import { ReactNode } from 'react';
+import { InputHTMLAttributes, ReactNode } from 'react';
 
 import { Color, FontSize, Weight } from '@/types';
 
-export interface CustomTextProps {
+export interface CustomTextProps
+  extends Omit<InputHTMLAttributes<HTMLSpanElement>, 'size' | 'className'> {
   color?: Color;
   weight?: Weight;
   size?: FontSize;

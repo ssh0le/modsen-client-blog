@@ -1,16 +1,15 @@
 import Link from 'next/link';
 
-import { LinkInfo } from '@/types/linkInfo';
-
+import { LinkListProps } from './interfaces';
 import styles from './styled.module.scss';
 
 const { linkList } = styles;
 
-const LinkList = ({ links }: { links: LinkInfo[] }) => {
+const LinkList = ({ links, lng }: LinkListProps) => {
   return (
     <ul className={linkList}>
       {links.map(({ title, path }) => (
-        <Link key={path} href={path}>
+        <Link key={path} href={`/${lng}/${path}`}>
           {title}
         </Link>
       ))}

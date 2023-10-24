@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import AuthorAndDate from '@/components/AuthorAndDate';
 import AuthorCard from '@/components/AuthorCard';
 import { CategoryList, HomeHero, Invitation } from '@/components/blocks';
-import { Button } from '@/components/UI';
+import { Button, Cap } from '@/components/UI';
 import { authors } from '@/constants';
 import {
   authorsAvatars,
@@ -12,6 +13,9 @@ import {
   logos,
 } from '@/constants/images';
 import { Post } from '@/types';
+import { LocaleParams } from '@/types';
+
+import { useTranslation } from '../i18n';
 
 import './styles/page.scss';
 
@@ -25,21 +29,20 @@ const post: Post = {
 
 const posts = [post, post, post, post];
 
-export default function Home() {
+export default async function Home({ params: { lng } }: LocaleParams) {
+  const { t } = await useTranslation(lng, 'home');
+  const { t: tCommon } = await useTranslation(lng, 'common');
+
   return (
     <div className="home flex column">
-      <HomeHero />
+      <HomeHero lng={lng} />
       <section className="posts flex">
         <div className="selected-post">
-          <h2>Featured Post</h2>
+          <h2>{t('recommendedPostHeading')}</h2>
           <div className="selected-post-body flex column">
             <Image src={post1} alt="Post" />
             <div className="selected-post-info flex column">
-              <div>
-                <span className="w500">
-                  By <span className="colored">John Doe</span> | May 23, 2022
-                </span>
-              </div>
+              <AuthorAndDate author="John Doe" date={new Date()} />
               <h3>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor.
@@ -50,21 +53,22 @@ export default function Home() {
                 cupidatat non proident.
               </p>
             </div>
-            <Button styleType="colored">Read More &gt;</Button>
+            <Button styleType="colored">{tCommon('readMoreButton')}</Button>
           </div>
         </div>
         <div className="all-posts flex column">
           <div className="all-posts-heading flex center">
-            <h2>All Posts</h2>
+            <h2>{t('allPosts')}</h2>
             <div>
-              <span className="colored">View All</span>
+              <span className="colored">{t('showAll')}</span>
             </div>
           </div>
           <ul className="post-list flex column">
             {posts.map(({ author, date, title }, index) => (
               <li key={index} className="post-list-item flex column">
                 <div className="w500">
-                  By <span className="colored">{author}</span> |{' '}
+                  {tCommon('authorPrefix')}
+                  <span className="colored">{author}</span> |{' '}
                   {date.toLocaleString()}
                 </div>
                 <h4>{title}</h4>
@@ -80,30 +84,22 @@ export default function Home() {
         </div>
         <div className="mission-body flex">
           <div className="mission-item">
-            <div className="cap">
-              <span className="w600">ABOUT US</span>
-            </div>
+            <Cap>{t('aboutCap')}</Cap>
             <div className="mission-item-body flex">
-              <h2>
-                We are a community of content writers who share their learnings
-              </h2>
+              <h2>{t('aboutHeading')}</h2>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
               <Link href={'#'} className="colored w700">
-                Read More &gt;
+                {tCommon('readMoreButton')}
               </Link>
             </div>
           </div>
           <div className="mission-item">
-            <div className="cap">
-              <span className="w600">Our mision</span>
-            </div>
+            <Cap>{t('missionCap')}</Cap>
             <div className="mission-item-body">
-              <h3>
-                Creating valuable content for creatives all around the world
-              </h3>
+              <h3>{t('missionHeading')}</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -114,33 +110,29 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <CategoryList title="Choose a category" />
+      <CategoryList title={t('categoriesList')} />
       <section className="reason">
         <div className="image-container">
           <Image src={reason} alt="Why we started" />
         </div>
         <div className="message">
           <div className="message-body">
-            <div className="cap">
-              <span className="w600">WHY WE STARTED</span>
-            </div>
-            <h1>
-              It started out as a simple idea and evolved into our passion
-            </h1>
+            <Cap>{t('blogReasonCap')}</Cap>
+            <h1>{t('blogReasonHeading')}</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip.
             </p>
-            <Button styleType="colored">Discover our story &gt;</Button>
+            <Button styleType="colored">{t('blogReasonButton')}</Button>
           </div>
         </div>
       </section>
       <section className="authors">
-        <h2>List of Authors</h2>
+        <h2>{t('authorsHeading')}</h2>
         <div className="flex">
-          {authors.map(({ name, photo, position }) => (
+          {authors.slice(0, 4).map(({ name, photo, position }) => (
             <AuthorCard
               key={name}
               name={name}
@@ -152,8 +144,8 @@ export default function Home() {
       </section>
       <section className={'sponsors'}>
         <div>
-          <span>We are</span>
-          <h4>Featured in</h4>
+          <span>{t('sponsorsCap')}</span>
+          <h4>{t('sponsorsHeading')}</h4>
         </div>
         {logos.map((logo, index) => (
           <Image key={index} src={logo} alt={`logo${index + 1}`} />
@@ -163,9 +155,9 @@ export default function Home() {
       <section className="testimonials">
         <div className="description">
           <div className="cap">
-            <span className="w600">Testimonials</span>
+            <span className="w600">{t('reviewsCap')}</span>
           </div>
-          <h2>What people say about our blog</h2>
+          <h2>{t('reviewsHeading')}</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor.
@@ -200,7 +192,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Invitation />
+      <Invitation lng={lng} />
     </div>
   );
 }
