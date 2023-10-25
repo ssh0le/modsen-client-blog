@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import { useTranslation } from '@/app/i18n';
 import { Invitation } from '@/components/blocks';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import PostCard from '@/components/PostCard';
@@ -12,22 +13,33 @@ import {
   staticList,
   staticParagraph,
 } from '@/constants';
-import { BlogPost } from '@/types';
+import { BlogPost, LocaleParams } from '@/types';
 import { CustomText, List, ListHeading } from '@UI';
 
 import styles from './styles.module.scss';
 
-const { innerHeading, postblog, main, author, heading, article, list } = styles;
+const {
+  innerHeading,
+  nextReadHeading,
+  postblog,
+  main,
+  author,
+  heading,
+  article,
+  list,
+} = styles;
 
 const posts = blogPosts.slice(0, 3);
 
 const { blogPostHero } = images;
 const { jonathan } = authorsAvatars;
 
-export default function BlogPost() {
+export default async function BlogPost({ params: { lng } }: LocaleParams) {
   const renderPost = (post: BlogPost) => {
     return <PostCard key={post.title} {...post} />;
   };
+
+  const { t } = await useTranslation(lng, 'blogPost');
 
   return (
     <div className={postblog}>
@@ -46,9 +58,7 @@ export default function BlogPost() {
               </CustomText>
             </div>
           </div>
-          <h1 className={heading}>
-            Step-by-step guide to choosing great font pairs
-          </h1>
+          <h1 className={heading}>{t('heading')}</h1>
           <div>
             <Image src={categoriesIcons.startup} alt={'Startup'} />
             <h4>Startup</h4>
@@ -79,13 +89,15 @@ export default function BlogPost() {
       </ArticleWrapper>
       <ArticleWrapper>
         <div>
-          <ListHeading align="left">What to read next</ListHeading>
+          <ListHeading className={nextReadHeading} align="left">
+            {t('readNextHeading')}
+          </ListHeading>
           <div className={list}>
             <List options={posts} renderItem={renderPost} />
           </div>
         </div>
       </ArticleWrapper>
-      <Invitation />
+      <Invitation lng={lng} />
     </div>
   );
 }

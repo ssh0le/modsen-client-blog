@@ -36,8 +36,6 @@ export const defaultMissionDescription = `Lorem ipsum dolor sit amet, consectetu
     enim nec. Scelerisque viverra mauris in aliquam sem. At risus viverra adipiscing at in tellus.`;
 
 export const aboutStatics = {
-  mainHeadingCap: 'ABOUT US',
-  mainHeading: 'We are a team of content writers who share their learnings',
   mainHeadingMessage: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
   sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
   veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
@@ -75,8 +73,6 @@ export const aboutStatics = {
 export const categoryStatics = {
   headingMessage:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
-  headingRoutePrfix: 'blog > ',
-  searchPlaceholder: 'Search for tag...',
-  categoryListHeading: 'Categories',
-  tagListHeading: 'All tags',
 };
+
+export const blogName = 'Modsen Client Blog';

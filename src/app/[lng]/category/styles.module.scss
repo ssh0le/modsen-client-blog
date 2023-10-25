@@ -1,0 +1,67 @@
+@use '../../../styles/variables.scss' as vars;
+
+.wrapper {
+  @include vars.flexColumn();
+
+  gap: 128px;
+  padding-bottom: 128px;
+
+  .heading {
+    @include vars.flexColumn();
+    @include vars.flexCenter();
+
+    padding: 80px 0;
+    background-color: vars.$color-lavender;
+
+    p {
+      max-width: 515px;
+      text-align: center;
+      margin-top: 16px;
+      margin-bottom: 32px;
+    }
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    gap: 147px;
+
+    & > div:nth-child(1) {
+      flex: 1 1 0px;
+    }
+
+    aside {
+      position: sticky;
+      top: 0;
+      right: 0;
+      width: 298px;
+      min-width: 298px;
+
+      .categoryHeading {
+        margin-top: 58px;
+        margin-bottom: 40px;
+      }
+
+      .tagsHeading {
+        margin-top: 48px;
+        margin-bottom: 24px;
+      }
+
+      .tagsList {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+
+        & > * {
+          flex-grow: 1;
+        }
+      }
+
+      .categoryList {
+        @include vars.flexColumn();
+
+        gap: 24px;
+      }
+    }
+  }
+}

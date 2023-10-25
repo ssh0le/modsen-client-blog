@@ -1,4 +1,4 @@
-@use '../../styles/variables.scss' as vars;
+@use '../../../styles/variables.scss' as vars;
 
 .blog {
   @include vars.flexColumn();
@@ -26,7 +26,7 @@
 }
 
 .listHeading {
-  padding: 32px;
+  padding-bottom: 32px;
   border-bottom: 1px solid vars.$color-medium-gray;
 }
 

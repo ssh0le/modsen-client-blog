@@ -3,7 +3,7 @@
 .hero {
   position: relative;
   padding-top: 128px;
-  padding-bottom: 192px;
+  height: 720px;
 
   .image {
     @include vars.absolute-strecth();

@@ -1,20 +1,33 @@
 import { CustomTextProps } from './interfaces';
 import styles from './styles.module.scss';
 
-const { yellow, purple, black, mediumGray, darkGray, w500, w600, size14 } =
-  styles;
+const {
+  yellow,
+  purple,
+  black,
+  mediumGray,
+  darkGray,
+  white,
+  w500,
+  w600,
+  size14,
+} = styles;
 
 export const CustomText = ({
   color = 'black',
   children,
   size,
   weight,
+  ...restProps
 }: CustomTextProps) => {
   const colorClass = getColor(color);
   const weightClass = getWeight(weight);
   const sizeClass = size ? size14 : '';
   return (
-    <span className={`${colorClass} ${weightClass} ${sizeClass}`}>
+    <span
+      className={`${colorClass} ${weightClass} ${sizeClass}`}
+      {...restProps}
+    >
       {children}
     </span>
   );
@@ -30,6 +43,8 @@ const getColor = (color: CustomTextProps['color']): string => {
       return mediumGray;
     case 'dark-gray':
       return darkGray;
+    case 'white':
+      return white;
     default:
       return black;
   }

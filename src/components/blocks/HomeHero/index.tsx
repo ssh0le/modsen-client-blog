@@ -1,16 +1,20 @@
 import Image from 'next/image';
 
+import { useTranslation } from '@/app/i18n';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import { Button } from '@/components/UI';
 import { images } from '@/constants';
 
+import { HomeHeroProps } from './interfaces';
 import styles from './styled.module.scss';
 
 const { homeHero } = images;
 
 const { hero, overlay, content, host, display, author, image } = styles;
 
-export const HomeHero = () => {
+export const HomeHero = async ({ lng }: HomeHeroProps) => {
+  const { t } = await useTranslation(lng, 'home');
+  const { t: tCommon } = await useTranslation(lng, 'common');
   return (
     <ArticleWrapper className={hero}>
       <div className={image}>
@@ -20,11 +24,12 @@ export const HomeHero = () => {
       <div className={content}>
         <div>
           <span className={host}>
-            posted on <span>startup</span>
+            {t('cap')}
+            <span>startup</span>
           </span>
         </div>
         <div className={display}>
-          <span>Step-by-step guide to choosing great font pairs</span>
+          <span>{t('heading')}</span>
         </div>
         <span>
           By <span className={author}>James West</span> | May 23, 2022
@@ -35,7 +40,7 @@ export const HomeHero = () => {
           proident.
         </p>
       </div>
-      <Button styleType="colored">Read More &gt;</Button>
+      <Button styleType="colored">{tCommon('readMoreButton')}</Button>
     </ArticleWrapper>
   );
 };
