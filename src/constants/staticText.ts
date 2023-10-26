@@ -1,3 +1,7 @@
+import { Comment } from '@/types';
+
+import { authorsAvatars } from './images';
+
 export const staticParagraph = `
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
 do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -76,3 +80,22 @@ export const categoryStatics = {
 };
 
 export const blogName = 'Modsen Client Blog';
+
+const defaultComment: Comment = {
+  avatar: authorsAvatars.jonathan,
+  author: 'Jonathan Vallem',
+  message: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+  eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
+  city: 'New york, USA',
+};
+
+export const defaultCommentHeading = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+eiusmod tempor.`;
+
+export const comments: Comment[] = [
+  defaultComment,
+  defaultComment,
+  defaultComment,
+  defaultComment,
+  defaultComment,
+];

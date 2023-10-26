@@ -2,6 +2,7 @@ export type Color =
   | 'yellow'
   | 'purple'
   | 'black'
+  | 'light-gray'
   | 'medium-gray'
   | 'dark-gray'
   | 'white';

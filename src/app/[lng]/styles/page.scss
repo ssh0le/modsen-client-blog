@@ -164,9 +164,10 @@ section {
   }
 
   .mission-body {
-    gap: 61px;
     @include basepadding;
     @include top-bottom-padding(96px, 96px);
+
+    gap: 61px;
     background-color: var(--lavender);
 
     .mission-item {
@@ -252,95 +253,4 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.testimonials {
-  padding-top: 80px;
-  padding-left: 112px;
-  padding-bottom: 80px;
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--light-yellow);
-  .description {
-    max-width: 349px;
-    padding-top: 12px;
-    h2 {
-      margin-top: 12px;
-      margin-bottom: 16px;
-    }
-    p {
-      color: var(--black);
-    }
-  }
-
-  .delimiter-container {
-    height: 301px;
-    display: flex;
-    justify-content: center;
-
-    .delimiter {
-      height: 100%;
-      margin-left: 80px;
-      margin-right: 96px;
-      border-right: 1px solid var(--medium-gray);
-    }
-  }
-
-  .corousel {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-grow: 1;
-
-    h4 {
-      max-width: 469px;
-    }
-    .user {
-      display: flex;
-      gap: 10px;
-    }
-
-    .bottom {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .controls {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-      .arrow {
-        width: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 48px;
-        border-radius: 50%;
-        background-color: var(--white);
-      }
-
-      .arrow.active {
-        width: 62px;
-        height: 62px;
-        background-color: var(--black);
-      }
-    }
-  }
-}
-
-.invitation {
-  margin-bottom: 128px;
-  div {
-    margin: auto;
-    max-width: 414px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
-    p {
-      margin-top: 16px;
-      margin-bottom: 32px;
-    }
-  }
 }

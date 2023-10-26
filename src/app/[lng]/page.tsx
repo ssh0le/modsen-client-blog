@@ -1,19 +1,13 @@
+import { CategoryList, HomeComments, HomeHero, Invitation } from '@blocks';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import AuthorAndDate from '@/components/AuthorAndDate';
 import AuthorCard from '@/components/AuthorCard';
-import { CategoryList, HomeHero, Invitation } from '@/components/blocks';
 import { Button, Cap } from '@/components/UI';
 import { authors } from '@/constants';
-import {
-  authorsAvatars,
-  controlsIcons,
-  images,
-  logos,
-} from '@/constants/images';
-import { Post } from '@/types';
-import { LocaleParams } from '@/types';
+import { images, logos } from '@/constants/images';
+import { LocaleParams, Post } from '@/types';
 
 import { useTranslation } from '../i18n';
 
@@ -153,43 +147,7 @@ export default async function Home({ params: { lng } }: LocaleParams) {
       </section>
 
       <section className="testimonials">
-        <div className="description">
-          <div className="cap">
-            <span className="w600">{t('reviewsCap')}</span>
-          </div>
-          <h2>{t('reviewsHeading')}</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor.
-          </p>
-        </div>
-        <div className="delimiter-container">
-          <div className="delimiter"></div>
-        </div>
-        <div className="corousel">
-          <h4>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </h4>
-          <div className="bottom">
-            <div className="user">
-              <Image src={authorsAvatars.jonathan} alt="jonathan" />
-              <div className="user-info">
-                <h4>Jonathan Vallem</h4>
-                <p>New york, USA</p>
-              </div>
-            </div>
-
-            <div className="controls">
-              <div className="arrow">
-                <Image src={controlsIcons.leftArrow} alt="Left arrow" />
-              </div>
-              <div className="arrow active">
-                <Image src={controlsIcons.rightArrow} alt="Right arrow" />
-              </div>
-            </div>
-          </div>
-        </div>
+        <HomeComments lng={lng} />
       </section>
 
       <Invitation lng={lng} />

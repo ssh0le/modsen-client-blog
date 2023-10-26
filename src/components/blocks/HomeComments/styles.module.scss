@@ -1,0 +1,101 @@
+@use '../../../styles/variables.scss' as vars;
+
+.controls {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  background-color: vars.$color-light-yellow;
+  width: fit-content;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  .arrow {
+    user-select: none;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--white);
+    transition: all 0.4s linear;
+
+    img {
+      filter: invert(100%);
+    }
+  }
+
+  .arrow.left {
+    img {
+      transform: rotate(180deg);
+    }
+  }
+
+  .arrow.active {
+    width: 62px;
+    height: 62px;
+    background-color: var(--black);
+    img {
+      filter: invert(0);
+    }
+  }
+}
+
+.testimonials {
+  padding-top: 80px;
+  padding-left: 112px;
+  padding-bottom: 80px;
+  padding-right: 111px;
+  display: flex;
+  justify-content: space-between;
+  background-color: vars.$color-light-yellow;
+
+  .description {
+    max-width: 349px;
+    padding-top: 12px;
+    flex-grow: 1;
+    h2 {
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+    p {
+      color: var(--black);
+    }
+  }
+
+  .delimiterContainer {
+    height: 301px;
+    display: flex;
+    justify-content: center;
+
+    .delimiter {
+      height: 100%;
+      margin-left: 80px;
+      margin-right: 96px;
+      border-right: 1px solid var(--medium-gray);
+    }
+  }
+
+  .corouselWrapper {
+    position: relative;
+    width: fit-content;
+    max-width: 500px;
+  }
+
+  .corousel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    h4 {
+      max-width: 469px;
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

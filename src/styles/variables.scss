@@ -48,6 +48,7 @@ $font-family-sen: var(--font-sen);
 
 .display {
   @include heading(56px, 64px, -2px);
+
   line-height: 64px;
   font-size: 56px;
   font-weight: 700;

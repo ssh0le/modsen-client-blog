@@ -3,10 +3,10 @@ import { blogName, headerLinks } from '@/constants';
 import { createLocaleLinks } from '@/helpers';
 import { LocaleComponentProps } from '@/types';
 
-import LanguageSwitcher from '../LanguageSwitch';
 import LinkList from '../LinkList';
 import { Button } from '../UI/Button';
 
+import LanguageSwitcher from './LanguageSwitch';
 import styles from './styled.module.scss';
 
 const { header, blogName: blogNameStyle, controls } = styles;

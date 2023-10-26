@@ -1,3 +1,4 @@
-export { CategoryList } from './CategoryList';
-export { HomeHero } from './HomeHero';
-export { Invitation } from './Invitation';
+export * from './CategoryList';
+export * from './HomeComments';
+export * from './HomeHero';
+export * from './Invitation';

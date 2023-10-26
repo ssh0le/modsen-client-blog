@@ -35,3 +35,12 @@ export interface Mission {
   heading: string;
   description: string;
 }
+
+export interface Comment {
+  message: string;
+  author: string;
+  avatar: StaticImageData;
+  city: string;
+}
+
+export type ClickHandler = () => void;

@@ -1,0 +1,21 @@
+@use '../../styles/variables.scss' as vars;
+
+.wrapper {
+  @include vars.flexColumn();
+
+  .slides {
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .displayWindow {
+    transition: transform 0.5s ease;
+    display: flex;
+    height: 100%;
+
+    .slide {
+      min-height: 100%;
+      min-width: 100%;
+    }
+  }
+}

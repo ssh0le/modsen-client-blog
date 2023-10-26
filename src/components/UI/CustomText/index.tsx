@@ -5,6 +5,7 @@ const {
   yellow,
   purple,
   black,
+  lightGray,
   mediumGray,
   darkGray,
   white,
@@ -39,6 +40,8 @@ const getColor = (color: CustomTextProps['color']): string => {
       return purple;
     case 'yellow':
       return yellow;
+    case 'light-gray':
+      return lightGray;
     case 'medium-gray':
       return mediumGray;
     case 'dark-gray':

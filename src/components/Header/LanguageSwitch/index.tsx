@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Fragment } from 'react';
 
 import { languages } from '@/app/i18n/settings';
 
@@ -15,12 +16,12 @@ const LanguageSwitch = ({ lng }: { lng: string }) => {
     <div className={wrapper}>
       {languages.map((l, index) => {
         return (
-          <>
-            {index > 0 && <div key={l} className={delimeter}></div>}
-            <span key={l} className={`${lng === l ? active : ''}`}>
+          <Fragment key={index}>
+            {index > 0 && <div key={l + index} className={delimeter}></div>}
+            <span key={index + l} className={`${lng === l ? active : ''}`}>
               <Link href={`/${l}/${pathname}`}>{l}</Link>
             </span>
-          </>
+          </Fragment>
         );
       })}
     </div>
