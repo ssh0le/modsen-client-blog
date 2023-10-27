@@ -18,6 +18,7 @@ import startup from '@/assets/icons/startup.svg';
 import technology from '@/assets/icons/technology.svg';
 import twitter from '@/assets/icons/twitter.svg';
 import aboutHero from '@/assets/images/aboutHero.jpg';
+import andrew from '@/assets/images/authorHero.png';
 import blogHero from '@/assets/images/blogHero.png';
 import blogPost1 from '@/assets/images/blogPost1.png';
 import blogPost2 from '@/assets/images/blogPost2.png';
@@ -76,6 +77,7 @@ export const authorsAvatars = {
   eleanor,
   robert,
   jacob,
+  andrew,
 };
 
 export const blogpostsImages = {

@@ -8,7 +8,14 @@ import ReasonContent from '@/components/ReasonContent';
 import { aboutStatics, authors, images } from '@/constants';
 import { createLocaleMissions, createLocaleResults } from '@/helpers';
 import { Author, LocaleParams } from '@/types';
-import { Cap, DisplayText, ImageDecoration, List, ListHeading } from '@UI';
+import {
+  Cap,
+  DisplayText,
+  ImageDecoration,
+  List,
+  ListHeading,
+  Pattern,
+} from '@UI';
 
 import styles from './styles.module.scss';
 
@@ -25,10 +32,7 @@ const {
   mission,
   heroContent,
   results,
-  pattern,
   heroImage,
-  left,
-  right,
 } = styles;
 
 const { mainHeadingMessage, overview, missionVision, reasons } = aboutStatics;
@@ -64,10 +68,7 @@ export default async function About({ params: { lng } }: LocaleParams) {
                   </div>
                 ))}
               </div>
-              <div className={pattern}>
-                <div className={left}></div>
-                <div className={right}></div>
-              </div>
+              <Pattern direction="reverse" />
             </div>
           </div>
           <div className={missions}>
@@ -101,7 +102,7 @@ export default async function About({ params: { lng } }: LocaleParams) {
 
       <ArticleWrapper>
         <ListHeading>{t('authorsList')}</ListHeading>
-        <List options={authors} renderItem={renderAuthor} />
+        <List options={authors.slice(0, 8)} renderItem={renderAuthor} />
       </ArticleWrapper>
       <Invitation lng={lng} />
     </div>

@@ -25,6 +25,7 @@ export interface OverviewResult {
 export type Category = keyof typeof categoriesIcons;
 
 export interface Author {
+  id: string;
   photo: StaticImageData;
   name: string;
   position: string;

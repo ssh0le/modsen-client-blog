@@ -1,13 +1,10 @@
-import Image from 'next/image';
-import Link from 'next/link';
-
 import { useTranslation } from '@/app/i18n';
-import { blogName, footerLinks, mediaLinks } from '@/constants';
+import { blogName, footerLinks } from '@/constants';
 import { createLocaleLinks } from '@/helpers';
 import { LocaleComponentProps } from '@/types';
 
 import LinkList from '../LinkList';
-import { Button } from '../UI';
+import { Button, MediaLinkList } from '../UI';
 
 import styles from './styled.module.scss';
 
@@ -53,13 +50,7 @@ const Footer = async ({ lng }: LocaleComponentProps) => {
             <br />
             <span>Hello@finsweet.com 020 7993 2905</span>
           </div>
-          <div className={media}>
-            {mediaLinks.map(({ title, path }, index) => (
-              <Link key={index} href={path}>
-                <Image src={title} alt={path} />
-              </Link>
-            ))}
-          </div>
+          <MediaLinkList className={media} />
         </div>
       </div>
     </footer>

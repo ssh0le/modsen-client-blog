@@ -3,9 +3,17 @@ import styles from './styles.module.scss';
 
 const { list, column } = styles;
 
-export function List<T>({ options, renderItem, direction }: ListProps<T>) {
+export function List<T>({
+  options,
+  renderItem,
+  direction,
+  className,
+}: ListProps<T>) {
   const columnClass = direction === 'column' ? column : '';
+  const extraClass = className ?? '';
   return (
-    <div className={`${list} ${columnClass}`}>{options.map(renderItem)}</div>
+    <div className={`${list} ${columnClass} ${extraClass}`}>
+      {options.map(renderItem)}
+    </div>
   );
 }

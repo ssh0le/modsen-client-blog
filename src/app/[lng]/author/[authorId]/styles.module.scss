@@ -1,0 +1,58 @@
+@use '../../../../styles/variables.scss' as vars;
+
+@mixin authorbasepadding {
+  padding: 0 208px 0;
+}
+
+.articleWrapper {
+  @include authorbasepadding;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 128px;
+
+  .heroWrapper {
+    background-color: vars.$color-lavender;
+
+    .heroContentWrapper {
+      position: relative;
+      max-width: 1440px;
+    }
+
+    .heroContent {
+      padding: 128px 208px;
+
+      .hero {
+        display: flex;
+        gap: 32px;
+        margin-bottom: 104px;
+
+        .heroImage {
+        }
+
+        .heroInfo {
+          @include vars.flexColumn();
+
+          gap: 24px;
+        }
+
+        .links {
+          gap: 16px;
+        }
+
+        .patternContainer {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+  .list {
+    gap: 64px;
+    margin-bottom: 128px;
+  }
+}

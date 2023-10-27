@@ -99,3 +99,10 @@ export const comments: Comment[] = [
   defaultComment,
   defaultComment,
 ];
+
+export const defaultAuthorIntroduction = `Hey there, I’m Andrew Jonhson and welcome to my Blog`;
+
+export const defaultAboutAuthor = `Lorem ipsum dolor sit amet, consectetur
+ adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
+ aliqua. Non blandit massa enim nec. Scelerisque viverra mauris in aliquam sem. 
+ At risus viverra adipiscing at in tellus.`;

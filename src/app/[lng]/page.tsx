@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import AuthorAndDate from '@/components/AuthorAndDate';
 import AuthorCard from '@/components/AuthorCard';
+import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import { Button, Cap } from '@/components/UI';
 import { authors } from '@/constants';
 import { images, logos } from '@/constants/images';
@@ -30,7 +31,7 @@ export default async function Home({ params: { lng } }: LocaleParams) {
   return (
     <div className="home flex column">
       <HomeHero lng={lng} />
-      <section className="posts flex">
+      <ArticleWrapper className="posts">
         <div className="selected-post">
           <h2>{t('recommendedPostHeading')}</h2>
           <div className="selected-post-body flex column">
@@ -70,7 +71,7 @@ export default async function Home({ params: { lng } }: LocaleParams) {
             ))}
           </ul>
         </div>
-      </section>
+      </ArticleWrapper>
       <section className="mission">
         <div className="top flex">
           <div className="middle"></div>
@@ -126,8 +127,9 @@ export default async function Home({ params: { lng } }: LocaleParams) {
       <section className="authors">
         <h2>{t('authorsHeading')}</h2>
         <div className="flex">
-          {authors.slice(0, 4).map(({ name, photo, position }) => (
+          {authors.slice(0, 4).map(({ id, name, photo, position }) => (
             <AuthorCard
+              id={id}
               key={name}
               name={name}
               photo={photo}

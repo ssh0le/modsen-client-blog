@@ -1,0 +1,22 @@
+@use '../../../styles/variables.scss' as vars;
+
+.pattern {
+  display: flex;
+  height: 23px;
+  width: 100%;
+  flex-direction: row-reverse;
+
+  &.reverse {
+    flex-direction: row;
+  }
+
+  .left {
+    width: calc(270px / 1280px * 100%);
+    background-color: vars.$color-purple;
+  }
+
+  .right {
+    width: calc(100% - 311px / 1280px * 100%);
+    background-color: vars.$color-yellow;
+  }
+}

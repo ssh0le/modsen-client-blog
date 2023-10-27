@@ -94,6 +94,7 @@ section {
 
 .posts {
   gap: 32px;
+  display: flex;
 
   .author {
     color: var(--purple);
