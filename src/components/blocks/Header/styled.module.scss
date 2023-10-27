@@ -1,13 +1,15 @@
+@use '../../../styles/variables.scss' as vars;
+
 .header {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--black);
+  background-color: vars.$color-black;
   padding: 18px 80px 18px 56px;
 
   .blogName {
-    color: var(--white);
+    color: vars.$color-white;
   }
 
   .controls {

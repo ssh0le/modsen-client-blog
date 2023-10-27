@@ -3,9 +3,8 @@
 import Image from 'next/image';
 
 import { useTranslation } from '@/app/i18n/client';
-import Carousel from '@/components/Carousel';
 import Comment from '@/components/Comment';
-import { Cap } from '@/components/UI';
+import { Cap, Carousel } from '@/components/UI';
 import { comments, controlsIcons, defaultCommentHeading } from '@/constants';
 import {
   ClickHandler,

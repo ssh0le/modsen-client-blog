@@ -7,7 +7,7 @@ import styles from './styles.module.scss';
 
 const { wrapper, slide, displayWindow, slides } = styles;
 
-const Carousel = <T,>({
+export const Carousel = <T,>({
   renderControls,
   renderItem,
   className,
@@ -59,5 +59,3 @@ const Carousel = <T,>({
     </div>
   );
 };
-
-export default Carousel;

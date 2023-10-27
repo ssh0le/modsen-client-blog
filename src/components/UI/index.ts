@@ -1,6 +1,7 @@
 export * from './BodyText';
 export * from './Button';
 export * from './Cap';
+export * from './Carousel';
 export * from './CustomText';
 export * from './DisplayText';
 export * from './ImageDecoration';

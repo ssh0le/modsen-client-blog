@@ -3,8 +3,8 @@ import { blogName, footerLinks } from '@/constants';
 import { createLocaleLinks } from '@/helpers';
 import { LocaleComponentProps } from '@/types';
 
-import LinkList from '../LinkList';
-import { Button, MediaLinkList } from '../UI';
+import LinkList from '../../LinkList';
+import { Button, MediaLinkList } from '../../UI';
 
 import styles from './styled.module.scss';
 
@@ -21,7 +21,7 @@ const {
   media,
 } = styles;
 
-const Footer = async ({ lng }: LocaleComponentProps) => {
+export const Footer = async ({ lng }: LocaleComponentProps) => {
   const { t } = await useTranslation(lng, 'footer');
 
   return (
@@ -56,5 +56,3 @@ const Footer = async ({ lng }: LocaleComponentProps) => {
     </footer>
   );
 };
-
-export default Footer;

@@ -1,8 +1,10 @@
+@use '../../../styles/variables.scss' as vars;
+
 .footer {
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: var(--black);
+  background-color: vars.$color-black;
   padding: 59px 80px 56px;
   gap: 48px;
 
@@ -20,14 +22,14 @@
 
   .blogName,
   .message {
-    color: var(--white);
+    color: vars.$color-white;
   }
 
   .body {
     padding: 80px 64px;
     gap: 64px;
     align-items: center;
-    background-color: var(--footer-dark-gray);
+    background-color: vars.$color-footer-dark-gray;
   }
 
   .message {
@@ -45,7 +47,7 @@
     padding: 14px 25px;
     font-size: 16px;
     background-color: transparent;
-    border: 1px solid var(--dark-gray);
+    border: 1px solid vars.$color-dark-gray;
     color: var(--white);
 
     &:focus {
@@ -53,14 +55,14 @@
     }
 
     &::placeholder {
-      color: var(--medium-gray);
+      color: vars.$color-medium-gray;
     }
   }
 
   .bottom {
     display: flex;
     gap: 24px;
-    color: var(--white);
+    color: vars.$color-white;
   }
 
   .companyInfo {

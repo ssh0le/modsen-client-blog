@@ -1,17 +1,16 @@
 import { useTranslation } from '@/app/i18n';
+import LinkList from '@/components/LinkList';
 import { blogName, headerLinks } from '@/constants';
 import { createLocaleLinks } from '@/helpers';
 import { LocaleComponentProps } from '@/types';
-
-import LinkList from '../LinkList';
-import { Button } from '../UI/Button';
+import { Button } from '@UI';
 
 import LanguageSwitcher from './LanguageSwitch';
 import styles from './styled.module.scss';
 
 const { header, blogName: blogNameStyle, controls } = styles;
 
-const Header = async ({ lng }: LocaleComponentProps) => {
+export const Header = async ({ lng }: LocaleComponentProps) => {
   const { t } = await useTranslation(lng, 'header');
   return (
     <header className={header}>
@@ -32,5 +31,3 @@ const Header = async ({ lng }: LocaleComponentProps) => {
     </header>
   );
 };
-
-export default Header;

@@ -1,9 +1,7 @@
+import { Footer, Header } from '@blocks';
 import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import { Inter, Sen } from 'next/font/google';
-
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
 
 import { languages } from '../i18n/settings';
 
