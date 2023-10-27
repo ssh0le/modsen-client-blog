@@ -15,7 +15,7 @@ do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 Risus in hendrerit gravida rutrum quisque non.
 `;
 
-export const staticHeding =
+export const staticHeading =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.';
 
 export const defaultSubheading =
@@ -29,7 +29,7 @@ export const staticList = [
 
 export const defaultArticleContent: ArticleBlock[] = [
   {
-    heading: staticHeding,
+    heading: staticHeading,
     content: [
       {
         type: 'paragraph',
@@ -38,7 +38,7 @@ export const defaultArticleContent: ArticleBlock[] = [
     ],
   },
   {
-    heading: staticHeding,
+    heading: staticHeading,
     content: [
       {
         type: 'paragraph',
@@ -59,7 +59,7 @@ export const defaultArticleContent: ArticleBlock[] = [
     ],
   },
   {
-    heading: staticHeding,
+    heading: staticHeading,
     content: [
       {
         type: 'paragraph',
@@ -154,4 +154,23 @@ export const defaultAboutAuthor = `Lorem ipsum dolor sit amet, consectetur
 
 export const contactStatics = {
   subheading: defaultSubheading,
+};
+
+export const privacyStatics = {
+  heading: 'Lorem ipsum dolor sit amet',
+  description: staticParagraph + staticParagraph,
+
+  article: {
+    heading: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.`,
+    items: [
+      {
+        type: 'paragraph' as const,
+        text: staticParagraph,
+      },
+      {
+        type: 'paragraph' as const,
+        text: staticParagraph,
+      },
+    ],
+  },
 };
