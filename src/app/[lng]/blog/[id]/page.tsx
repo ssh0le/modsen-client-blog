@@ -26,6 +26,7 @@ const {
   author,
   heading,
   article,
+  category,
   list,
 } = styles;
 
@@ -59,7 +60,7 @@ export default async function BlogPost({ params: { lng } }: LocaleParams) {
             </div>
           </div>
           <h1 className={heading}>{t('heading')}</h1>
-          <div>
+          <div className={category}>
             <Image src={categoriesIcons.startup} alt={'Startup'} />
             <h4>Startup</h4>
           </div>

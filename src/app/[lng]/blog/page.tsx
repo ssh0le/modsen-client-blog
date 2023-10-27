@@ -52,6 +52,7 @@ export default async function Blog({ params: { lng } }: LocaleParams) {
           <Image src={blogHero} alt="Blog hero image" />
         </div>
       </ArticleWrapper>
+
       <ArticleWrapper>
         <div className={blogposts}>
           <ListHeading className={listHeading} align="left">

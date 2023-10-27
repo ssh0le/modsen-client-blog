@@ -30,6 +30,12 @@
     margin-top: 24px;
     margin-bottom: 34px;
   }
+
+  .category {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
 }
 
 .article {
