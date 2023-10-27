@@ -1,4 +1,4 @@
-import { Comment } from '@/types';
+import { ArticleBlock, Comment } from '@/types';
 
 import { authorsAvatars } from './images';
 
@@ -22,6 +22,48 @@ export const staticList = [
   'Lorem ipsum dolor sit amet',
   'Non blandit massa enim nec scelerisque',
   'Neque egestas congue quisque egestas',
+];
+
+export const defaultArticleContent: ArticleBlock[] = [
+  {
+    heading: staticHeding,
+    content: [
+      {
+        type: 'paragraph',
+        text: staticParagraph,
+      },
+    ],
+  },
+  {
+    heading: staticHeding,
+    content: [
+      {
+        type: 'paragraph',
+        text: staticParagraph,
+      },
+      {
+        type: 'paragraph',
+        text: staticParagraph,
+      },
+      {
+        type: 'list',
+        options: staticList,
+      },
+      {
+        type: 'paragraph',
+        text: staticParagraph,
+      },
+    ],
+  },
+  {
+    heading: staticHeding,
+    content: [
+      {
+        type: 'paragraph',
+        text: staticParagraph,
+      },
+    ],
+  },
 ];
 
 export const postText = `

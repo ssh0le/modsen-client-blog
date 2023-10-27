@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import { useTranslation } from '@/app/i18n';
+import Article from '@/components/Article';
 import { Invitation } from '@/components/blocks';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import PostCard from '@/components/PostCard';
@@ -8,10 +9,8 @@ import {
   authorsAvatars,
   blogPosts,
   categoriesIcons,
+  defaultArticleContent,
   images,
-  staticHeding,
-  staticList,
-  staticParagraph,
 } from '@/constants';
 import { BlogPost, LocaleParams } from '@/types';
 import { CustomText, List, ListHeading } from '@UI';
@@ -69,23 +68,7 @@ export default async function BlogPost({ params: { lng } }: LocaleParams) {
           <Image src={blogPostHero} alt={'Andrew'} />
         </div>
         <div className={article}>
-          <h2>{staticHeding}</h2>
-          <p>{staticParagraph}</p>
-          <h2>{staticHeding}</h2>
-          <p>{staticParagraph}</p>
-          <p>{staticParagraph}</p>
-          <ul>
-            {staticList.map((listItem, key) => (
-              <li key={key}>
-                <h2>
-                  <CustomText>{listItem}</CustomText>
-                </h2>
-              </li>
-            ))}
-          </ul>
-          <p>{staticParagraph}</p>
-          <h2>{staticHeding}</h2>
-          <p>{staticParagraph}</p>
+          <Article contentBlocks={defaultArticleContent} />
         </div>
       </ArticleWrapper>
       <ArticleWrapper>
