@@ -1,0 +1,28 @@
+{
+  "headingCap": "Contact us",
+  "heading": "Let’s Start a Conversation",
+  "workingHoursHeading": "Working hours",
+  "workingHoursDays": "Monday To Friday",
+  "workingHoursTime": "9:00 AM to 8:00 PM ",
+  "workingHoursSupport": "Our Support Team is available 24/7",
+  "contactHeading": "Contact us",
+  "formUserName": "Full Name",
+  "formUserEmail": "Your Email",
+  "formQuery": "Query Related",
+  "formQueryOptions": [
+    {
+      "key": "1",
+      "value": "Query 1"
+    },
+    {
+      "key": "2",
+      "value": "Query 2"
+    },
+    {
+      "key": "3",
+      "value": "Query 3"
+    }
+  ],
+  "formMessage": "Message",
+  "sendButtonText": "Send Message"
+}

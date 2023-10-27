@@ -6,6 +6,7 @@ export * from './CustomText';
 export * from './DisplayText';
 export * from './Heading';
 export * from './ImageDecoration';
+export * from './inputFields';
 export * from './List';
 export * from './ListHeading';
 export * from './MediaLinks';

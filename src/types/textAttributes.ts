@@ -6,5 +6,5 @@ export type Color =
   | 'medium-gray'
   | 'dark-gray'
   | 'white';
-export type Weight = '500' | '600' | '400';
+export type Weight = '500' | '600' | '400' | '900';
 export type FontSize = '14' | '16';

@@ -1,0 +1,67 @@
+@use '../../../styles/variables.scss' as vars;
+
+.contact {
+  @include vars.flexColumn();
+  @include vars.flexCenter();
+
+  .content {
+    @include vars.flexColumn();
+    padding-top: 128px;
+    width: 768px;
+    gap: 64px;
+  }
+
+  .heading {
+    text-align: center;
+
+    h1 {
+      margin-top: 12px;
+      margin-bottom: 24px;
+    }
+  }
+
+  .contactInfo {
+    display: flex;
+    padding: 48px 64px;
+    background-color: vars.$color-purple;
+    gap: 42px;
+    color: vars.$color-white;
+
+    p,
+    .infoHeading {
+      opacity: 60%;
+    }
+
+    & > div {
+      flex: 1 1 0px;
+    }
+
+    .infoHeading {
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid vars.$color-light-gray;
+    }
+  }
+
+  .form {
+    @include vars.flexColumn();
+
+    gap: 16px;
+    margin-top: 32px;
+    margin-bottom: 70px;
+
+    & > button {
+      width: 100%;
+    }
+
+    textarea {
+      padding: 24px;
+      font-size: 16px;
+    }
+  }
+}
+.map {
+  height: 355px;
+  width: 100%;
+  background-color: vars.$color-purple;
+}

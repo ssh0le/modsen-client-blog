@@ -2,6 +2,9 @@ import { ArticleBlock, Comment } from '@/types';
 
 import { authorsAvatars } from './images';
 
+export const blogPhone = '020 7993 2905';
+export const blogEmail = 'hello@finsweet.com';
+
 export const staticParagraph = `
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
 do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -148,3 +151,7 @@ export const defaultAboutAuthor = `Lorem ipsum dolor sit amet, consectetur
  adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
  aliqua. Non blandit massa enim nec. Scelerisque viverra mauris in aliquam sem. 
  At risus viverra adipiscing at in tellus.`;
+
+export const contactStatics = {
+  subheading: defaultSubheading,
+};

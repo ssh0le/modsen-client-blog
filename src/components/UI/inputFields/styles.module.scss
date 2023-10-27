@@ -1,0 +1,15 @@
+@use '../../../styles/variables.scss' as vars;
+
+.input {
+  border: 1px solid rgba(vars.$color-medium-gray, 0.5);
+  width: 100%;
+  padding: 24px;
+  font-size: 16px;
+  border-radius: 2px;
+  font-family: vars.$font-family-inter;
+  resize: none;
+
+  &::placeholder {
+    color: vars.$color-black;
+  }
+}
