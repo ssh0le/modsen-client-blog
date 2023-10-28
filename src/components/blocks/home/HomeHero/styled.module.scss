@@ -1,9 +1,12 @@
-@use '../../../styles/variables.scss' as vars;
+@use '../../../../styles/variables.scss' as vars;
 
 .hero {
   position: relative;
   padding-top: 128px;
   height: 720px;
+  max-width: 1440px;
+  width: 100%;
+  padding: 128px 80px 0;
 
   .image {
     @include vars.absolute-strecth();
@@ -23,6 +26,7 @@
 
   .content {
     @include vars.flexColumn();
+    max-width: 804px;
 
     margin-bottom: 48px;
     position: relative;
@@ -37,16 +41,6 @@
       span {
         font-weight: 900;
       }
-    }
-
-    .display {
-      letter-spacing: -2px;
-      max-width: 803px;
-      width: 100%;
-    }
-
-    .author {
-      color: vars.$color-yellow;
     }
 
     p {

@@ -1,11 +1,16 @@
 @use '../../../styles/variables.scss' as vars;
 
+.wrapper {
+  @include vars.flexCenter;
+  background-color: vars.$color-black;
+}
+
 .header {
   width: 100%;
+  max-width: 1440px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: vars.$color-black;
   padding: 18px 80px 18px 56px;
 
   .blogName {

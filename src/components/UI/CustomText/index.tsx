@@ -11,6 +11,7 @@ const {
   white,
   w500,
   w600,
+  w700,
   w900,
   size14,
 } = styles;
@@ -60,6 +61,8 @@ const getWeight = (color: CustomTextProps['weight']): string => {
       return w500;
     case '600':
       return w600;
+    case '700':
+      return w700;
     case '900':
       return w900;
     default:

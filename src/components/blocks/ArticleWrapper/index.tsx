@@ -1,13 +1,16 @@
 import { SectionWrapperProps } from './interfaces';
 import styles from './styles.module.scss';
 
-const { wrapper } = styles;
+const { wrapper, content } = styles;
 
 export const ArticleWrapper = ({
   children,
-  className,
+  wrapperClass,
+  contentClass,
 }: SectionWrapperProps) => {
   return (
-    <article className={`${wrapper} ${className ?? ''}`}>{children}</article>
+    <article className={`${wrapper} ${wrapperClass}`}>
+      <div className={`${content} ${contentClass}`}>{children}</div>
+    </article>
   );
 };

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
-import AuthorAndDate from '../AuthorAndDate';
 import { BlogPostProps } from '../BlogPostCard/interfaces';
+import AuthorAndDate from '../UI/AuthorAndDate';
 
 import styles from './styles.module.scss';
 

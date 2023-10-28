@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import { Comment as IComment } from '@/types';
 
-import { CustomText } from '../UI';
+import { CustomText, Heading } from '../UI';
 
 import styles from './styles.module.scss';
 
@@ -11,7 +11,7 @@ const { comment, userInfo, user } = styles;
 const Comment = ({ author, avatar, message, city }: IComment) => {
   return (
     <div className={comment}>
-      <h4>{message}</h4>
+      <Heading type="h4">{message}</Heading>
       <div className={user}>
         <Image src={avatar} alt={author} />
         <div className={userInfo}>

@@ -1,0 +1,55 @@
+@use '../../../../styles/variables.scss' as vars;
+
+.posts {
+  gap: 32px;
+  display: flex;
+
+  .selectedPost {
+    .selectedPostBody {
+      @include vars.flexColumn;
+
+      border: 1px solid rgba(vars.$color-medium-gray, 0.1);
+      padding: 32px;
+      gap: 32px;
+      margin-top: 32px;
+
+      img {
+        width: 100%;
+      }
+
+      .selectedPostContent {
+        @include vars.flexColumn;
+
+        gap: 16px;
+      }
+    }
+  }
+
+  .allPosts {
+    @include vars.flexColumn;
+
+    gap: 32px;
+    max-width: 517px;
+
+    .allPostsHeading {
+      @include vars.flexCenter;
+
+      justify-content: space-between;
+    }
+
+    .postsList {
+      @include vars.flexColumn;
+
+      .postListItem {
+        @include vars.flexColumn;
+
+        padding: 32px 116px 25px 32px;
+        gap: 8px;
+
+        &:hover {
+          background-color: vars.$color-light-yellow;
+        }
+      }
+    }
+  }
+}

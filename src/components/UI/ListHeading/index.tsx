@@ -1,3 +1,5 @@
+import { Heading } from '..';
+
 import { ListHeadingProps } from './interfaces';
 import styles from './styles.module.scss';
 
@@ -10,8 +12,11 @@ export const ListHeading = ({
 }: ListHeadingProps) => {
   const alignClass = align === 'center' ? centerAlign : '';
   return (
-    <h2 className={`${alignClass} ${heading} ${className ?? ''}`}>
+    <Heading
+      type="h2"
+      className={`${alignClass} ${heading} ${className ?? ''}`}
+    >
       {children}
-    </h2>
+    </Heading>
   );
 };

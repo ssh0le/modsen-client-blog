@@ -2,5 +2,6 @@ import { ReactNode } from 'react';
 
 export interface SectionWrapperProps {
   children: ReactNode;
-  className?: string;
+  wrapperClass?: string;
+  contentClass?: string;
 }

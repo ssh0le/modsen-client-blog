@@ -1,10 +1,16 @@
 @use '../../../styles/variables.scss' as vars;
 
+.wrapper {
+  @include vars.flexCenter;
+
+  background-color: vars.$color-black;
+}
+
 .footer {
   width: 100%;
+  max-width: 1440px;
   display: flex;
   flex-direction: column;
-  background-color: vars.$color-black;
   padding: 59px 80px 56px;
   gap: 48px;
 
@@ -30,11 +36,6 @@
     gap: 64px;
     align-items: center;
     background-color: vars.$color-footer-dark-gray;
-  }
-
-  .message {
-    word-spacing: -1px;
-    letter-spacing: -2px;
   }
 
   .form {
@@ -67,9 +68,6 @@
 
   .companyInfo {
     opacity: 70%;
-    span {
-      line-height: 28px;
-    }
   }
 
   .media {

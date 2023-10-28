@@ -4,13 +4,15 @@ import Image from 'next/image';
 
 import { useTranslation } from '@/app/i18n/client';
 import Comment from '@/components/Comment';
-import { Cap, Carousel } from '@/components/UI';
+import { BodyText, Cap, Carousel, Heading } from '@/components/UI';
 import { comments, controlsIcons, defaultCommentHeading } from '@/constants';
 import {
   ClickHandler,
   Comment as IComment,
   LocaleComponentProps,
 } from '@/types';
+
+import { ArticleWrapper } from '../ArticleWrapper';
 
 import styles from './styles.module.scss';
 
@@ -26,6 +28,7 @@ const {
   left,
   right,
   corousel,
+  wrapper,
 } = styles;
 
 const { rightArrow } = controlsIcons;
@@ -42,7 +45,7 @@ export const HomeComments = ({ lng }: LocaleComponentProps) => {
     hasPrev: boolean,
   ) => {
     return (
-      <div className={controls}>
+      <section className={controls}>
         <div
           className={`${arrow} ${hasPrev ? active : ''} ${left}`}
           onClick={onPrev}
@@ -55,28 +58,28 @@ export const HomeComments = ({ lng }: LocaleComponentProps) => {
         >
           <Image src={rightArrow} alt="Right arrow" />
         </div>
-      </div>
+      </section>
     );
   };
 
   return (
-    <div className={testimonials}>
-      <div className={description}>
+    <ArticleWrapper wrapperClass={wrapper} contentClass={testimonials}>
+      <section className={description}>
         <Cap>{t('reviewsCap')}</Cap>
-        <h2>{t('reviewsHeading')}</h2>
-        <p>{defaultCommentHeading}</p>
-      </div>
+        <Heading type="h2">{t('reviewsHeading')}</Heading>
+        <BodyText>{defaultCommentHeading}</BodyText>
+      </section>
       <div className={delimiterContainer}>
         <div className={delimiter}></div>
       </div>
-      <div className={corouselWrapper}>
+      <section className={corouselWrapper}>
         <Carousel
           renderControls={renderCarouselControls}
           renderItem={renderComment}
           items={comments}
           className={corousel}
         />
-      </div>
-    </div>
+      </section>
+    </ArticleWrapper>
   );
 };

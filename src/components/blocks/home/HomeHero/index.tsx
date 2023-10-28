@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import { useTranslation } from '@/app/i18n';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
-import { Button } from '@/components/UI';
+import { Button, DisplayText } from '@/components/UI';
 import { images } from '@/constants';
 
 import { HomeHeroProps } from './interfaces';
@@ -10,13 +10,13 @@ import styles from './styled.module.scss';
 
 const { homeHero } = images;
 
-const { hero, overlay, content, host, display, author, image } = styles;
+const { hero, overlay, content, host, author, image } = styles;
 
 export const HomeHero = async ({ lng }: HomeHeroProps) => {
   const { t } = await useTranslation(lng, 'home');
   const { t: tCommon } = await useTranslation(lng, 'common');
   return (
-    <ArticleWrapper className={hero}>
+    <ArticleWrapper contentClass={hero}>
       <div className={image}>
         <div className={overlay}></div>
         <Image src={homeHero} alt="Home hero" />
@@ -28,9 +28,7 @@ export const HomeHero = async ({ lng }: HomeHeroProps) => {
             <span>startup</span>
           </span>
         </div>
-        <div className={display}>
-          <span>{t('heading')}</span>
-        </div>
+        <DisplayText>{t('heading')}</DisplayText>
         <span>
           By <span className={author}>James West</span> | May 23, 2022
         </span>

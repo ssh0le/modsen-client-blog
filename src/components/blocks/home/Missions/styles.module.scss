@@ -1,0 +1,48 @@
+@use '../../../../styles/variables.scss' as vars;
+
+.globalWrapper {
+  @include vars.flexCenter();
+
+  flex-direction: column;
+}
+
+.pattern {
+  width: 100%;
+  padding-left: 200px;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(-100%);
+}
+
+.wrapper {
+  background-color: vars.$color-lavender;
+}
+
+.mission {
+  position: relative;
+  padding: 96px 108px 96px 80px;
+
+  .missionBody {
+    display: flex;
+    gap: 61px;
+  }
+
+  .missionItem {
+    max-width: 515px;
+    flex: 1 1 0px;
+  }
+
+  .missionItemBody {
+    @include vars.flexColumn();
+
+    margin-top: 24px;
+    gap: 16px;
+
+    a {
+      width: fit-content;
+    }
+  }
+}

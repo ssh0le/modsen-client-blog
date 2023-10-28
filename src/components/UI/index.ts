@@ -1,3 +1,4 @@
+export * from './AuthorAndDate';
 export * from './BodyText';
 export * from './Button';
 export * from './Cap';

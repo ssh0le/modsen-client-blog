@@ -1,8 +1,8 @@
-import { CustomText } from '../UI';
+import { CustomText } from '..';
 
 import { AuthorAndDateProps } from './interfaces';
 
-const AuthorAndDate = (props: AuthorAndDateProps) => {
+export const AuthorAndDate = (props: AuthorAndDateProps) => {
   const {
     author,
     date,
@@ -18,5 +18,3 @@ const AuthorAndDate = (props: AuthorAndDateProps) => {
     </CustomText>
   );
 };
-
-export default AuthorAndDate;

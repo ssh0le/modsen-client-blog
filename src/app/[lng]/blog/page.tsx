@@ -1,11 +1,11 @@
 import Image from 'next/image';
 
 import { useTranslation } from '@/app/i18n';
-import AuthorAndDate from '@/components/AuthorAndDate';
 import { CategoryList, Invitation } from '@/components/blocks';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import BlogPostCard from '@/components/BlogPostCard';
 import InfinityScroll from '@/components/InfinityScroll';
+import AuthorAndDate from '@/components/UI/AuthorAndDate';
 import { blogPosts, images } from '@/constants';
 import { LocaleParams } from '@/types';
 import { Button, Cap, ListHeading } from '@UI';

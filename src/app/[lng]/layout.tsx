@@ -7,7 +7,6 @@ import { languages } from '../i18n/settings';
 
 import '@/styles/global.scss';
 import { AppLayoutProps } from './interfaces';
-import styles from './styles/layout.module.scss';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -20,8 +19,6 @@ const sen = Sen({
   variable: '--font-sen',
 });
 
-const { mainContent } = styles;
-
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
@@ -33,12 +30,10 @@ export default async function RootLayout({
   return (
     <html lang={lng} dir={dir(lng)}>
       <body className={`${inter.variable} ${sen.variable}`}>
-        <main className={mainContent}>
-          <div>
-            <Header lng={lng} />
-            {children}
-            <Footer lng={lng} />
-          </div>
+        <main>
+          <Header lng={lng} />
+          {children}
+          <Footer lng={lng} />
         </main>
       </body>
     </html>

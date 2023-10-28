@@ -1,5 +1,9 @@
 @use '../../../styles/variables.scss' as vars;
 
+.wrapper {
+  background-color: vars.$color-light-yellow;
+}
+
 .controls {
   display: flex;
   gap: 24px;
@@ -49,12 +53,13 @@
   padding-right: 111px;
   display: flex;
   justify-content: space-between;
-  background-color: vars.$color-light-yellow;
 
   .description {
     max-width: 349px;
+    width: 100%;
     padding-top: 12px;
-    flex-grow: 1;
+    flex: 1 1 0px;
+
     h2 {
       margin-top: 12px;
       margin-bottom: 16px;
@@ -81,6 +86,7 @@
     position: relative;
     width: fit-content;
     max-width: 500px;
+    flex: 1 1 0px;
   }
 
   .corousel {

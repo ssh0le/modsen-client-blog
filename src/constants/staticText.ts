@@ -4,6 +4,7 @@ import { authorsAvatars } from './images';
 
 export const blogPhone = '020 7993 2905';
 export const blogEmail = 'hello@finsweet.com';
+export const blogAdress = 'Finstreet 118 2561 Fintown';
 
 export const staticParagraph = `
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 

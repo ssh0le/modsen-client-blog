@@ -8,26 +8,28 @@ import { Button } from '@UI';
 import LanguageSwitcher from './LanguageSwitch';
 import styles from './styled.module.scss';
 
-const { header, blogName: blogNameStyle, controls } = styles;
+const { header, blogName: blogNameStyle, controls, wrapper } = styles;
 
 export const Header = async ({ lng }: LocaleComponentProps) => {
   const { t } = await useTranslation(lng, 'header');
   return (
-    <header className={header}>
-      <h4 className={blogNameStyle}>{blogName}</h4>
-      <div className={controls}>
-        <nav>
-          <LinkList
-            lng={lng}
-            links={createLocaleLinks(
-              headerLinks,
-              t('links', { returnObjects: true }),
-            )}
-          />
-        </nav>
-        <Button>{t('videoButton')}</Button>
-        <LanguageSwitcher lng={lng} />
-      </div>
-    </header>
+    <div className={wrapper}>
+      <header className={header}>
+        <h4 className={blogNameStyle}>{blogName}</h4>
+        <div className={controls}>
+          <nav>
+            <LinkList
+              lng={lng}
+              links={createLocaleLinks(
+                headerLinks,
+                t('links', { returnObjects: true }),
+              )}
+            />
+          </nav>
+          <Button>{t('videoButton')}</Button>
+          <LanguageSwitcher lng={lng} />
+        </div>
+      </header>
+    </div>
   );
 };
