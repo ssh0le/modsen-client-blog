@@ -3,6 +3,7 @@ import { Trans } from 'react-i18next/TransWithoutContext';
 
 import { useTranslation } from '@/app/i18n';
 import BlogPostCard from '@/components/BlogPostCard';
+import InfinityScroll from '@/components/InfinityScroll';
 import {
   authors,
   blogPosts,
@@ -50,42 +51,44 @@ const AuthorDetails = async ({
 
   return (
     <div className={author}>
-      <article className={heroWrapper}>
-        <div className={heroContentWrapper}>
-          <div className={heroContent}>
-            <div className={hero}>
-              <div className={heroImage}>
-                <Image src={photo} alt={'asd'} />
-              </div>
-              <div className={heroInfo}>
-                <h1>
-                  <Trans
-                    t={t}
-                    i18nKey={'greeting'}
-                    values={{ name }}
-                    defaults={defaultAuthorIntroduction}
-                  />
-                </h1>
-                <BodyText>{defaultAboutAuthor}</BodyText>
-                <MediaLinkList className={links} />
+      <InfinityScroll>
+        <article className={heroWrapper}>
+          <div className={heroContentWrapper}>
+            <div className={heroContent}>
+              <div className={hero}>
+                <div className={heroImage}>
+                  <Image src={photo} alt={'asd'} />
+                </div>
+                <div className={heroInfo}>
+                  <h1>
+                    <Trans
+                      t={t}
+                      i18nKey={'greeting'}
+                      values={{ name }}
+                      defaults={defaultAuthorIntroduction}
+                    />
+                  </h1>
+                  <BodyText>{defaultAboutAuthor}</BodyText>
+                  <MediaLinkList className={links} />
+                </div>
               </div>
             </div>
+            <div className={patternContainer}>
+              <Pattern />
+            </div>
           </div>
-          <div className={patternContainer}>
-            <Pattern />
-          </div>
-        </div>
-      </article>
+        </article>
 
-      <article className={articleWrapper}>
-        <ListHeading align="left">{t('postHeading')}</ListHeading>
-        <List
-          options={authorPosts}
-          renderItem={renderBlogPost}
-          direction="column"
-          className={list}
-        />
-      </article>
+        <article className={articleWrapper}>
+          <ListHeading align="left">{t('postHeading')}</ListHeading>
+          <List
+            options={authorPosts}
+            renderItem={renderBlogPost}
+            direction="column"
+            className={list}
+          />
+        </article>
+      </InfinityScroll>
     </div>
   );
 };

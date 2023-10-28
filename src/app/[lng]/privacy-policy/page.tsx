@@ -1,5 +1,6 @@
 import { useTranslation } from '@/app/i18n';
 import ArticleBlock from '@/components/Article/ArticleContent';
+import InfinityScroll from '@/components/InfinityScroll';
 import { BodyText, CustomText } from '@/components/UI';
 import Heading from '@/components/UI/Heading';
 import { privacyStatics } from '@/constants';
@@ -14,19 +15,21 @@ const PrivacyPolicy = async ({ params: { lng } }: LocaleParams) => {
   const { t } = await useTranslation(lng, 'privacy');
   return (
     <div>
-      <section className={heading}>
-        <h1>{t('heading')}</h1>
-        <span>
-          <CustomText>{t('lastUpdate')}</CustomText>
-        </span>
-      </section>
-      <section className={descriptionStyle}>
-        <div>
-          <Heading type="h1">{headingText}</Heading>
-          <BodyText>{description}</BodyText>
-          <ArticleBlock heading={article.heading} items={article.items} />
-        </div>
-      </section>
+      <InfinityScroll>
+        <section className={heading}>
+          <h1>{t('heading')}</h1>
+          <span>
+            <CustomText>{t('lastUpdate')}</CustomText>
+          </span>
+        </section>
+        <section className={descriptionStyle}>
+          <div>
+            <Heading type="h1">{headingText}</Heading>
+            <BodyText>{description}</BodyText>
+            <ArticleBlock heading={article.heading} items={article.items} />
+          </div>
+        </section>
+      </InfinityScroll>
     </div>
   );
 };
