@@ -5,12 +5,15 @@
   gap: 128px;
 }
 
+.wrapper {
+  background-color: vars.$color-lavender;
+}
+
 .hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 80px;
-  background-color: vars.$color-lavender;
 
   .content {
     @include vars.flexColumn();

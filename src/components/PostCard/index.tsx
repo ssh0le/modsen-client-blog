@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import { BlogPostProps } from '../BlogPostCard/interfaces';
-import AuthorAndDate from '../UI/AuthorAndDate';
+import { AuthorAndDate, BodyText, Heading } from '../UI';
 
 import styles from './styles.module.scss';
 
@@ -17,8 +17,8 @@ const PostCard = (props: BlogPostProps) => {
       </div>
       <div className={content}>
         <AuthorAndDate author={author} date={date} color={'dark-gray'} />
-        <h3>{title}</h3>
-        <p>{description}</p>
+        <Heading type="h3">{title}</Heading>
+        <BodyText type="body1">{description}</BodyText>
       </div>
     </div>
   );

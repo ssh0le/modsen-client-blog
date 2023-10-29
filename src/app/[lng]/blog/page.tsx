@@ -5,10 +5,16 @@ import { CategoryList, Invitation } from '@/components/blocks';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import BlogPostCard from '@/components/BlogPostCard';
 import InfinityScroll from '@/components/InfinityScroll';
-import AuthorAndDate from '@/components/UI/AuthorAndDate';
-import { blogPosts, images } from '@/constants';
+import { blogPosts, images, postText } from '@/constants';
 import { LocaleParams } from '@/types';
-import { Button, Cap, ListHeading } from '@UI';
+import {
+  AuthorAndDate,
+  BodyText,
+  Button,
+  Cap,
+  Heading,
+  ListHeading,
+} from '@UI';
 
 import styles from './styles.module.scss';
 
@@ -22,6 +28,7 @@ const {
   controlInactive,
   blogpostsControls,
   controlsContainer,
+  wrapper,
 } = styles;
 const { blogHero } = images;
 
@@ -32,21 +39,17 @@ export default async function Blog({ params: { lng } }: LocaleParams) {
   return (
     <div className={blog}>
       <InfinityScroll>
-        <ArticleWrapper className={hero}>
+        <ArticleWrapper contentClass={hero} wrapperClass={wrapper}>
           <div className={content}>
             <Cap>{t('recommendedPostHeading')}</Cap>
             <div className={message}>
-              <h2>{t('header')}</h2>
+              <Heading type="h2">{t('header')}</Heading>
               <AuthorAndDate
                 author="James West"
                 date={new Date()}
                 authorColor="purple"
               />
-              <p>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident.
-              </p>
+              <BodyText>{postText}</BodyText>
             </div>
             <Button styleType="colored">{tCommon('readMoreButton')}</Button>
           </div>
@@ -66,12 +69,16 @@ export default async function Blog({ params: { lng } }: LocaleParams) {
           </div>
           <div className={blogpostsControls}>
             <div className={controlsContainer}>
-              <h2 className={controlInactive}>{t('prevArrow')}</h2>
-              <h4>{t('nextArrow')}</h4>
+              <Heading type="h2" className={controlInactive}>
+                {t('prevArrow')}
+              </Heading>
+              <Heading type="h4">{t('nextArrow')}</Heading>
             </div>
           </div>
         </ArticleWrapper>
+
         <CategoryList title={t('categoriesHeader')} headingAlign="left" />
+
         <Invitation lng={lng} />
       </InfinityScroll>
     </div>

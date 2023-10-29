@@ -17,21 +17,15 @@
   .heroWrapper {
     background-color: vars.$color-lavender;
 
-    .heroContentWrapper {
-      position: relative;
-      max-width: 1440px;
-    }
-
     .heroContent {
       padding: 128px 208px;
+      padding-bottom: 0;
 
       .hero {
+        position: relative;
         display: flex;
         gap: 32px;
-        margin-bottom: 104px;
-
-        // .heroImage {
-        // }
+        padding-bottom: 128px;
 
         .heroInfo {
           @include vars.flexColumn();
@@ -42,13 +36,14 @@
         .links {
           gap: 16px;
         }
-
-        .patternContainer {
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-        }
       }
+    }
+    .patternContainer {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      padding-left: 150px;
     }
   }
   .list {

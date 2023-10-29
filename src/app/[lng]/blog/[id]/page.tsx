@@ -13,8 +13,9 @@ import {
   defaultArticleContent,
   images,
 } from '@/constants';
+import { blogPostStatics } from '@/constants';
 import { BlogPost, LocaleParams } from '@/types';
-import { CustomText, List, ListHeading } from '@UI';
+import { CustomText, Heading, List, ListHeading } from '@UI';
 
 import styles from './styles.module.scss';
 
@@ -23,10 +24,10 @@ const {
   nextReadHeading,
   postblog,
   main,
-  author,
+  author: authorStyle,
   heading,
   article,
-  category,
+  category: categoryStyle,
   list,
 } = styles;
 
@@ -34,8 +35,9 @@ const posts = blogPosts.slice(0, 3);
 
 const { blogPostHero } = images;
 const { jonathan } = authorsAvatars;
+const { author, postDate, category } = blogPostStatics;
 
-export default async function BlogPost({ params: { lng } }: LocaleParams) {
+async function BlogPost({ params: { lng } }: LocaleParams) {
   const renderPost = (post: BlogPost) => {
     return <PostCard key={post.title} {...post} />;
   };
@@ -45,25 +47,25 @@ export default async function BlogPost({ params: { lng } }: LocaleParams) {
   return (
     <div className={postblog}>
       <InfinityScroll>
-        <ArticleWrapper className={main}>
+        <ArticleWrapper contentClass={main}>
           <div className={innerHeading}>
-            <div className={author}>
+            <div className={authorStyle}>
               <div>
-                <Image src={jonathan} alt={'Andrew'} />
+                <Image src={jonathan} alt={author} />
               </div>
               <div>
-                <h3>
-                  <CustomText color="purple">Andrew Jonson</CustomText>
-                </h3>
-                <CustomText color="medium-gray">
-                  Posted on 27th January 2022
-                </CustomText>
+                <Heading type="h3">
+                  <CustomText color="purple">{author}</CustomText>
+                </Heading>
+                <CustomText color="medium-gray">{postDate}</CustomText>
               </div>
             </div>
-            <h1 className={heading}>{t('heading')}</h1>
-            <div className={category}>
+            <Heading type="h1" className={heading}>
+              {t('heading')}
+            </Heading>
+            <div className={categoryStyle}>
               <Image src={categoriesIcons.startup} alt={'Startup'} />
-              <h4>Startup</h4>
+              <Heading type="h4">{category}</Heading>
             </div>
           </div>
           <div>
@@ -73,6 +75,7 @@ export default async function BlogPost({ params: { lng } }: LocaleParams) {
             <Article contentBlocks={defaultArticleContent} />
           </div>
         </ArticleWrapper>
+
         <ArticleWrapper>
           <div>
             <ListHeading className={nextReadHeading} align="left">
@@ -83,8 +86,11 @@ export default async function BlogPost({ params: { lng } }: LocaleParams) {
             </div>
           </div>
         </ArticleWrapper>
+
         <Invitation lng={lng} />
       </InfinityScroll>
     </div>
   );
 }
+
+export default BlogPost;

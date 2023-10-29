@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Trans } from 'react-i18next/TransWithoutContext';
 
 import { useTranslation } from '@/app/i18n';
+import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import BlogPostCard from '@/components/BlogPostCard';
 import InfinityScroll from '@/components/InfinityScroll';
 import {
@@ -11,7 +12,14 @@ import {
   defaultAuthorIntroduction,
 } from '@/constants';
 import { BlogPost } from '@/types';
-import { BodyText, List, ListHeading, MediaLinkList, Pattern } from '@UI';
+import {
+  BodyText,
+  Heading,
+  List,
+  ListHeading,
+  MediaLinkList,
+  Pattern,
+} from '@UI';
 
 import { AuthorPageProps } from './interfaces';
 import styles from './styles.module.scss';
@@ -21,7 +29,6 @@ const {
   articleWrapper,
   heroWrapper,
   list,
-  heroContentWrapper,
   hero,
   patternContainer,
   heroImage,
@@ -52,32 +59,28 @@ const AuthorDetails = async ({
   return (
     <div className={author}>
       <InfinityScroll>
-        <article className={heroWrapper}>
-          <div className={heroContentWrapper}>
-            <div className={heroContent}>
-              <div className={hero}>
-                <div className={heroImage}>
-                  <Image src={photo} alt={'asd'} />
-                </div>
-                <div className={heroInfo}>
-                  <h1>
-                    <Trans
-                      t={t}
-                      i18nKey={'greeting'}
-                      values={{ name }}
-                      defaults={defaultAuthorIntroduction}
-                    />
-                  </h1>
-                  <BodyText>{defaultAboutAuthor}</BodyText>
-                  <MediaLinkList className={links} />
-                </div>
-              </div>
+        <ArticleWrapper contentClass={heroContent} wrapperClass={heroWrapper}>
+          <div className={hero}>
+            <div className={heroImage}>
+              <Image src={photo} alt={'asd'} />
+            </div>
+            <div className={heroInfo}>
+              <Heading type="h1">
+                <Trans
+                  t={t}
+                  i18nKey={'greeting'}
+                  values={{ name }}
+                  defaults={defaultAuthorIntroduction}
+                />
+              </Heading>
+              <BodyText>{defaultAboutAuthor}</BodyText>
+              <MediaLinkList className={links} />
             </div>
             <div className={patternContainer}>
               <Pattern />
             </div>
           </div>
-        </article>
+        </ArticleWrapper>
 
         <article className={articleWrapper}>
           <ListHeading align="left">{t('postHeading')}</ListHeading>

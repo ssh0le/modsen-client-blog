@@ -175,3 +175,9 @@ export const privacyStatics = {
     ],
   },
 };
+
+export const blogPostStatics = {
+  author: 'Andrew Jonson',
+  postDate: 'Posted on 27th January 2022',
+  category: 'Startup',
+};
