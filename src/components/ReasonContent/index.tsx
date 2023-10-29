@@ -1,3 +1,5 @@
+import { BodyText, Heading } from '../UI';
+
 import { ReasonContentProps } from './interfaces';
 import styles from './styles.module.scss';
 
@@ -7,11 +9,11 @@ const ReasonContent = ({
   description,
 }: ReasonContentProps) => {
   return (
-    <div className={styles.wrapper}>
-      <h2>{heading}</h2>
-      <h4>{subheading}</h4>
-      <p>{description}</p>
-    </div>
+    <section className={styles.wrapper}>
+      <Heading type="h2">{heading}</Heading>
+      <Heading type="h4">{subheading}</Heading>
+      <BodyText>{description}</BodyText>
+    </section>
   );
 };
 

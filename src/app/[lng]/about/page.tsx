@@ -10,8 +10,10 @@ import { aboutStatics, authors, images } from '@/constants';
 import { createLocaleMissions, createLocaleResults } from '@/helpers';
 import { Author, LocaleParams } from '@/types';
 import {
+  BodyText,
   Cap,
   DisplayText,
+  Heading,
   ImageDecoration,
   List,
   ListHeading,
@@ -48,14 +50,16 @@ export default async function About({ params: { lng } }: LocaleParams) {
     <div className={about}>
       <InfinityScroll>
         <ArticleWrapper>
-          <div className={headingContainer}>
+          <section className={headingContainer}>
             <div className={heading}>
               <Cap>{t('headingCap')}</Cap>
-              <h1>{t('heading')}</h1>
+              <Heading type="h1">{t('heading')}</Heading>
             </div>
-            <p className={description}>{mainHeadingMessage}</p>
-          </div>
-          <div className={hero}>
+            <div className={description}>
+              <BodyText>{mainHeadingMessage}</BodyText>
+            </div>
+          </section>
+          <section className={hero}>
             <div className={heroImage}>
               <Image src={aboutHero} alt="Reason" />
               <div className={heroContent}>
@@ -73,29 +77,29 @@ export default async function About({ params: { lng } }: LocaleParams) {
                 <Pattern direction="reverse" />
               </div>
             </div>
-            <div className={missions}>
+            <section className={missions}>
               {createLocaleMissions(
                 missionVision,
                 t('missions', { returnObjects: true }),
               ).map(({ cap, heading, description }, index) => (
                 <div className={mission} key={index}>
                   <Cap>{cap}</Cap>
-                  <h3>{heading}</h3>
-                  <p>{description}</p>
+                  <Heading type="h3">{heading}</Heading>
+                  <BodyText>{description}</BodyText>
                 </div>
               ))}
-            </div>
-          </div>
+            </section>
+          </section>
         </ArticleWrapper>
 
-        <ArticleWrapper className={reason}>
+        <ArticleWrapper contentClass={reason}>
           <ReasonContent {...reasons[0]} heading={t('reasonHeading1')} />
           <ImageDecoration type="rectangle">
-            <Image src={reason1} alt="Out team" />
+            <Image src={reason1} alt="Our team" />
           </ImageDecoration>
         </ArticleWrapper>
 
-        <ArticleWrapper className={`${reason} ${alt}`}>
+        <ArticleWrapper contentClass={`${reason} ${alt}`}>
           <ImageDecoration type="circle">
             <Image src={reason2} alt="Our team" />
           </ImageDecoration>
