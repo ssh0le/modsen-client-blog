@@ -8,7 +8,7 @@ import Tag from '@/components/Tag';
 import { blogPosts, categories, tags } from '@/constants';
 import { categoryStatics } from '@/constants';
 import { BlogPost, LocaleParams } from '@/types';
-import { Cap, DisplayText, List, ListHeading } from '@UI';
+import { BodyText, Cap, DisplayText, List, ListHeading } from '@UI';
 
 import styles from './styles.module.scss';
 
@@ -38,12 +38,13 @@ export default async function Category({ params: { lng } }: LocaleParams) {
       <InfinityScroll>
         <section className={heading}>
           <DisplayText>{category}</DisplayText>
-          <p>{headingMessage}</p>
+          <BodyText type="body1">{headingMessage}</BodyText>
           <Cap>
             {t('routePrefix')}
             {category}
           </Cap>
         </section>
+
         <ArticleWrapper>
           <div className={content}>
             <div>
@@ -53,6 +54,7 @@ export default async function Category({ params: { lng } }: LocaleParams) {
                 direction="column"
               />
             </div>
+
             <aside>
               <SearchBar lng={lng} />
               <ListHeading className={categoryHeading} align="left">
@@ -63,9 +65,11 @@ export default async function Category({ params: { lng } }: LocaleParams) {
                   <CategoryCard key={index} name={cat} displayType="minimal" />
                 ))}
               </div>
+
               <ListHeading className={tagsHeading} align="left">
                 {t('tagsHeading')}
               </ListHeading>
+
               <div className={tagsList}>
                 {tags.map((tag) => (
                   <Tag key={tag} isSelected={tag === category}>

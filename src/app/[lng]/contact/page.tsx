@@ -1,10 +1,17 @@
 import { useTranslation } from '@/app/i18n';
 import InfinityScroll from '@/components/InfinityScroll';
-import Heading from '@/components/UI/Heading';
 import { InputArea } from '@/components/UI/inputFields/InputArea';
 import { blogEmail, blogPhone, contactStatics } from '@/constants';
 import { LocaleParams } from '@/types';
-import { BodyText, Button, Cap, CustomText, InputField, Select } from '@UI';
+import {
+  BodyText,
+  Button,
+  Cap,
+  CustomText,
+  Heading,
+  InputField,
+  Select,
+} from '@UI';
 
 import styles from './styles.module.scss';
 
@@ -21,9 +28,10 @@ const Contact = async ({ params: { lng } }: LocaleParams) => {
             <Cap>
               <CustomText weight="900">{t('headingCap')}</CustomText>
             </Cap>
-            <h1>{t('heading')}</h1>
+            <Heading type="h1">{t('heading')}</Heading>
             <BodyText>{contactStatics.subheading}</BodyText>
           </section>
+
           <div>
             <section className={contactInfo}>
               <div>
@@ -38,6 +46,7 @@ const Contact = async ({ params: { lng } }: LocaleParams) => {
                 <BodyText>{blogEmail}</BodyText>
               </div>
             </section>
+
             <form action="#" className={form}>
               <InputField placeholder={t('formUserName')} />
               <InputField placeholder={t('formUserEmail')} />
@@ -50,6 +59,7 @@ const Contact = async ({ params: { lng } }: LocaleParams) => {
             </form>
           </div>
         </section>
+
         <section className={map}></section>
       </InfinityScroll>
     </article>

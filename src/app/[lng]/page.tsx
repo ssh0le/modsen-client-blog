@@ -19,16 +19,15 @@ import { LocaleParams } from '@/types';
 
 import { useTranslation } from '../i18n';
 
-import './styles/page.scss';
 import styles from './styles/pageStyles.module.scss';
 
-const { sponsors } = styles;
+const { sponsors, home } = styles;
 
 export default async function Home({ params: { lng } }: LocaleParams) {
   const { t } = await useTranslation(lng, 'home');
 
   return (
-    <div className="home flex column">
+    <div className={home}>
       <InfinityScroll>
         <HomeHero lng={lng} />
 
