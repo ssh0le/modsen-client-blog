@@ -1,6 +1,6 @@
 @use '../../styles/variables.scss' as vars;
 
-.author-card-container {
+.container {
   background-color: vars.$color-light-gray;
   padding: 40px 28px;
   max-width: 296px;
@@ -10,23 +10,23 @@
   flex-direction: column;
   gap: 20px;
 
-  .card-avatar {
+  .avatar {
     height: 128px;
     width: 128px;
     border-radius: 50%;
   }
 
-  .author-media-links {
+  .links {
     display: flex;
     gap: 16px;
   }
 
-  .author-card-info {
+  .info {
     h3 {
       text-align: center;
     }
 
-    div {
+    p {
       font-size: 14px;
       color: vars.$color-medium-gray;
     }

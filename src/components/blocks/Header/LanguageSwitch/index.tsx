@@ -19,7 +19,7 @@ const LanguageSwitch = ({ lng }: { lng: string }) => {
           <Fragment key={index}>
             {index > 0 && <div key={l + index} className={delimeter}></div>}
             <span key={index + l} className={`${lng === l ? active : ''}`}>
-              <Link replace href={`/${l}/${pathname}`}>
+              <Link replace href={`/${l}${pathname}`}>
                 {l}
               </Link>
             </span>

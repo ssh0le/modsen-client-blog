@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import { useTranslation } from '@/app/i18n';
 import { defaultReasonText, postText } from '@/constants';
+import { createLinkToAbout } from '@/helpers';
 import { LocaleComponentProps } from '@/types';
 import { BodyText, Cap, CustomText, Heading, Pattern } from '@UI';
 
@@ -21,19 +22,19 @@ export const Missions = async ({ lng }: LocaleComponentProps) => {
       <div className={pattern}>
         <Pattern />
       </div>
-      <div className={missionBody}>
-        <div className={missionItem}>
+      <section className={missionBody}>
+        <section className={missionItem}>
           <Cap>{t('aboutCap')}</Cap>
           <div className={missionItemBody}>
             <Heading type="h2">{t('aboutHeading')}</Heading>
             <BodyText>{postText}</BodyText>
-            <Link href={'#'}>
+            <Link href={createLinkToAbout(lng)}>
               <CustomText color="purple" weight="700">
                 {tCommon('readMoreButton')}
               </CustomText>
             </Link>
           </div>
-        </div>
+        </section>
         <div className={missionItem}>
           <Cap>{t('missionCap')}</Cap>
           <div className={missionItemBody}>
@@ -41,7 +42,7 @@ export const Missions = async ({ lng }: LocaleComponentProps) => {
             <BodyText>{defaultReasonText}</BodyText>
           </div>
         </div>
-      </div>
+      </section>
     </ArticleWrapper>
   );
 };

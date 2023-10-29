@@ -1,28 +1,37 @@
+'use client';
+
 import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import { mediaIcons } from '@/constants';
+import { createLinkToAuthor } from '@/helpers';
 import { Author } from '@/types';
 
-import './styled.scss';
+import { BodyText, Heading } from '../UI';
 
-const AuthorCard = ({ position, photo, name }: Author) => {
+import styles from './styles.module.scss';
+
+const { container, avatar, links, info } = styles;
+
+const AuthorCard = ({ position, photo, name, id }: Author) => {
+  const pathname = usePathname();
+
   return (
-    <div className="author-card-container">
-      <div className="card-avatar">
-        <Image src={photo} alt={`${name} photo`} />
+    <Link href={createLinkToAuthor(pathname, id)} className={container}>
+      <div className={avatar}>
+        <Image src={photo} alt={name} />
       </div>
-      <div className="author-card-info">
-        <h3>{name}</h3>
-        <div>
-          <span>{position}</span>
-        </div>
+      <div className={info}>
+        <Heading type={'h3'}>{name}</Heading>
+        <BodyText type="body2">{position}</BodyText>
       </div>
-      <div className="author-media-links">
+      <div className={links}>
         {Object.entries(mediaIcons).map(([mediaName, icon]) => (
           <Image key={mediaName} src={icon} alt={mediaName} />
         ))}
       </div>
-    </div>
+    </Link>
   );
 };
 

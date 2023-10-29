@@ -4,6 +4,11 @@
   @include vars.flexColumn();
   gap: 32px;
   max-width: 405px;
+  padding: 10px;
+
+  &:hover {
+    background-color: vars.$color-light-yellow;
+  }
 
   .imageContainer {
     width: 100%;

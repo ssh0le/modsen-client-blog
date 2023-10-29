@@ -25,7 +25,7 @@ export const CustomText = ({
 }: CustomTextProps) => {
   const colorClass = getColor(color);
   const weightClass = getWeight(weight);
-  const sizeClass = size ? size14 : '';
+  const sizeClass = size === '14' ? size14 : '';
   return (
     <span
       className={`${colorClass} ${weightClass} ${sizeClass}`}

@@ -13,14 +13,21 @@
       gap: 32px;
       margin-top: 32px;
 
-      img {
-        width: 100%;
+      .imageContainer {
+        display: flex;
+        justify-content: center;
+        max-width: 670px;
+        max-height: 350px;
       }
 
       .selectedPostContent {
         @include vars.flexColumn;
 
         gap: 16px;
+      }
+
+      a {
+        width: fit-content;
       }
     }
   }

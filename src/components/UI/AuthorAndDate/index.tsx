@@ -1,3 +1,5 @@
+import { getPostFormattedDate } from '@/helpers';
+
 import { CustomText } from '..';
 
 import { AuthorAndDateProps } from './interfaces';
@@ -14,7 +16,7 @@ export const AuthorAndDate = (props: AuthorAndDateProps) => {
   return (
     <CustomText color={color} size={size} weight={weight}>
       By <CustomText color={authorColor}>{author}</CustomText> |{' '}
-      {date.toLocaleString()}
+      {getPostFormattedDate(date)}
     </CustomText>
   );
 };

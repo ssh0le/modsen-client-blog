@@ -1,7 +1,9 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { useTranslation } from '@/app/i18n';
 import { defaultReasonText, images } from '@/constants';
+import { createLinkToAbout } from '@/helpers';
 import { LocaleComponentProps } from '@/types';
 import { BodyText, Button, Cap, Heading } from '@UI';
 
@@ -25,7 +27,9 @@ export const Reason = async ({ lng }: LocaleComponentProps) => {
           <Cap>{t('blogReasonCap')}</Cap>
           <Heading type="h1">{t('blogReasonHeading')}</Heading>
           <BodyText>{defaultReasonText}</BodyText>
-          <Button styleType="colored">{t('blogReasonButton')}</Button>
+          <Link href={createLinkToAbout(lng)}>
+            <Button styleType="colored">{t('blogReasonButton')}</Button>
+          </Link>
         </div>
       </div>
     </ArticleWrapper>

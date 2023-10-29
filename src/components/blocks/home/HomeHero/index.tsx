@@ -1,20 +1,24 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { useTranslation } from '@/app/i18n';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
-import { Button, DisplayText } from '@/components/UI';
-import { images } from '@/constants';
+import { AuthorAndDate, BodyText, Button, DisplayText } from '@/components/UI';
+import { images, routePathes } from '@/constants';
+import { getHomePost } from '@/helpers';
 
 import { HomeHeroProps } from './interfaces';
 import styles from './styled.module.scss';
 
 const { homeHero } = images;
 
-const { hero, overlay, content, host, author, image } = styles;
+const { hero, overlay, content, host, image } = styles;
 
 export const HomeHero = async ({ lng }: HomeHeroProps) => {
   const { t } = await useTranslation(lng, 'home');
   const { t: tCommon } = await useTranslation(lng, 'common');
+  const { description, author, date, id, title } = getHomePost();
+
   return (
     <ArticleWrapper contentClass={hero}>
       <div className={image}>
@@ -28,17 +32,19 @@ export const HomeHero = async ({ lng }: HomeHeroProps) => {
             <span>startup</span>
           </span>
         </div>
-        <DisplayText>{t('heading')}</DisplayText>
-        <span>
-          By <span className={author}>James West</span> | May 23, 2022
-        </span>
-        <p>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident.
-        </p>
+        <DisplayText>{title}</DisplayText>
+        <AuthorAndDate
+          color="white"
+          author={author}
+          date={date}
+          authorColor="yellow"
+          size="16"
+        />
+        <BodyText>{description}</BodyText>
       </div>
-      <Button styleType="colored">{tCommon('readMoreButton')}</Button>
+      <Link href={`${lng}/${routePathes.blog}/${id}`}>
+        <Button styleType="colored">{tCommon('readMoreButton')}</Button>
+      </Link>
     </ArticleWrapper>
   );
 };

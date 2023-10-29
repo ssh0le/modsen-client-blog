@@ -1,6 +1,8 @@
+import Link from 'next/link';
+
 import { useTranslation } from '@/app/i18n';
 import { BodyText, Button, Heading } from '@/components/UI';
-import { defaultSubheading } from '@/constants';
+import { defaultSubheading, routePathes } from '@/constants';
 
 import { ArticleWrapper } from '../ArticleWrapper';
 
@@ -15,7 +17,9 @@ export const Invitation = async ({ lng }: InvitationProps) => {
       <div>
         <Heading type="h2">{t('joinInvitation')}</Heading>
         <BodyText>{defaultSubheading}</BodyText>
-        <Button styleType="colored">{t('joinInvitationButton')}</Button>
+        <Link href={`${lng}${routePathes.contact}`}>
+          <Button styleType="colored">{t('joinInvitationButton')}</Button>
+        </Link>
       </div>
     </ArticleWrapper>
   );

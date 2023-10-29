@@ -9,6 +9,7 @@ export interface Post {
 }
 
 export interface BlogPost {
+  id: string;
   tag: string;
   title: string;
   description: string;

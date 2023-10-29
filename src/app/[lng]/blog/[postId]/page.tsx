@@ -14,9 +14,11 @@ import {
   images,
 } from '@/constants';
 import { blogPostStatics } from '@/constants';
-import { BlogPost, LocaleParams } from '@/types';
+import { getPostById, getPostFormattedDate, getPosts } from '@/helpers';
+import { BlogPost } from '@/types';
 import { CustomText, Heading, List, ListHeading } from '@UI';
 
+import { PostPageProps } from './interfaces';
 import styles from './styles.module.scss';
 
 const {
@@ -31,18 +33,24 @@ const {
   list,
 } = styles;
 
-const posts = blogPosts.slice(0, 3);
-
 const { blogPostHero } = images;
 const { jonathan } = authorsAvatars;
-const { author, postDate, category } = blogPostStatics;
+const { datePrefix, category } = blogPostStatics;
+const nextPostsLength = 3;
 
-async function BlogPost({ params: { lng } }: LocaleParams) {
+export async function generateStaticParams() {
+  return blogPosts.map(({ id }) => ({ postId: id }));
+}
+
+async function BlogPost({ params: { lng, postId } }: PostPageProps) {
   const renderPost = (post: BlogPost) => {
     return <PostCard key={post.title} {...post} />;
   };
 
   const { t } = await useTranslation(lng, 'blogPost');
+
+  const { title, author, date, id } = getPostById(postId);
+  const nextPosts = getPosts(nextPostsLength, id);
 
   return (
     <div className={postblog}>
@@ -57,19 +65,22 @@ async function BlogPost({ params: { lng } }: LocaleParams) {
                 <Heading type="h3">
                   <CustomText color="purple">{author}</CustomText>
                 </Heading>
-                <CustomText color="medium-gray">{postDate}</CustomText>
+                <CustomText color="medium-gray">
+                  {datePrefix}
+                  {getPostFormattedDate(date)}
+                </CustomText>
               </div>
             </div>
             <Heading type="h1" className={heading}>
-              {t('heading')}
+              {title}
             </Heading>
             <div className={categoryStyle}>
-              <Image src={categoriesIcons.startup} alt={'Startup'} />
+              <Image src={categoriesIcons.startup} alt={category} />
               <Heading type="h4">{category}</Heading>
             </div>
           </div>
           <div>
-            <Image src={blogPostHero} alt={'Andrew'} />
+            <Image src={blogPostHero} alt={author} />
           </div>
           <div className={article}>
             <Article contentBlocks={defaultArticleContent} />
@@ -82,7 +93,7 @@ async function BlogPost({ params: { lng } }: LocaleParams) {
               {t('readNextHeading')}
             </ListHeading>
             <div className={list}>
-              <List options={posts} renderItem={renderPost} />
+              <List options={nextPosts} renderItem={renderPost} />
             </div>
           </div>
         </ArticleWrapper>

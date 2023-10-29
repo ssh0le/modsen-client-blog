@@ -19,7 +19,7 @@ import { LocaleParams } from '@/types';
 
 import { useTranslation } from '../i18n';
 
-import styles from './styles/pageStyles.module.scss';
+import styles from './pageStyles.module.scss';
 
 const { sponsors, home } = styles;
 

@@ -1,28 +1,29 @@
 import Image from 'next/image';
 
+import { BlogPost } from '@/types';
+
 import { Cap, CustomText } from '../UI';
 
-import { BlogPostProps } from './interfaces';
 import styles from './styled.module.scss';
 
 const { blogtitle, blogpost, info, imageContainer } = styles;
 
-const BlogPostCard = (props: BlogPostProps) => {
-  const { image, title, description, tag, imageSize } = props;
-  const imageExtraClass = imageSize === 'minimal' ? '' : '';
+const BlogPostCard = (props: BlogPost) => {
+  const { image, title, description, tag } = props;
 
   return (
     <div className={blogpost}>
-      <div className={`${imageContainer} ${imageExtraClass}`}>
-        <Image src={image} alt={'Blog post image'} />
-      </div>
-      <div className={info}>
+      <section className={imageContainer}>
+        <Image src={image} alt={title} />
+      </section>
+
+      <section className={info}>
         <Cap>
           <CustomText color="purple">{tag}</CustomText>
         </Cap>
         <h2 className={blogtitle}>{title}</h2>
         <p>{description}</p>
-      </div>
+      </section>
     </div>
   );
 };
