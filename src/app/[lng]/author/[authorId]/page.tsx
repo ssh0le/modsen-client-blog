@@ -47,13 +47,16 @@ const AuthorDetails = async ({
   params: { lng, authorId },
 }: AuthorPageProps) => {
   const { t } = await useTranslation(lng, 'author');
+  // const { t: tCommon } = await useTranslation(lng, 'common');
 
   const authorPosts = blogPosts.slice(2);
 
   const { name, photo } = authors.find((author) => author.id === authorId)!;
 
+  // const categories = tCommon('categories', { returnObjects: true });
+
   const renderBlogPost = (post: BlogPost) => (
-    <BlogPostCard key={post.title} {...post} />
+    <BlogPostCard categoryName={'name'} key={post.title} {...post} />
   );
 
   return (

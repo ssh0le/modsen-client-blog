@@ -12,8 +12,8 @@ export function List<T>({
   const columnClass = direction === 'column' ? column : '';
   const extraClass = className ?? '';
   return (
-    <div className={`${list} ${columnClass} ${extraClass}`}>
+    <section className={`${list} ${columnClass} ${extraClass}`}>
       {options.map(renderItem)}
-    </div>
+    </section>
   );
 }

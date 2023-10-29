@@ -180,3 +180,8 @@ export const blogPostStatics = {
   datePrefix: 'Posted on ',
   category: 'Startup',
 };
+
+export const categoryDescription =
+  'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.';
+
+export const selectedResult = 'Selected';

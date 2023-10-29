@@ -1,6 +1,7 @@
-import { ReactNode } from 'react';
+import { Tag } from '@/types';
 
 export interface TagProps {
-  children: ReactNode;
   isSelected: boolean;
+  tag: Tag;
+  onClick: (tag: Tag) => void;
 }

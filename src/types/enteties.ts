@@ -1,7 +1,5 @@
 import { StaticImageData } from 'next/image';
 
-import { categoriesIcons } from '@/constants';
-
 export interface Post {
   author: string;
   date: Date;
@@ -10,7 +8,8 @@ export interface Post {
 
 export interface BlogPost {
   id: string;
-  tag: string;
+  categoryId: string;
+  tags: string[];
   title: string;
   description: string;
   image: StaticImageData;
@@ -23,7 +22,15 @@ export interface OverviewResult {
   subheading: string;
 }
 
-export type Category = keyof typeof categoriesIcons;
+export interface Category {
+  id: string;
+  name: string;
+}
+
+export interface Tag {
+  id: string;
+  name: string;
+}
 
 export interface Author {
   id: string;

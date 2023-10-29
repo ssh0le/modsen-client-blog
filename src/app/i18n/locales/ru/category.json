@@ -3,5 +3,7 @@
   "searchButtonText": "Поиск",
   "categoriesHeading": "Категории",
   "tagsHeading": "Все теги",
-  "routePrefix": "Блог > "
+  "routePrefix": "Блог > ",
+  "notFoundMessage": "Посты не найдены",
+  "notFoundTags": "Теги не найдены"
 }

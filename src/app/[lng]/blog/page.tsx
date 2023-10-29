@@ -1,11 +1,16 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { useTranslation } from '@/app/i18n';
 import { CategoryList, Invitation } from '@/components/blocks';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import BlogPostCard from '@/components/BlogPostCard';
 import InfinityScroll from '@/components/InfinityScroll';
-import { blogPosts, images, postText } from '@/constants';
+import {
+  createLinkToPostWithLocale,
+  getBlogFeaturedPost,
+  getPosts,
+} from '@/helpers';
 import { LocaleParams } from '@/types';
 import {
   AuthorAndDate,
@@ -30,54 +35,64 @@ const {
   controlsContainer,
   wrapper,
 } = styles;
-const { blogHero } = images;
 
 export default async function Blog({ params: { lng } }: LocaleParams) {
   const { t } = await useTranslation(lng, 'blog');
   const { t: tCommon } = await useTranslation(lng, 'common');
 
+  const { title, description, image, author, date, id } = getBlogFeaturedPost();
+
+  const posts = getPosts(4, id);
+
   return (
     <div className={blog}>
       <InfinityScroll>
         <ArticleWrapper contentClass={hero} wrapperClass={wrapper}>
-          <div className={content}>
+          <section className={content}>
             <Cap>{t('recommendedPostHeading')}</Cap>
-            <div className={message}>
-              <Heading type="h2">{t('header')}</Heading>
-              <AuthorAndDate
-                author="James West"
-                date={new Date()}
-                authorColor="purple"
-              />
-              <BodyText>{postText}</BodyText>
-            </div>
-            <Button styleType="colored">{tCommon('readMoreButton')}</Button>
-          </div>
+            <section className={message}>
+              <Heading type="h2">{title}</Heading>
+              <AuthorAndDate author={author} date={date} authorColor="purple" />
+              <BodyText>{description}</BodyText>
+            </section>
+            <Link href={createLinkToPostWithLocale(lng, id)}>
+              <Button styleType="colored">{tCommon('readMoreButton')}</Button>
+            </Link>
+          </section>
           <div>
-            <Image src={blogHero} alt="Blog hero image" />
+            <Image src={image} alt={title} />
           </div>
         </ArticleWrapper>
 
         <ArticleWrapper>
-          <div className={blogposts}>
+          <section className={blogposts}>
             <ListHeading className={listHeading} align="left">
               {t('postHeader')}
             </ListHeading>
-            {blogPosts.map((blogpost, key) => (
-              <BlogPostCard key={key} {...blogpost} />
+            {posts.map((blogpost) => (
+              <BlogPostCard
+                categoryName={'name'}
+                key={blogpost.id}
+                {...blogpost}
+              />
             ))}
-          </div>
-          <div className={blogpostsControls}>
+          </section>
+
+          <section className={blogpostsControls}>
             <div className={controlsContainer}>
               <Heading type="h2" className={controlInactive}>
                 {t('prevArrow')}
               </Heading>
               <Heading type="h4">{t('nextArrow')}</Heading>
             </div>
-          </div>
+          </section>
         </ArticleWrapper>
 
-        <CategoryList title={t('categoriesHeader')} headingAlign="left" />
+        <CategoryList
+          title={t('categoriesHeader')}
+          headingAlign="left"
+          locale={lng}
+        />
 
         <Invitation lng={lng} />
       </InfinityScroll>

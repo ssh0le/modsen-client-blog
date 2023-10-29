@@ -1,9 +1,8 @@
 import { categoriesIcons } from '@/constants';
-import { Category } from '@/types';
 
-export const getCategoryIcon = (categoryName: Category): string => {
+export const getCategoryIcon = (categoryName: string): string => {
   if (categoryName in categoriesIcons) {
-    return categoriesIcons[categoryName];
+    return categoriesIcons[categoryName as keyof typeof categoriesIcons];
   } else {
     return categoriesIcons.startup;
   }

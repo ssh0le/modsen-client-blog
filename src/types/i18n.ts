@@ -6,4 +6,5 @@ export interface LocaleParams {
 
 export interface LocaleComponentProps {
   lng: string;
+  results?: string[];
 }

@@ -1,15 +1,14 @@
 import Image from 'next/image';
 
-import { BlogPost } from '@/types';
+import { BodyText, Cap, CustomText, Heading } from '../UI';
 
-import { Cap, CustomText } from '../UI';
-
+import { BlogPostCardProps } from './interfaces';
 import styles from './styled.module.scss';
 
 const { blogtitle, blogpost, info, imageContainer } = styles;
 
-const BlogPostCard = (props: BlogPost) => {
-  const { image, title, description, tag } = props;
+const BlogPostCard = (props: BlogPostCardProps) => {
+  const { image, title, description, categoryName } = props;
 
   return (
     <div className={blogpost}>
@@ -19,10 +18,12 @@ const BlogPostCard = (props: BlogPost) => {
 
       <section className={info}>
         <Cap>
-          <CustomText color="purple">{tag}</CustomText>
+          <CustomText color="purple">{categoryName}</CustomText>
         </Cap>
-        <h2 className={blogtitle}>{title}</h2>
-        <p>{description}</p>
+        <Heading type="h2" className={blogtitle}>
+          {title}
+        </Heading>
+        <BodyText>{description}</BodyText>
       </section>
     </div>
   );

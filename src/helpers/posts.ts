@@ -17,6 +17,10 @@ export const getHomePost = () => {
   return blogPosts[0];
 };
 
+export const getBlogFeaturedPost = () => {
+  return blogPosts[6];
+};
+
 export const getPostFormattedDate = (date: Date): string => {
   return new Intl.DateTimeFormat('en', {
     year: 'numeric',

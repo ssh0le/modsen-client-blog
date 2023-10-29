@@ -1,5 +1,10 @@
+'use client';
+
+import Link from 'next/link';
+
+import { useTranslation } from '@/app/i18n/client';
 import CategoryCard from '@/components/CategoryCard';
-import { categories } from '@/constants';
+import { createLinkToCategory } from '@/helpers';
 import { Category } from '@/types';
 import { List, ListHeading } from '@UI';
 
@@ -10,9 +15,20 @@ import styles from './styles.module.scss';
 
 const { heading } = styles;
 
-export const CategoryList = ({ title, headingAlign }: CategoryListProps) => {
-  const renderCategory = (category: Category) => {
-    return <CategoryCard key={category} name={category} />;
+export const CategoryList = ({
+  title,
+  headingAlign,
+  locale,
+}: CategoryListProps) => {
+  const { t } = useTranslation(locale, 'common');
+  const categories: Category[] = t('categories', { returnObjects: true });
+
+  const renderCategory = ({ id, name }: Category) => {
+    return (
+      <Link key={id} href={createLinkToCategory(locale, id)}>
+        <CategoryCard name={name} />
+      </Link>
+    );
   };
   return (
     <ArticleWrapper>

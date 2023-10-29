@@ -35,7 +35,7 @@ export default async function Home({ params: { lng } }: LocaleParams) {
 
         <Missions lng={lng} />
 
-        <CategoryList title={t('categoriesList')} />
+        <CategoryList title={t('categoriesList')} locale={lng} />
 
         <Reason lng={lng} />
 

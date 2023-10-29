@@ -3,5 +3,7 @@
   "searchButtonText": "Search",
   "categoriesHeading": "Categories",
   "tagsHeading": "All Tags",
-  "routePrefix": "Blog > "
+  "routePrefix": "Blog > ",
+  "notFoundMessage": "Posts weren't found",
+  "notFoundTags": "Tags weren't found"
 }

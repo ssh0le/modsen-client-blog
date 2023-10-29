@@ -2,5 +2,23 @@
   "authorPrefix": "By ",
   "readMoreButton": "Read More >",
   "joinInvitation": "Join our team to be a part of our story",
-  "joinInvitationButton": "Join now"
+  "joinInvitationButton": "Join now",
+  "categories": [
+    {
+      "id": "1",
+      "name": "startup"
+    },
+    {
+      "id": "2",
+      "name": "business"
+    },
+    {
+      "id": "3",
+      "name": "economy"
+    },
+    {
+      "id": "4",
+      "name": "technology"
+    }
+  ]
 }
