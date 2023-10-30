@@ -42,25 +42,9 @@
       border-bottom: 1px solid vars.$color-light-gray;
     }
   }
-
-  .form {
-    @include vars.flexColumn();
-
-    gap: 16px;
-    margin-top: 32px;
-    margin-bottom: 70px;
-
-    & > button {
-      width: 100%;
-    }
-
-    textarea {
-      padding: 24px;
-      font-size: 16px;
-    }
-  }
 }
 .map {
   height: 355px;
   width: 100%;
+  background-color: vars.$color-light-gray;
 }

@@ -1,24 +1,15 @@
 import { useTranslation } from '@/app/i18n';
+import ContactForm from '@/components/ContactForm';
 import InfinityScroll from '@/components/InfinityScroll';
 import Map from '@/components/Map';
-import { InputArea } from '@/components/UI/inputFields/InputArea';
 import { blogEmail, blogPhone, contactStatics, mapConfig } from '@/constants';
 import { getLocaleMapMarkers } from '@/helpers';
 import { LocaleParams } from '@/types';
-import {
-  BodyText,
-  Button,
-  Cap,
-  CustomText,
-  Heading,
-  InputField,
-  Select,
-} from '@UI';
+import { BodyText, Cap, CustomText, Heading } from '@UI';
 
 import styles from './styles.module.scss';
 
-const { content, heading, contactInfo, infoHeading, form, map, contact } =
-  styles;
+const { content, heading, contactInfo, infoHeading, map, contact } = styles;
 
 const Contact = async ({ params: { lng } }: LocaleParams) => {
   const { t } = await useTranslation(lng, 'contact');
@@ -53,16 +44,7 @@ const Contact = async ({ params: { lng } }: LocaleParams) => {
               </div>
             </section>
 
-            <form action="#" className={form}>
-              <InputField placeholder={t('formUserName')} />
-              <InputField placeholder={t('formUserEmail')} />
-              <Select
-                placeholder={t('formQuery')}
-                options={t('formQueryOptions', { returnObjects: true })}
-              />
-              <InputArea rows={5} placeholder={t('formMessage')} />
-              <Button styleType="colored">{t('sendButtonText')}</Button>
-            </form>
+            <ContactForm lng={lng} />
           </div>
         </section>
 

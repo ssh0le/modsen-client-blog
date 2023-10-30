@@ -9,11 +9,29 @@
   "formUserName": "Полное имя",
   "formUserEmail": "Ваш Email",
   "formQuery": "Тема запроса",
+  "formQueryOptions": [
+    {
+      "key": "1",
+      "value": "Безопасность"
+    },
+    {
+      "key": "2",
+      "value": "Сотрудничество"
+    },
+    {
+      "key": "3",
+      "value": "Другое"
+    }
+  ],
   "formMessage": "Сообщение",
   "sendButtonText": "Отправить",
   "markerDescription": [
     "Наш офис в Чехии",
     "Наш офис в Польше",
     "Наш офис в Беларуси"
-  ]
+  ],
+  "responseMessgaes": {
+    "success": "Ваш сообщение обрабатывается",
+    "error": "Видимо что-то пошло не так"
+  }
 }

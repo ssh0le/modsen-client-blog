@@ -38,28 +38,6 @@
     background-color: vars.$color-footer-dark-gray;
   }
 
-  .form {
-    display: flex;
-    gap: 24px;
-  }
-
-  .input {
-    width: 323px;
-    padding: 14px 25px;
-    font-size: 16px;
-    background-color: transparent;
-    border: 1px solid vars.$color-dark-gray;
-    color: var(--white);
-
-    &:focus {
-      outline: none;
-    }
-
-    &::placeholder {
-      color: vars.$color-medium-gray;
-    }
-  }
-
   .bottom {
     display: flex;
     gap: 24px;

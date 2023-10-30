@@ -185,3 +185,48 @@ export const categoryDescription =
   'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.';
 
 export const selectedResult = 'Selected';
+
+export const responseMessages = {
+  success: 'Your message is being processed',
+  error: 'Something went wrong...',
+};
+
+export const queryTopicsEn = [
+  {
+    key: '1',
+    value: 'Safety',
+  },
+  {
+    key: '2',
+    value: 'Partnership',
+  },
+  {
+    key: '3',
+    value: 'Other',
+  },
+];
+
+export const contactUsForm = [
+  {
+    placeholder: 'formUserName',
+    type: 'text' as const,
+    name: 'userName',
+  },
+  {
+    placeholder: 'formUserEmail',
+    type: 'text' as const,
+    name: 'userEmail',
+  },
+  {
+    placeholder: 'formQuery',
+    type: 'select' as const,
+    name: 'queryTopic',
+    options: 'formQueryOptions',
+  },
+  {
+    placeholder: 'formMessage',
+    type: 'textarea' as const,
+    name: 'message',
+    rows: 5,
+  },
+];

@@ -1,0 +1,13 @@
+@use '../../../../styles/variables.scss' as vars;
+
+.wrapper {
+  position: relative;
+
+  .error > span {
+    color: vars.$color-red;
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    transform: translateY(100%);
+  }
+}

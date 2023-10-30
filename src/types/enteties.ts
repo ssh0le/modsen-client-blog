@@ -62,3 +62,11 @@ export interface Location {
 export interface MapMarker extends Location {
   description: string;
 }
+
+export interface ContactFormFields {
+  [key: string]: string;
+  userName: string;
+  userEmail: string;
+  queryTopic: string;
+  message: string;
+}

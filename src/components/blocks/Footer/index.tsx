@@ -10,9 +10,10 @@ import { createLocaleLinks } from '@/helpers';
 import { LocaleComponentProps } from '@/types';
 
 import LinkList from '../../LinkList';
-import { BodyText, Button, CustomText, Heading, MediaLinkList } from '../../UI';
+import { BodyText, CustomText, Heading, MediaLinkList } from '../../UI';
 
 import styles from './styled.module.scss';
+import SubscribeForm from './SubscribeForm';
 
 const {
   footer,
@@ -21,8 +22,6 @@ const {
   body,
   bottom,
   blogName: blogNameStyle,
-  input,
-  form,
   companyInfo,
   media,
 } = styles;
@@ -49,14 +48,7 @@ export const Footer = async ({ lng }: LocaleComponentProps) => {
           <Heading type="h2">
             <CustomText color="white">{t('heading')}</CustomText>
           </Heading>
-          <form className={form}>
-            <input
-              className={input}
-              type="text"
-              placeholder={t('placeholder')}
-            />
-            <Button styleType="colored">{t('subscribeButton')}</Button>
-          </form>
+          <SubscribeForm lng={lng} />
         </section>
         <div>
           <div className={bottom}>

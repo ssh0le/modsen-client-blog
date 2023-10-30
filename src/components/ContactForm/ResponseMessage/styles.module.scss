@@ -1,0 +1,19 @@
+@use '../../../styles/variables.scss' as vars;
+
+.wrapper {
+  width: 100%;
+  padding: 50px;
+  height: 0;
+  opacity: 0;
+  transition: all 0.4s linear;
+  background-color: vars.$color-light-yellow;
+
+  h4 {
+    text-align: center;
+  }
+
+  &.active {
+    height: auto;
+    opacity: 1;
+  }
+}

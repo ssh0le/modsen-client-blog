@@ -9,7 +9,7 @@ export const Select = (props: SelectProps) => {
   return (
     <select className={input} {...remainedProps}>
       {placeholder && <option key={''}>{placeholder}</option>}
-      {options.map(({ key, value }) => (
+      {options.map(({ value, key }) => (
         <option key={key} value={key}>
           {value}
         </option>

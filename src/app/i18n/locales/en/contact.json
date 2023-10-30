@@ -12,15 +12,15 @@
   "formQueryOptions": [
     {
       "key": "1",
-      "value": "Query 1"
+      "value": "Safety"
     },
     {
       "key": "2",
-      "value": "Query 2"
+      "value": "Partnership"
     },
     {
       "key": "3",
-      "value": "Query 3"
+      "value": "Other"
     }
   ],
   "formMessage": "Message",
@@ -29,5 +29,9 @@
     "Our office in Czech",
     "Our office in Poland",
     "Our office in Belarus"
-  ]
+  ],
+  "responseMessgaes": {
+    "success": "Your message is being processed",
+    "error": "Something went wrong..."
+  }
 }
