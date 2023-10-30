@@ -14,6 +14,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 80px;
+  gap: 20px;
 
   .content {
     @include vars.flexColumn();
@@ -24,6 +25,17 @@
       gap: 16px;
       margin-top: 20px;
       margin-bottom: 32px;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column-reverse;
+    padding: 20px;
+
+    .imageContainer {
+      @include vars.flexCenter();
+      overflow: hidden;
+      max-width: 100%;
     }
   }
 }

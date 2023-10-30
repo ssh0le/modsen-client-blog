@@ -5,7 +5,6 @@ import { useTranslation } from '@/app/i18n';
 import { CategoryList, Invitation } from '@/components/blocks';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import BlogPostCard from '@/components/BlogPostCard';
-import InfinityScroll from '@/components/InfinityScroll';
 import {
   createLinkToPostWithLocale,
   getBlogFeaturedPost,
@@ -34,6 +33,7 @@ const {
   controlInactive,
   blogpostsControls,
   controlsContainer,
+  imageContainer,
   wrapper,
 } = styles;
 
@@ -51,57 +51,55 @@ export default async function Blog({ params: { lng } }: LocaleParams) {
 
   return (
     <div className={blog}>
-      <InfinityScroll>
-        <ArticleWrapper contentClass={hero} wrapperClass={wrapper}>
-          <section className={content}>
-            <Cap>{t('recommendedPostHeading')}</Cap>
-            <section className={message}>
-              <Heading type="h2">{title}</Heading>
-              <AuthorAndDate author={author} date={date} authorColor="purple" />
-              <BodyText>{description}</BodyText>
-            </section>
-            <Link href={createLinkToPostWithLocale(lng, id)}>
-              <Button styleType="colored">{tCommon('readMoreButton')}</Button>
-            </Link>
+      <ArticleWrapper contentClass={hero} wrapperClass={wrapper}>
+        <section className={content}>
+          <Cap>{t('recommendedPostHeading')}</Cap>
+          <section className={message}>
+            <Heading type="h2">{title}</Heading>
+            <AuthorAndDate author={author} date={date} authorColor="purple" />
+            <BodyText>{description}</BodyText>
           </section>
-          <div>
-            <Image src={image} alt={title} />
+          <Link href={createLinkToPostWithLocale(lng, id)}>
+            <Button styleType="colored">{tCommon('readMoreButton')}</Button>
+          </Link>
+        </section>
+        <div className={imageContainer}>
+          <Image src={image} alt={title} />
+        </div>
+      </ArticleWrapper>
+
+      <ArticleWrapper>
+        <section className={blogposts}>
+          <ListHeading className={listHeading} align="left">
+            {t('postHeader')}
+          </ListHeading>
+          {posts.map((blogpost) => (
+            <BlogPostCard
+              locale={lng}
+              categoryName={categoriesMap.get(blogpost.categoryId)!}
+              key={blogpost.id}
+              {...blogpost}
+            />
+          ))}
+        </section>
+
+        <section className={blogpostsControls}>
+          <div className={controlsContainer}>
+            <Heading type="h2" className={controlInactive}>
+              {t('prevArrow')}
+            </Heading>
+            <Heading type="h4">{t('nextArrow')}</Heading>
           </div>
-        </ArticleWrapper>
+        </section>
+      </ArticleWrapper>
 
-        <ArticleWrapper>
-          <section className={blogposts}>
-            <ListHeading className={listHeading} align="left">
-              {t('postHeader')}
-            </ListHeading>
-            {posts.map((blogpost) => (
-              <BlogPostCard
-                locale={lng}
-                categoryName={categoriesMap.get(blogpost.categoryId)!}
-                key={blogpost.id}
-                {...blogpost}
-              />
-            ))}
-          </section>
+      <CategoryList
+        title={t('categoriesHeader')}
+        headingAlign="left"
+        locale={lng}
+      />
 
-          <section className={blogpostsControls}>
-            <div className={controlsContainer}>
-              <Heading type="h2" className={controlInactive}>
-                {t('prevArrow')}
-              </Heading>
-              <Heading type="h4">{t('nextArrow')}</Heading>
-            </div>
-          </section>
-        </ArticleWrapper>
-
-        <CategoryList
-          title={t('categoriesHeader')}
-          headingAlign="left"
-          locale={lng}
-        />
-
-        <Invitation lng={lng} />
-      </InfinityScroll>
+      <Invitation lng={lng} />
     </div>
   );
 }
