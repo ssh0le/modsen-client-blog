@@ -6,8 +6,13 @@
   gap: 32px;
 
   &:hover {
-    transition: transform 0.3s linear;
+    transition: transform 0.4s linear;
     transform: scale(1.01);
+  }
+
+  &:hover .imageContainer img {
+    transition: transform 0.4s linear;
+    transform: scale(0.9);
   }
 
   .imageContainer {
