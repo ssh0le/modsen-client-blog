@@ -53,3 +53,12 @@ export interface Comment {
 }
 
 export type ClickHandler = () => void;
+
+export interface Location {
+  lng: number;
+  lat: number;
+}
+
+export interface MapMarker extends Location {
+  description: string;
+}

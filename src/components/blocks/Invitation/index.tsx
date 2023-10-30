@@ -17,7 +17,7 @@ export const Invitation = async ({ lng }: InvitationProps) => {
       <div>
         <Heading type="h2">{t('joinInvitation')}</Heading>
         <BodyText>{defaultSubheading}</BodyText>
-        <Link href={`${lng}${routePathes.contact}`}>
+        <Link href={`/${lng}${routePathes.contact}`}>
           <Button styleType="colored">{t('joinInvitationButton')}</Button>
         </Link>
       </div>

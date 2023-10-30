@@ -24,5 +24,10 @@
     }
   ],
   "formMessage": "Message",
-  "sendButtonText": "Send Message"
+  "sendButtonText": "Send Message",
+  "markerDescription": [
+    "Our office in Czech",
+    "Our office in Poland",
+    "Our office in Belarus"
+  ]
 }

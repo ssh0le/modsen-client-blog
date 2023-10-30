@@ -1,3 +1,4 @@
+import 'mapbox-gl/dist/mapbox-gl.css';
 import { Footer, Header } from '@blocks';
 import { dir } from 'i18next';
 import type { Metadata } from 'next';

@@ -1,7 +1,9 @@
 import { useTranslation } from '@/app/i18n';
 import InfinityScroll from '@/components/InfinityScroll';
+import Map from '@/components/Map';
 import { InputArea } from '@/components/UI/inputFields/InputArea';
-import { blogEmail, blogPhone, contactStatics } from '@/constants';
+import { blogEmail, blogPhone, contactStatics, mapConfig } from '@/constants';
+import { getLocaleMapMarkers } from '@/helpers';
 import { LocaleParams } from '@/types';
 import {
   BodyText,
@@ -20,6 +22,10 @@ const { content, heading, contactInfo, infoHeading, form, map, contact } =
 
 const Contact = async ({ params: { lng } }: LocaleParams) => {
   const { t } = await useTranslation(lng, 'contact');
+  const markers = getLocaleMapMarkers(
+    mapConfig.markers,
+    t('markerDescription', { returnObjects: true }),
+  );
   return (
     <article className={contact}>
       <InfinityScroll>
@@ -60,7 +66,9 @@ const Contact = async ({ params: { lng } }: LocaleParams) => {
           </div>
         </section>
 
-        <section className={map}></section>
+        <section className={map}>
+          <Map markers={markers} />
+        </section>
       </InfinityScroll>
     </article>
   );

@@ -1,4 +1,11 @@
-import { Category, LinkInfo, Mission, OverviewResult } from '@/types';
+import {
+  Category,
+  LinkInfo,
+  Location,
+  MapMarker,
+  Mission,
+  OverviewResult,
+} from '@/types';
 
 export const createLocaleLinks = (
   deafultLinks: LinkInfo[],
@@ -37,4 +44,14 @@ export const getLocaleCategories = (categories: Category[]) => {
     categoriesMap.set(id, name);
   });
   return categoriesMap;
+};
+
+export const getLocaleMapMarkers = (
+  locations: Location[],
+  descriptions: string[],
+): MapMarker[] => {
+  return locations.map((location, index) => ({
+    ...location,
+    description: descriptions[index],
+  }));
 };

@@ -10,5 +10,10 @@
   "formUserEmail": "Ваш Email",
   "formQuery": "Тема запроса",
   "formMessage": "Сообщение",
-  "sendButtonText": "Отправить"
+  "sendButtonText": "Отправить",
+  "markerDescription": [
+    "Наш офис в Чехии",
+    "Наш офис в Польше",
+    "Наш офис в Беларуси"
+  ]
 }
