@@ -1,21 +1,41 @@
-import { useTranslation } from '@/app/i18n';
+'use client';
+
+import { useState } from 'react';
+
+import { useTranslation } from '@/app/i18n/client';
 import LinkList from '@/components/LinkList';
 import { blogName, headerLinks } from '@/constants';
 import { createLocaleLinks } from '@/helpers';
 import { LocaleComponentProps } from '@/types';
-import { Button } from '@UI';
+import { Button, CustomText, Heading } from '@UI';
 
 import LanguageSwitcher from './LanguageSwitch';
 import styles from './styled.module.scss';
 
-const { header, blogName: blogNameStyle, controls, wrapper } = styles;
+const {
+  header,
+  blogName: blogNameStyle,
+  controls,
+  active,
+  wrapper,
+  backdrop,
+  burgerBadge,
+} = styles;
 
-export const Header = async ({ lng }: LocaleComponentProps) => {
-  const { t } = await useTranslation(lng, 'header');
+export const Header = ({ lng }: LocaleComponentProps) => {
+  const { t } = useTranslation(lng, 'header');
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const toggleMenu = () => {
+    setIsOpen((prevIsOpen) => !prevIsOpen);
+  };
+
   return (
-    <div className={wrapper}>
+    <section className={`${wrapper} ${isOpen ? active : ''}`}>
       <header className={header}>
-        <h4 className={blogNameStyle}>{blogName}</h4>
+        <Heading type="h4" className={blogNameStyle}>
+          {blogName}
+        </Heading>
         <div className={controls}>
           <nav>
             <LinkList
@@ -30,6 +50,13 @@ export const Header = async ({ lng }: LocaleComponentProps) => {
           <LanguageSwitcher lng={lng} />
         </div>
       </header>
-    </div>
+      <div className={burgerBadge} onClick={toggleMenu}>
+        <CustomText color="yellow">☰</CustomText>
+      </div>
+      <div
+        onClick={toggleMenu}
+        className={`${backdrop} ${isOpen ? active : ''}`}
+      ></div>
+    </section>
   );
 };

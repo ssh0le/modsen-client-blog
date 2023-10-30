@@ -3,12 +3,17 @@ import Link from 'next/link';
 
 import { useTranslation } from '@/app/i18n';
 import { routePathes } from '@/constants';
-import { getFeaturedPost, getPosts } from '@/helpers';
+import {
+  createLinkToPostWithLocale,
+  getFeaturedPost,
+  getPosts,
+} from '@/helpers';
 import { LocaleComponentProps } from '@/types';
 import { AuthorAndDate, BodyText, Button, CustomText, Heading } from '@UI';
 
 import { ArticleWrapper } from '../../ArticleWrapper';
 
+import MinimalBlogPost from './MinimalBlogPost';
 import styles from './styles.module.scss';
 
 const {
@@ -18,7 +23,6 @@ const {
   allPosts: allPostsStyle,
   allPostsHeading,
   postsList,
-  postListItem,
   posts: postsStyles,
   imageContainer,
 } = styles;
@@ -32,9 +36,9 @@ export const FeaturedPosts = async ({ lng }: LocaleComponentProps) => {
 
   return (
     <ArticleWrapper contentClass={postsStyles}>
-      <div className={selectedPost}>
+      <section className={selectedPost}>
         <Heading type="h2">{t('recommendedPostHeading')}</Heading>
-        <div className={selectedPostBody}>
+        <section className={selectedPostBody}>
           <div className={imageContainer}>
             <Image src={image} alt="Post" />
           </div>
@@ -46,9 +50,10 @@ export const FeaturedPosts = async ({ lng }: LocaleComponentProps) => {
           <Link href={`${lng}${routePathes.blog}/${id}`}>
             <Button styleType="colored">{tCommon('readMoreButton')}</Button>
           </Link>
-        </div>
-      </div>
-      <div className={allPostsStyle}>
+        </section>
+      </section>
+
+      <section className={allPostsStyle}>
         <div className={allPostsHeading}>
           <Heading type="h2">{t('allPosts')}</Heading>
           <Link href={`${lng}${routePathes.blog}`}>
@@ -56,14 +61,13 @@ export const FeaturedPosts = async ({ lng }: LocaleComponentProps) => {
           </Link>
         </div>
         <ul className={postsList}>
-          {allPosts.map(({ author, date, title }, index) => (
-            <li key={index} className={postListItem}>
-              <AuthorAndDate author={author} date={date} color="medium-gray" />
-              <Heading type="h4">{title}</Heading>
-            </li>
+          {allPosts.map(({ author, date, title, id }) => (
+            <Link key={id} href={createLinkToPostWithLocale(lng, id)}>
+              <MinimalBlogPost author={author} date={date} title={title} />
+            </Link>
           ))}
         </ul>
-      </div>
+      </section>
     </ArticleWrapper>
   );
 };

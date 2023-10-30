@@ -1,11 +1,5 @@
 @use '../../../../styles/variables.scss' as vars;
 
-.globalWrapper {
-  @include vars.flexCenter();
-
-  flex-direction: column;
-}
-
 .pattern {
   width: 100%;
   padding-left: 200px;
@@ -15,6 +9,10 @@
   top: 0;
   right: 0;
   transform: translateY(-100%);
+
+  @media screen and (max-width: 1100px) {
+    padding-right: 20px;
+  }
 }
 
 .wrapper {
@@ -29,21 +27,40 @@
     display: flex;
     justify-content: space-between;
     gap: 61px;
-  }
 
-  .missionItem {
-    max-width: 515px;
-    flex: 1 1 0px;
-  }
+    @media screen and (max-width: 1100px) {
+      flex-wrap: wrap;
 
-  .missionItemBody {
-    @include vars.flexColumn();
+      & > * {
+        text-align: center;
+        width: 100%;
+      }
+    }
 
-    margin-top: 24px;
-    gap: 16px;
+    .missionItem {
+      max-width: 515px;
+      flex: 1 1 0px;
 
-    a {
-      width: fit-content;
+      @media screen and (max-width: 1100px) {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .missionItemBody {
+      @include vars.flexColumn();
+
+      margin-top: 24px;
+      gap: 16px;
+
+      a {
+        width: fit-content;
+      }
+
+      @media screen and (max-width: 1100px) {
+        align-items: center;
+      }
     }
   }
 }

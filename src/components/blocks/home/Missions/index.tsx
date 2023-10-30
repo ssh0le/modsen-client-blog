@@ -35,13 +35,13 @@ export const Missions = async ({ lng }: LocaleComponentProps) => {
             </Link>
           </div>
         </section>
-        <div className={missionItem}>
+        <section className={missionItem}>
           <Cap>{t('missionCap')}</Cap>
           <div className={missionItemBody}>
             <Heading type="h3">{t('missionHeading')}</Heading>
             <BodyText>{defaultReasonText}</BodyText>
           </div>
-        </div>
+        </section>
       </section>
     </ArticleWrapper>
   );

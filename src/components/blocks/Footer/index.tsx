@@ -51,7 +51,7 @@ export const Footer = async ({ lng }: LocaleComponentProps) => {
           <SubscribeForm lng={lng} />
         </section>
         <div>
-          <div className={bottom}>
+          <section className={bottom}>
             <div className={companyInfo}>
               <BodyText>
                 <CustomText color="white">{blogAdress}</CustomText>
@@ -63,7 +63,7 @@ export const Footer = async ({ lng }: LocaleComponentProps) => {
               </BodyText>
             </div>
             <MediaLinkList className={media} />
-          </div>
+          </section>
         </div>
       </footer>
     </div>

@@ -9,9 +9,9 @@ const LinkList = ({ links, lng }: LinkListProps) => {
   return (
     <ul className={linkList}>
       {links.map(({ title, path }) => (
-        <Link key={path} href={`/${lng}${path}`}>
-          {title}
-        </Link>
+        <li key={path}>
+          <Link href={`/${lng}${path}`}>{title}</Link>
+        </li>
       ))}
     </ul>
   );

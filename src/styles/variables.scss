@@ -1,5 +1,3 @@
-@import './global.scss';
-
 $color-black: #232536;
 $color-white: #fff;
 $color-dark-yellow: #edc14a;
@@ -17,6 +15,9 @@ $color-red: #f00;
 
 $font-family-sen: var(--font-sen);
 $font-family-inter: var(--font-inter);
+
+$computer: 1200px;
+$laptop: 1000px;
 
 @mixin flex() {
   display: flex;

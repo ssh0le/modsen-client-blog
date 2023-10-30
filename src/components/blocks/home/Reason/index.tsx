@@ -22,7 +22,7 @@ export const Reason = async ({ lng }: LocaleComponentProps) => {
       <div className={imageContainer}>
         <Image src={reason} alt="Why we started" />
       </div>
-      <div className={message}>
+      <section className={message}>
         <div className={messageBody}>
           <Cap>{t('blogReasonCap')}</Cap>
           <Heading type="h1">{t('blogReasonHeading')}</Heading>
@@ -31,7 +31,7 @@ export const Reason = async ({ lng }: LocaleComponentProps) => {
             <Button styleType="colored">{t('blogReasonButton')}</Button>
           </Link>
         </div>
-      </div>
+      </section>
     </ArticleWrapper>
   );
 };

@@ -14,6 +14,13 @@
   bottom: 0;
   right: 0;
 
+  @media screen and (max-width: 768px) {
+    position: static;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+
   .arrow {
     user-select: none;
     width: 48px;
@@ -40,19 +47,32 @@
     width: 62px;
     height: 62px;
     background-color: var(--black);
+
     img {
       filter: invert(0);
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 50px;
+      height: 50px;
     }
   }
 }
 
 .testimonials {
-  padding-top: 80px;
-  padding-left: 112px;
-  padding-bottom: 80px;
-  padding-right: 111px;
+  padding: 80px 111px;
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 20px 40px;
+  }
 
   .description {
     max-width: 349px;
@@ -64,8 +84,19 @@
       margin-top: 12px;
       margin-bottom: 16px;
     }
+
     p {
       color: var(--black);
+    }
+
+    @media screen and (max-width: 1000px) {
+      &,
+      * {
+        text-align: center;
+        width: 100%;
+        display: block;
+        max-width: none;
+      }
     }
   }
 
@@ -73,6 +104,10 @@
     height: 301px;
     display: flex;
     justify-content: center;
+
+    @media screen and (max-width: 1100px) {
+      display: none;
+    }
 
     .delimiter {
       height: 100%;
@@ -87,6 +122,13 @@
     width: fit-content;
     max-width: 500px;
     flex: 1 1 0px;
+
+    @media screen and (max-width: 1000px) {
+      height: 600px;
+      height: 100%;
+      width: 100%;
+      max-width: none;
+    }
   }
 
   .corousel {

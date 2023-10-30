@@ -11,12 +11,14 @@ const { media } = styles;
 export const MediaLinkList = ({ className }: MediaLinks) => {
   const extraClass = className ?? '';
   return (
-    <div className={`${media} ${extraClass}`}>
+    <ul className={`${media} ${extraClass}`}>
       {mediaLinks.map(({ title, path }, index) => (
-        <Link key={index} href={path}>
-          <Image src={title} alt={path} />
-        </Link>
+        <li key={index}>
+          <Link href={path}>
+            <Image src={title} alt={path} />
+          </Link>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };

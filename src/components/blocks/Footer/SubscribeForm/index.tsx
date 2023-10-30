@@ -12,7 +12,7 @@ import styles from './styles.module.scss';
 
 const { emailKey, emailServiceId, subscribeEmailTemplateId } = config;
 
-const { input, form } = styles;
+const { input, form: formStyle } = styles;
 
 const SubscribeForm = ({ lng }: LocaleComponentProps) => {
   const { t } = useTranslation(lng, 'footer');
@@ -20,7 +20,6 @@ const SubscribeForm = ({ lng }: LocaleComponentProps) => {
 
   const handleFormSubmit = (event: FormEvent) => {
     event.preventDefault();
-    console.log('sending');
     const form = formRef.current;
     if (form) {
       emailjs
@@ -31,7 +30,7 @@ const SubscribeForm = ({ lng }: LocaleComponentProps) => {
   };
 
   return (
-    <form className={form} ref={formRef} onSubmit={handleFormSubmit}>
+    <form className={formStyle} ref={formRef} onSubmit={handleFormSubmit}>
       <input
         className={input}
         name="userEmail"

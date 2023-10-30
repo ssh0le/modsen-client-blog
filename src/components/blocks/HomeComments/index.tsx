@@ -3,7 +3,7 @@
 import Image from 'next/image';
 
 import { useTranslation } from '@/app/i18n/client';
-import Comment from '@/components/Comment';
+import Comment from '@/components/blocks/HomeComments/Comment';
 import { BodyText, Cap, Carousel, Heading } from '@/components/UI';
 import { comments, controlsIcons, defaultCommentHeading } from '@/constants';
 import {

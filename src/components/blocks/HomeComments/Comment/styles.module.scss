@@ -1,10 +1,14 @@
-@use '../../styles/variables.scss' as vars;
+@use '../../../../styles/variables.scss' as vars;
 
 .comment {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 100%;
+
+  & > div > h4 {
+    margin-bottom: 50px;
+  }
 
   .user {
     display: flex;
