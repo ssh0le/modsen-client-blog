@@ -4,6 +4,10 @@
   @include vars.flexColumn();
 
   gap: 128px;
+
+  @media screen and (max-width: 1000px) {
+    gap: 50px;
+  }
 }
 
 .main {
@@ -11,6 +15,20 @@
 
   gap: 64px;
   align-items: center;
+
+  .heroImageContainer {
+    width: 100%;
+    height: fit-content;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    gap: 20px;
+  }
 }
 
 .innerHeading {
@@ -36,13 +54,21 @@
     align-items: center;
     gap: 4px;
   }
+
+  @media screen and (max-width: 1000px) {
+    align-items: center;
+
+    padding-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
 }
 
 .article {
   max-width: 843px;
 }
 
-.nextReadHeading {
+h2.nextReadHeading {
   margin-bottom: 0;
 }
 

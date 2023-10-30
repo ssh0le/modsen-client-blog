@@ -4,7 +4,6 @@ import { useTranslation } from '@/app/i18n';
 import Article from '@/components/Article';
 import { Invitation } from '@/components/blocks';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
-import InfinityScroll from '@/components/InfinityScroll';
 import PostCard from '@/components/PostCard';
 import {
   authorsAvatars,
@@ -30,6 +29,7 @@ const {
   heading,
   article,
   category: categoryStyle,
+  heroImageContainer,
   list,
 } = styles;
 
@@ -54,52 +54,50 @@ async function BlogPost({ params: { lng, postId } }: PostPageProps) {
 
   return (
     <div className={postblog}>
-      <InfinityScroll>
-        <ArticleWrapper contentClass={main}>
-          <div className={innerHeading}>
-            <div className={authorStyle}>
-              <div>
-                <Image src={jonathan} alt={author} />
-              </div>
-              <div>
-                <Heading type="h3">
-                  <CustomText color="purple">{author}</CustomText>
-                </Heading>
-                <CustomText color="medium-gray">
-                  {datePrefix}
-                  {getPostFormattedDate(date)}
-                </CustomText>
-              </div>
+      <ArticleWrapper contentClass={main}>
+        <div className={innerHeading}>
+          <div className={authorStyle}>
+            <div>
+              <Image src={jonathan} alt={author} />
             </div>
-            <Heading type="h1" className={heading}>
-              {title}
-            </Heading>
-            <div className={categoryStyle}>
-              <Image src={categoriesIcons.startup} alt={category} />
-              <Heading type="h4">{category}</Heading>
+            <div>
+              <Heading type="h3">
+                <CustomText color="purple">{author}</CustomText>
+              </Heading>
+              <CustomText color="medium-gray">
+                {datePrefix}
+                {getPostFormattedDate(date)}
+              </CustomText>
             </div>
           </div>
-          <div>
-            <Image src={blogPostHero} alt={author} />
+          <Heading type="h1" className={heading}>
+            {title}
+          </Heading>
+          <div className={categoryStyle}>
+            <Image src={categoriesIcons.startup} alt={category} />
+            <Heading type="h4">{category}</Heading>
           </div>
-          <div className={article}>
-            <Article contentBlocks={defaultArticleContent} />
-          </div>
-        </ArticleWrapper>
+        </div>
+        <div className={heroImageContainer}>
+          <Image src={blogPostHero} alt={author} />
+        </div>
+        <div className={article}>
+          <Article contentBlocks={defaultArticleContent} />
+        </div>
+      </ArticleWrapper>
 
-        <ArticleWrapper>
-          <div>
-            <ListHeading className={nextReadHeading} align="left">
-              {t('readNextHeading')}
-            </ListHeading>
-            <div className={list}>
-              <List options={nextPosts} renderItem={renderPost} />
-            </div>
+      <ArticleWrapper>
+        <div>
+          <ListHeading className={nextReadHeading} align="left">
+            {t('readNextHeading')}
+          </ListHeading>
+          <div className={list}>
+            <List options={nextPosts} renderItem={renderPost} />
           </div>
-        </ArticleWrapper>
+        </div>
+      </ArticleWrapper>
 
-        <Invitation lng={lng} />
-      </InfinityScroll>
+      <Invitation lng={lng} />
     </div>
   );
 }

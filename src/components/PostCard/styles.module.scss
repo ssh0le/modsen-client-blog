@@ -2,8 +2,10 @@
 
 .wrapper {
   @include vars.flexColumn();
+
   gap: 32px;
   max-width: 405px;
+  width: 100%;
   padding: 10px;
 
   &:hover {
@@ -11,13 +13,30 @@
   }
 
   .imageContainer {
+    @include vars.flexCenter();
+
     width: 100%;
     overflow: hidden;
-    @include vars.flexCenter();
+    height: fit-content;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 
   .content {
     @include vars.flexColumn();
+
     gap: 16px;
+  }
+
+  @media screen and (max-width: 1000px) {
+    max-width: 300px;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    max-width: none;
   }
 }
