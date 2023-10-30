@@ -5,7 +5,7 @@ import { ChangeEvent, useEffect, useMemo, useState } from 'react';
 
 import { useTranslation } from '@/app/i18n/client';
 import { blogPosts, tags } from '@/constants';
-import { createLinkToCategory } from '@/helpers';
+import { createLinkToCategory, getLocaleCategories } from '@/helpers';
 import { searchTags } from '@/helpers/searchTags';
 import { BlogPost, Category, Tag as ITag } from '@/types';
 
@@ -62,22 +62,18 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
         )
       : filteredByCategoryPosts;
 
-  const categories: Category[] = useMemo(
-    () => tCommon('categories', { returnObjects: true }),
-    [tCommon],
-  );
+  const categories = tCommon('categories', {
+    returnObjects: true,
+  }) as Category[];
 
-  const { name } = useMemo(() => {
-    const categories: Category[] = tCommon('categories', {
-      returnObjects: true,
-    });
-    return categories.find(({ id }) => categoryId === id)!;
-  }, [tCommon, categoryId]);
+  const categoriesMap = getLocaleCategories(categories);
+
+  const name = categoriesMap.get(categoryId)!;
 
   const results = searchTags(query);
 
   const renderBlogPost = (post: BlogPost) => (
-    <BlogPostCard categoryName={name} key={post.id} {...post} />
+    <BlogPostCard locale={lng} categoryName={name} key={post.id} {...post} />
   );
 
   const handleQueryChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -102,8 +98,9 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
     toggleTag(tag);
   };
 
-  const handleSearchFocus = () => {
-    setShowResults(true);
+  const handleResultClick = (tag: ITag) => {
+    toggleTag(tag);
+    setQuery('');
   };
 
   return (
@@ -124,12 +121,7 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
 
       <aside>
         <div className={search}>
-          <SearchBar
-            lng={lng}
-            onChange={handleQueryChange}
-            value={query}
-            onFocus={handleSearchFocus}
-          />
+          <SearchBar lng={lng} onChange={handleQueryChange} value={query} />
           {showResult && query.length !== 0 && (
             <div className={resultsStyle}>
               <SearchResults
@@ -138,7 +130,7 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
                   isSelected: selectedTags.includes(result.id),
                 }))}
                 lng={lng}
-                onClick={toggleTag}
+                onClick={handleResultClick}
               />
             </div>
           )}

@@ -10,15 +10,14 @@ const { wrapper } = styles;
 const SearchBar = ({ lng, ...remainedProps }: SearchBarProps) => {
   const { t } = useTranslation(lng, 'category');
 
-  const handleInputClick = (event: MouseEvent<HTMLInputElement>) => {
+  const handleMouseDown = (event: MouseEvent<HTMLInputElement>) => {
     event.stopPropagation();
   };
 
   return (
-    <div className={wrapper}>
+    <div className={wrapper} onMouseUp={handleMouseDown}>
       <input
         {...remainedProps}
-        onClick={handleInputClick}
         placeholder={t('searchPlaceholder')}
         type="text"
       />

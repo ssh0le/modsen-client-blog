@@ -9,6 +9,7 @@ import InfinityScroll from '@/components/InfinityScroll';
 import {
   createLinkToPostWithLocale,
   getBlogFeaturedPost,
+  getLocaleCategories,
   getPosts,
 } from '@/helpers';
 import { LocaleParams } from '@/types';
@@ -42,6 +43,10 @@ export default async function Blog({ params: { lng } }: LocaleParams) {
 
   const { title, description, image, author, date, id } = getBlogFeaturedPost();
 
+  const categoriesMap = getLocaleCategories(
+    tCommon('categories', { returnObjects: true }),
+  );
+
   const posts = getPosts(4, id);
 
   return (
@@ -71,7 +76,8 @@ export default async function Blog({ params: { lng } }: LocaleParams) {
             </ListHeading>
             {posts.map((blogpost) => (
               <BlogPostCard
-                categoryName={'name'}
+                locale={lng}
+                categoryName={categoriesMap.get(blogpost.categoryId)!}
                 key={blogpost.id}
                 {...blogpost}
               />
