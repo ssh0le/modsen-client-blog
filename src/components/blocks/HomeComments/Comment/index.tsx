@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image';
+import { memo } from 'react';
 
 import { Comment as IComment } from '@/types';
 
@@ -27,4 +30,4 @@ const Comment = ({ author, avatar, message, city }: IComment) => {
   );
 };
 
-export default Comment;
+export default memo(Comment);

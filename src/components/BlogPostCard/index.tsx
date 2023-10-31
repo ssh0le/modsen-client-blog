@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { memo } from 'react';
 
 import { createLinkToPostWithLocale } from '@/helpers';
 
@@ -34,4 +37,6 @@ const BlogPostCard = (props: BlogPostCardProps) => {
   );
 };
 
-export default BlogPostCard;
+export default memo(BlogPostCard, (nextProps, prevProps) => {
+  return nextProps.id === prevProps.id;
+});

@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image';
+import { memo } from 'react';
 
 import { categoryDescription } from '@/constants';
 import { getCategoryIcon } from '@/helpers/getIcon';
@@ -24,4 +27,4 @@ const CategoryCard = ({ displayType = 'often', name }: CategoryCardProps) => {
   );
 };
 
-export default CategoryCard;
+export default memo(CategoryCard);
