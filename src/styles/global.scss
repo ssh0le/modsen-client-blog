@@ -58,19 +58,6 @@ h1 {
   font-weight: 700;
 }
 
-*[class*='flex'] {
-  display: flex;
-}
-
-*[class*='center'] {
-  justify-content: center;
-  align-items: center;
-}
-
-*[class*='column'] {
-  flex-direction: column;
-}
-
 h1 {
   font-size: 48px;
 }
@@ -78,7 +65,7 @@ h1 {
 html,
 body {
   font-family: var(--font-inter);
-  height: 100vh;
+  height: 100%;
   color: var(--black);
 }
 

@@ -26,7 +26,9 @@ const InfinityScroll = ({ children, margin = '80px' }: InfinityScrollProps) => {
 
   return (
     <>
-      {children.slice(0, currentBlock).map((block) => block)}
+      {children.slice(0, currentBlock).map((block, index) => (
+        <section key={index}>{block}</section>
+      ))}
       {currentBlock < children.length && <div ref={setRef}></div>}
     </>
   );

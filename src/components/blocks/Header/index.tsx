@@ -1,11 +1,12 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 
 import { useTranslation } from '@/app/i18n/client';
 import LinkList from '@/components/LinkList';
 import Modal from '@/components/VideoModal';
-import { blogName, headerLinks } from '@/constants';
+import { blogName, headerLinks, routePathes } from '@/constants';
 import { createLocaleLinks } from '@/helpers';
 import { LocaleComponentProps } from '@/types';
 import { CustomText, Heading } from '@UI';
@@ -34,9 +35,11 @@ export const Header = ({ lng }: LocaleComponentProps) => {
   return (
     <section className={`${wrapper} ${isOpen ? active : ''}`}>
       <header className={header}>
-        <Heading type="h4" className={blogNameStyle}>
-          {blogName}
-        </Heading>
+        <Link href={routePathes.home}>
+          <Heading type="h4" className={blogNameStyle}>
+            {blogName}
+          </Heading>
+        </Link>
         <div className={controls}>
           <nav>
             <LinkList

@@ -10,5 +10,6 @@ export * from './ImageDecoration';
 export * from './inputFields';
 export * from './List';
 export * from './ListHeading';
+export * from './Loader';
 export * from './MediaLinks';
 export * from './Pattern';
