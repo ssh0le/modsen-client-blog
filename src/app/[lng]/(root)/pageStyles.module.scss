@@ -1,7 +1,8 @@
-@use '../../styles/variables.scss' as vars;
+@use '../../../styles/variables.scss' as vars;
 
 .home {
   @include vars.flexColumn;
+  position: relative;
 
   gap: 128px;
 

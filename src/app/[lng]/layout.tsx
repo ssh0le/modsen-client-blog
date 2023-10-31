@@ -1,5 +1,4 @@
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { Footer, Header } from '@blocks';
 import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import { Inter, Sen } from 'next/font/google';
@@ -8,6 +7,7 @@ import { languages } from '../i18n/settings';
 
 import '@/styles/global.scss';
 import { AppLayoutProps } from './interfaces';
+import styles from './layoutStyles.module.scss';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -30,18 +30,16 @@ export default async function RootLayout({
 }: AppLayoutProps) {
   return (
     <html lang={lng} dir={dir(lng)}>
-      <body className={`${inter.variable} ${sen.variable}`}>
-        <main>
-          <Header lng={lng} />
-          {children}
-          <Footer lng={lng} />
-        </main>
+      <body
+        className={`${inter.variable} ${sen.variable} ${styles.rootWrapper}`}
+      >
+        {children}
       </body>
     </html>
   );
 }
 
 export const metadata: Metadata = {
-  title: 'BLog',
+  title: 'Blog',
   description: 'Modsen Clien Blog',
 };

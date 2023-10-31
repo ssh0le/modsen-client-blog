@@ -1,0 +1,9 @@
+@use '../../styles/variables.scss' as vars;
+
+.wrapper {
+  @include vars.flexCenter;
+
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+}
