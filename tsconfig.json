@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["jest", "node"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -23,14 +23,21 @@
       "@/*": ["./src/*"],
       "@blocks": ["./src/components/blocks/index.ts"],
       "@UI": ["./src/components/UI/index.ts"]
-    }
+    },
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/middleware.js"
+    "src/middleware.js",
+    "src",
+    "__tests__"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["src/*.cy.ts", "node_modules"]
 }
