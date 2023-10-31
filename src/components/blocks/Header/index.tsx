@@ -4,10 +4,11 @@ import { useState } from 'react';
 
 import { useTranslation } from '@/app/i18n/client';
 import LinkList from '@/components/LinkList';
+import Modal from '@/components/VideoModal';
 import { blogName, headerLinks } from '@/constants';
 import { createLocaleLinks } from '@/helpers';
 import { LocaleComponentProps } from '@/types';
-import { Button, CustomText, Heading } from '@UI';
+import { CustomText, Heading } from '@UI';
 
 import LanguageSwitcher from './LanguageSwitch';
 import styles from './styled.module.scss';
@@ -46,7 +47,7 @@ export const Header = ({ lng }: LocaleComponentProps) => {
               )}
             />
           </nav>
-          <Button>{t('videoButton')}</Button>
+          <Modal lng={lng} />
           <LanguageSwitcher lng={lng} />
         </div>
       </header>
