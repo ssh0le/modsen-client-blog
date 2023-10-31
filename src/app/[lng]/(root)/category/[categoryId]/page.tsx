@@ -1,7 +1,7 @@
 import { useTranslation } from '@/app/i18n';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import PostSearch from '@/components/PostSearch';
-import { categoryStatics } from '@/constants';
+import { categories, categoryStatics } from '@/constants';
 import { Category } from '@/types';
 import { BodyText, Cap, DisplayText } from '@UI';
 
@@ -11,6 +11,12 @@ import styles from './styles.module.scss';
 const { wrapper, heading } = styles;
 
 const { headingMessage } = categoryStatics;
+
+export async function generateStaticParams() {
+  return categories.map((categoryId) => ({ categoryId }));
+}
+
+export const dynamicParams = false;
 
 export default async function Category({
   params: { lng, categoryId },

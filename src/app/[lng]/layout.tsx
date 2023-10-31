@@ -24,12 +24,17 @@ export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
 
+export const dynamicParams = false;
+
 export default async function RootLayout({
   children,
   params: { lng },
 }: AppLayoutProps) {
   return (
     <html lang={lng} dir={dir(lng)}>
+      <head>
+        <link rel="icon" href="./favicon.ico" />
+      </head>
       <body
         className={`${inter.variable} ${sen.variable} ${styles.rootWrapper}`}
       >

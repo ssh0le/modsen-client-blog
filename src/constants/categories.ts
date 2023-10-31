@@ -8,3 +8,5 @@ export const tags: Tag[] = [
   { name: 'Marketing', id: '5' },
   { name: 'Life', id: '6' },
 ];
+
+export const categories = [1, 2, 3, 4];

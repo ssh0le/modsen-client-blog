@@ -47,6 +47,8 @@ export async function generateStaticParams() {
   return blogPosts.map(({ id }) => ({ postId: id }));
 }
 
+export const dynamicParams = false;
+
 async function BlogPost({ params: { lng, postId } }: PostPageProps) {
   const { t } = await useTranslation(lng, 'blogPost');
   const { t: tCommon } = await useTranslation(lng, 'common');
