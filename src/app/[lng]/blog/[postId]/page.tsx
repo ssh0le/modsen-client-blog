@@ -43,11 +43,11 @@ export async function generateStaticParams() {
 }
 
 async function BlogPost({ params: { lng, postId } }: PostPageProps) {
+  const { t } = await useTranslation(lng, 'blogPost');
+
   const renderPost = (post: BlogPost) => {
     return <PostCard key={post.title} {...post} />;
   };
-
-  const { t } = await useTranslation(lng, 'blogPost');
 
   const { title, author, date, id } = getPostById(postId);
   const nextPosts = getPosts(nextPostsLength, id);

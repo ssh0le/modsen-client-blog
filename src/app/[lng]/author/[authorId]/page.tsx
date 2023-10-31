@@ -4,13 +4,13 @@ import { Trans } from 'react-i18next/TransWithoutContext';
 import { useTranslation } from '@/app/i18n';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import BlogPostCard from '@/components/BlogPostCard';
-import InfinityScroll from '@/components/InfinityScroll';
 import {
   authors,
   blogPosts,
   defaultAboutAuthor,
   defaultAuthorIntroduction,
 } from '@/constants';
+import { getLocaleCategories } from '@/helpers';
 import { BlogPost } from '@/types';
 import {
   BodyText,
@@ -47,54 +47,59 @@ const AuthorDetails = async ({
   params: { lng, authorId },
 }: AuthorPageProps) => {
   const { t } = await useTranslation(lng, 'author');
-  // const { t: tCommon } = await useTranslation(lng, 'common');
+  const { t: tCommon } = await useTranslation(lng, 'common');
+
+  const categories = getLocaleCategories(
+    tCommon('categories', { returnObjects: true }),
+  );
 
   const authorPosts = blogPosts.slice(2);
 
   const { name, photo } = authors.find((author) => author.id === authorId)!;
 
-  // const categories = tCommon('categories', { returnObjects: true });
-
   const renderBlogPost = (post: BlogPost) => (
-    <BlogPostCard categoryName={'name'} key={post.title} {...post} />
+    <BlogPostCard
+      locale={lng}
+      categoryName={categories.get(post.categoryId)!}
+      key={post.title}
+      {...post}
+    />
   );
 
   return (
     <div className={author}>
-      <InfinityScroll>
-        <ArticleWrapper contentClass={heroContent} wrapperClass={heroWrapper}>
-          <div className={hero}>
-            <div className={heroImage}>
-              <Image src={photo} alt={'asd'} />
-            </div>
-            <div className={heroInfo}>
-              <Heading type="h1">
-                <Trans
-                  t={t}
-                  i18nKey={'greeting'}
-                  values={{ name }}
-                  defaults={defaultAuthorIntroduction}
-                />
-              </Heading>
-              <BodyText>{defaultAboutAuthor}</BodyText>
-              <MediaLinkList className={links} />
-            </div>
-            <div className={patternContainer}>
-              <Pattern />
-            </div>
+      <ArticleWrapper contentClass={heroContent} wrapperClass={heroWrapper}>
+        <div className={hero}>
+          <div className={heroImage}>
+            <Image src={photo} alt={name} />
           </div>
-        </ArticleWrapper>
+          <div className={heroInfo}>
+            <Heading type="h1">
+              <Trans
+                t={t}
+                i18nKey={'greeting'}
+                values={{ name }}
+                defaults={defaultAuthorIntroduction}
+              />
+            </Heading>
+            <BodyText>{defaultAboutAuthor}</BodyText>
+            <MediaLinkList className={links} />
+          </div>
+          <div className={patternContainer}>
+            <Pattern />
+          </div>
+        </div>
+      </ArticleWrapper>
 
-        <article className={articleWrapper}>
-          <ListHeading align="left">{t('postHeading')}</ListHeading>
-          <List
-            options={authorPosts}
-            renderItem={renderBlogPost}
-            direction="column"
-            className={list}
-          />
-        </article>
-      </InfinityScroll>
+      <article className={articleWrapper}>
+        <ListHeading align="left">{t('postHeading')}</ListHeading>
+        <List
+          options={authorPosts}
+          renderItem={renderBlogPost}
+          direction="column"
+          className={list}
+        />
+      </article>
     </div>
   );
 };
