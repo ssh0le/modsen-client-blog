@@ -20,7 +20,7 @@ type Story = StoryObj<ListProps<{ name: string }>>;
 
 export const Row: Story = {
   args: {
-    renderItem: (category) => <CategoryCard name={category.name} />,
+    renderItem: (category) => <CategoryCard id="1" name={category.name} />,
     options: [
       { name: 'economy' },
       { name: 'economy' },
@@ -34,7 +34,7 @@ export const Column: Story = {
   args: {
     direction: 'column',
     renderItem: (category) => (
-      <CategoryCard name={category.name} displayType="minimal" />
+      <CategoryCard id="1" name={category.name} displayType="minimal" />
     ),
     options: [
       { name: 'economy' },
