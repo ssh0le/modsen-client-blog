@@ -4,50 +4,20 @@ import Link from 'next/link';
 import { useTranslation } from '@/app/i18n';
 import { CategoryList, Invitation } from '@/components/blocks';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
-import BlogPostCard from '@/components/BlogPostCard';
-import {
-  createLinkToPostWithLocale,
-  getBlogFeaturedPost,
-  getLocaleCategories,
-  getPosts,
-} from '@/helpers';
+import { BlogCarousel } from '@/components/blocks/BlogCarousel';
+import { createLinkToPostWithLocale, getBlogFeaturedPost } from '@/helpers';
 import { LocaleParams } from '@/types';
-import {
-  AuthorAndDate,
-  BodyText,
-  Button,
-  Cap,
-  Heading,
-  ListHeading,
-} from '@UI';
+import { AuthorAndDate, BodyText, Button, Cap, Heading } from '@UI';
 
 import styles from './styles.module.scss';
 
-const {
-  message,
-  content,
-  hero,
-  blog,
-  listHeading,
-  blogposts,
-  controlInactive,
-  blogpostsControls,
-  controlsContainer,
-  imageContainer,
-  wrapper,
-} = styles;
+const { message, content, hero, blog, imageContainer, wrapper } = styles;
 
 export default async function Blog({ params: { lng } }: LocaleParams) {
   const { t } = await useTranslation(lng, 'blog');
   const { t: tCommon } = await useTranslation(lng, 'common');
 
   const { title, description, image, author, date, id } = getBlogFeaturedPost();
-
-  const categoriesMap = getLocaleCategories(
-    tCommon('categories', { returnObjects: true }),
-  );
-
-  const posts = getPosts(4, id);
 
   return (
     <div className={blog}>
@@ -68,30 +38,7 @@ export default async function Blog({ params: { lng } }: LocaleParams) {
         </div>
       </ArticleWrapper>
 
-      <ArticleWrapper>
-        <section className={blogposts}>
-          <ListHeading className={listHeading} align="left">
-            {t('postHeader')}
-          </ListHeading>
-          {posts.map((blogpost) => (
-            <BlogPostCard
-              locale={lng}
-              categoryName={categoriesMap.get(blogpost.categoryId)!}
-              key={blogpost.id}
-              {...blogpost}
-            />
-          ))}
-        </section>
-
-        <section className={blogpostsControls}>
-          <div className={controlsContainer}>
-            <Heading type="h2" className={controlInactive}>
-              {t('prevArrow')}
-            </Heading>
-            <Heading type="h4">{t('nextArrow')}</Heading>
-          </div>
-        </section>
-      </ArticleWrapper>
+      <BlogCarousel lng={lng} />
 
       <CategoryList
         title={t('categoriesHeader')}

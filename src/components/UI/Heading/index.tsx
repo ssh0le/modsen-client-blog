@@ -5,9 +5,14 @@ import styles from './styles.module.scss';
 
 const { wrapper } = styles;
 
-export const Heading = ({ type, children, className }: HeadingProps) => {
+export const Heading = ({
+  type,
+  children,
+  className,
+  onClick,
+}: HeadingProps) => {
   return (
-    <div className={wrapper}>
+    <div className={wrapper} onClick={onClick}>
       {React.createElement(type, { className }, children)}
     </div>
   );

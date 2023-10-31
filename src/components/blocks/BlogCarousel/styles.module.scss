@@ -1,0 +1,36 @@
+@use '../../../styles/variables.scss' as vars;
+
+.listHeading {
+  padding-bottom: 32px;
+  border-bottom: 1px solid vars.$color-medium-gray;
+}
+
+.blogposts {
+  @include vars.flexColumn();
+  gap: 64px;
+}
+
+.blogpostsControls {
+  display: flex;
+  justify-content: center;
+  gap: 17px;
+  margin-top: 64px;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 30px;
+  }
+
+  .controlsContainer {
+    max-width: 170px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 28px;
+  }
+
+  .controlInactive {
+    color: vars.$color-medium-gray;
+    transform: scale(0.9);
+  }
+}

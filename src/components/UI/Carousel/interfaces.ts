@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { ClickHandler } from '@/types';
 
 export interface CarouselProps<T> {
-  className: string;
+  className?: string;
   items: T[];
   renderControls: (
     onNextClick: ClickHandler,

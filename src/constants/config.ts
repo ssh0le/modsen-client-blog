@@ -6,3 +6,9 @@ export const config = {
   emailServiceId: process.env.NEXT_PUBLIC_SERVICE_ID as string,
   emailKey: process.env.NEXT_PUBLIC_PUBLIC_KEY as string,
 };
+
+export const breakPoints = {
+  mobile: 768,
+  tablet: 1000,
+  laptop: 1200,
+};

@@ -1,3 +1,4 @@
+import { breakPoints } from '@/constants';
 import { blogPosts } from '@/constants';
 import { BlogPost } from '@/types';
 
@@ -27,4 +28,27 @@ export const getPostFormattedDate = (date: Date): string => {
     month: 'long',
     day: 'numeric',
   }).format(date);
+};
+
+export const getPostByPages = (postsPerPage: number) => {
+  return blogPosts.reduce<BlogPost[][]>((pagesWithPosts, nextPost, index) => {
+    if (index % postsPerPage === 0) {
+      return [...pagesWithPosts, [nextPost]];
+    } else {
+      const lastPage = pagesWithPosts.pop()!;
+      return [...pagesWithPosts, [...lastPage, nextPost]];
+    }
+  }, []);
+};
+
+const { mobile, tablet } = breakPoints;
+
+export const getPostAmount = (windowWidth: number) => {
+  if (windowWidth < mobile) {
+    return 1;
+  } else if (windowWidth < tablet) {
+    return 2;
+  } else {
+    return 4;
+  }
 };
