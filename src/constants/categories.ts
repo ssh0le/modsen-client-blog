@@ -9,4 +9,4 @@ export const tags: Tag[] = [
   { name: 'Life', id: '6' },
 ];
 
-export const categories = [1, 2, 3, 4];
+export const categories = ['1', '2', '3', '4'];
