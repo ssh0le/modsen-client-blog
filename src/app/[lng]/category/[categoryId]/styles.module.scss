@@ -19,5 +19,21 @@
       margin-top: 16px;
       margin-bottom: 32px;
     }
+
+    @media screen and (max-width: 768px) {
+      padding: 20px;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    p {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    gap: 60px;
+    padding-bottom: 60px;
   }
 }

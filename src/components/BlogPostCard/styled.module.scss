@@ -43,8 +43,15 @@
     .imageContainer {
       @include vars.flexCenter;
 
+      height: fit-content;
+
       overflow: hidden;
       width: 100%;
+
+      img {
+        height: auto;
+        width: 100%;
+      }
     }
   }
 }

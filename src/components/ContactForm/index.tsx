@@ -35,6 +35,8 @@ const ContactForm = ({ lng }: LocaleComponentProps) => {
       userSchema,
     );
 
+  console.log(formParams);
+
   const [responseStatus, setResponseStatus] =
     useState<ResponseMessageStatus>('no');
 
@@ -45,23 +47,21 @@ const ContactForm = ({ lng }: LocaleComponentProps) => {
   const handleFormSubmit = (event: FormEvent) => {
     event.preventDefault();
     handleSubmit(() => {
-      setResponseStatus('success');
-      dispatch({ name: 'reset' });
+      const { value } = queryTopicsEn.find(
+        ({ key }) => key === formParams.queryTopic,
+      )!;
+      const requestData = {
+        ...formParams,
+        queryTopic: value,
+      };
+      emailjs
+        .send(emailServiceId, supportEmailTemplateId, requestData, emailKey)
+        .then(() => {
+          setResponseStatus('success');
+          dispatch({ name: 'reset' });
+        })
+        .catch(() => setResponseStatus('error'));
     });
-    const { value } = queryTopicsEn.find(
-      ({ key }) => key === formParams.queryTopic,
-    )!;
-    const requestData = {
-      ...formParams,
-      queryTopic: value,
-    };
-    emailjs
-      .send(emailServiceId, supportEmailTemplateId, requestData, emailKey)
-      .then(() => {
-        setResponseStatus('success');
-        dispatch({ name: 'reset' });
-      })
-      .catch(() => setResponseStatus('error'));
   };
 
   const handleFieldChange = (

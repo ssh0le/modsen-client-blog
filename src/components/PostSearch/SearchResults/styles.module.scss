@@ -5,6 +5,7 @@
   background-color: vars.$color-white;
   width: 100%;
   border: 1px solid vars.$color-medium-gray;
+  z-index: 100;
 
   .resultWrapper {
     padding: 0 5px;

@@ -5,5 +5,6 @@
   "tagsHeading": "All Tags",
   "routePrefix": "Blog > ",
   "notFoundMessage": "Posts weren't found",
-  "notFoundTags": "Tags weren't found"
+  "notFoundTags": "Tags weren't found",
+  "resultsHeading": "Results"
 }

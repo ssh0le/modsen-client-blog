@@ -1,6 +1,5 @@
 import { useTranslation } from '@/app/i18n';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
-import InfinityScroll from '@/components/InfinityScroll';
 import PostSearch from '@/components/PostSearch';
 import { categoryStatics } from '@/constants';
 import { Category } from '@/types';
@@ -25,20 +24,18 @@ export default async function Category({
 
   return (
     <div className={wrapper}>
-      <InfinityScroll>
-        <section className={heading}>
-          <DisplayText>{name}</DisplayText>
-          <BodyText type="body1">{headingMessage}</BodyText>
-          <Cap>
-            {t('routePrefix')}
-            {name}
-          </Cap>
-        </section>
+      <section className={heading}>
+        <DisplayText>{name}</DisplayText>
+        <BodyText type="body1">{headingMessage}</BodyText>
+        <Cap>
+          {t('routePrefix')}
+          {name}
+        </Cap>
+      </section>
 
-        <ArticleWrapper>
-          <PostSearch lng={lng} categoryId={categoryId} />
-        </ArticleWrapper>
-      </InfinityScroll>
+      <ArticleWrapper>
+        <PostSearch lng={lng} categoryId={categoryId} />
+      </ArticleWrapper>
     </div>
   );
 }

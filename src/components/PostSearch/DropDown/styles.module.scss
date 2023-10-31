@@ -1,0 +1,36 @@
+.wrapper {
+  overflow: hidden;
+
+  .headingStyle {
+    @media screen and (max-width: 768px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid black;
+      margin-bottom: 20px;
+    }
+  }
+
+  .content {
+    @media screen and (max-width: 768px) {
+      max-height: 0;
+      transition: max-height 0.3s linear;
+      visibility: hidden;
+    }
+  }
+
+  .content.active {
+    @media screen and (max-width: 768px) {
+      max-height: 400px;
+      visibility: visible;
+    }
+  }
+
+  .button {
+    display: none;
+
+    @media screen and (max-width: 768px) {
+      display: block;
+    }
+  }
+}

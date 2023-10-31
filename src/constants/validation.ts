@@ -16,5 +16,5 @@ export const userSchema = object<ContactFormFields>().shape({
     .required(requiredMessage)
     .min(4, wrongMessageLength)
     .max(100, wrongMessageLength),
-  queryTopic: string().required(requiredMessage),
+  queryTopic: string().required(requiredMessage).min(1, requiredMessage),
 });

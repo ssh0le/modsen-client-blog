@@ -14,6 +14,7 @@ import CategoryCard from '../CategoryCard';
 import Tag from '../Tag';
 import { CustomText, List, ListHeading } from '../UI';
 
+import DropDown from './DropDown';
 import { PostSearchProps } from './interfaces';
 import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
@@ -23,6 +24,8 @@ const {
   content,
   categoryList,
   categoryHeading,
+  categoryWrapper,
+  tagsWrapper,
   tagsHeading,
   search,
   resultsStyle,
@@ -107,6 +110,7 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
     <section className={content}>
       {filteredByTagsPosts.length > 0 ? (
         <div>
+          <ListHeading>{t('resultsHeading')}</ListHeading>
           <List
             options={filteredByTagsPosts}
             renderItem={renderBlogPost}
@@ -135,34 +139,44 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
             </div>
           )}
         </div>
-        <ListHeading className={categoryHeading} align="left">
-          {t('categoriesHeading')}
-        </ListHeading>
-        <section className={categoryList}>
-          {categories.map(({ id, name }) => (
-            <Link key={id} href={createLinkToCategory(lng, id)}>
-              <CategoryCard name={name} displayType="minimal" />
-            </Link>
-          ))}
-        </section>
 
-        <ListHeading className={tagsHeading} align="left">
-          {t('tagsHeading')}
-        </ListHeading>
+        <div className={categoryWrapper}>
+          <DropDown
+            heading={
+              <ListHeading className={categoryHeading} align="left">
+                {t('categoriesHeading')}
+              </ListHeading>
+            }
+          >
+            <section className={categoryList}>
+              {categories.map(({ id, name }) => (
+                <Link key={id} href={createLinkToCategory(lng, id)}>
+                  <CategoryCard name={name} displayType="minimal" />
+                </Link>
+              ))}
+            </section>
+          </DropDown>
+        </div>
 
-        <section className={tagsList}>
-          {tags.map((tag) => {
-            const { id } = tag;
-            return (
-              <Tag
-                onClick={handleTagClick}
-                key={id}
-                tag={tag}
-                isSelected={selectedTags.includes(id)}
-              />
-            );
-          })}
-        </section>
+        <div className={tagsWrapper}>
+          <ListHeading className={tagsHeading} align="left">
+            {t('tagsHeading')}
+          </ListHeading>
+
+          <section className={tagsList}>
+            {tags.map((tag) => {
+              const { id } = tag;
+              return (
+                <Tag
+                  onClick={handleTagClick}
+                  key={id}
+                  tag={tag}
+                  isSelected={selectedTags.includes(id)}
+                />
+              );
+            })}
+          </section>
+        </div>
       </aside>
     </section>
   );
