@@ -8,12 +8,17 @@ import PostCard from '@/components/PostCard';
 import {
   authorsAvatars,
   blogPosts,
-  categoriesIcons,
   defaultArticleContent,
   images,
 } from '@/constants';
 import { blogPostStatics } from '@/constants';
-import { getPostById, getPostFormattedDate, getPosts } from '@/helpers';
+import {
+  getCategoryIcon,
+  getLocaleCategories,
+  getPostById,
+  getPostFormattedDate,
+  getPosts,
+} from '@/helpers';
 import { BlogPost } from '@/types';
 import { CustomText, Heading, List, ListHeading } from '@UI';
 
@@ -35,7 +40,7 @@ const {
 
 const { blogPostHero } = images;
 const { jonathan } = authorsAvatars;
-const { datePrefix, category } = blogPostStatics;
+const { datePrefix } = blogPostStatics;
 const nextPostsLength = 3;
 
 export async function generateStaticParams() {
@@ -44,12 +49,18 @@ export async function generateStaticParams() {
 
 async function BlogPost({ params: { lng, postId } }: PostPageProps) {
   const { t } = await useTranslation(lng, 'blogPost');
+  const { t: tCommon } = await useTranslation(lng, 'common');
+
+  const categoriesMap = getLocaleCategories(
+    tCommon('categories', { returnObjects: true }),
+  );
 
   const renderPost = (post: BlogPost) => {
     return <PostCard key={post.title} {...post} />;
   };
 
-  const { title, author, date, id } = getPostById(postId);
+  const { title, author, date, id, categoryId } = getPostById(postId);
+  const postCategory = categoriesMap.get(categoryId)!;
   const nextPosts = getPosts(nextPostsLength, id);
 
   return (
@@ -74,8 +85,8 @@ async function BlogPost({ params: { lng, postId } }: PostPageProps) {
             {title}
           </Heading>
           <div className={categoryStyle}>
-            <Image src={categoriesIcons.startup} alt={category} />
-            <Heading type="h4">{category}</Heading>
+            <Image src={getCategoryIcon(categoryId)} alt={postCategory} />
+            <Heading type="h4">{postCategory}</Heading>
           </div>
         </div>
         <div className={heroImageContainer}>

@@ -49,12 +49,12 @@ export const mediaIcons = {
   twitter,
 };
 
-export const categoriesIcons = {
+export const categoriesIcons = [
   business,
   economy,
   startup,
   technology,
-} as const;
+] as const;
 
 export const images = {
   blogHero,

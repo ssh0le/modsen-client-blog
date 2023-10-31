@@ -26,7 +26,7 @@ export const CategoryList = ({
   const renderCategory = ({ id, name }: Category) => {
     return (
       <Link key={id} href={createLinkToCategory(locale, id)}>
-        <CategoryCard name={name} />
+        <CategoryCard id={id} name={name} />
       </Link>
     );
   };

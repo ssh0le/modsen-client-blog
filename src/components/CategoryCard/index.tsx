@@ -13,13 +13,17 @@ import styles from './styled.module.scss';
 
 const { container, minimal, image } = styles;
 
-const CategoryCard = ({ displayType = 'often', name }: CategoryCardProps) => {
+const CategoryCard = ({
+  displayType = 'often',
+  name,
+  id,
+}: CategoryCardProps) => {
   const isMinimal = displayType === 'minimal';
 
   return (
     <section className={`${container} ${isMinimal ? minimal : ''}`}>
       <div className={image}>
-        <Image src={getCategoryIcon(name)} alt={name} />
+        <Image src={getCategoryIcon(id)} alt={name} />
       </div>
       <Heading type="h3">{name}</Heading>
       {!isMinimal && <BodyText>{categoryDescription}</BodyText>}

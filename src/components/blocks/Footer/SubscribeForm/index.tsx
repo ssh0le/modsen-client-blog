@@ -31,7 +31,6 @@ const SubscribeForm = ({ lng }: LocaleComponentProps) => {
     const form = formRef.current;
     if (form) {
       handleSubmit(() => {
-        console.log('hello');
         emailjs
           .sendForm(emailServiceId, subscribeEmailTemplateId, form, emailKey)
           .then(() => setIsSubscribed(true))

@@ -178,7 +178,6 @@ export const privacyStatics = {
 
 export const blogPostStatics = {
   datePrefix: 'Posted on ',
-  category: 'Startup',
 };
 
 export const categoryDescription =

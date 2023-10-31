@@ -151,7 +151,7 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
             <section className={categoryList}>
               {categories.map(({ id, name }) => (
                 <Link key={id} href={createLinkToCategory(lng, id)}>
-                  <CategoryCard name={name} displayType="minimal" />
+                  <CategoryCard id={id} name={name} displayType="minimal" />
                 </Link>
               ))}
             </section>

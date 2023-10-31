@@ -33,8 +33,6 @@ export const BlogCarousel = ({ lng }: LocaleComponentProps) => {
   const postPerSlide = getPostAmount(width);
   const posts = useMemo(() => getPostByPages(postPerSlide), [postPerSlide]);
 
-  console.log(posts);
-
   const renderPost = (blogpost: BlogPost) => (
     <BlogPostCard
       locale={lng}
