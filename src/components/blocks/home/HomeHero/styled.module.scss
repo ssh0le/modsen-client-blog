@@ -56,6 +56,10 @@
       }
     }
 
+    @media screen and (max-width: 768px) {
+      gap: 10px;
+    }
+
     p {
       max-width: 600px;
       color: vars.$color-white;
