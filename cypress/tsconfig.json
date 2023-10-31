@@ -1,0 +1,13 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": ["cypress", "node"],
+    "isolatedModules": false,
+    "target": "es5",
+    "lib": ["es5", "dom", "es2017"],
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "jsx": "react-jsx"
+  },
+  "include": ["../node_modules/cypress", "./**/*.ts"]
+}

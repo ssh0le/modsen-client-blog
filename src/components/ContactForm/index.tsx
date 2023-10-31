@@ -35,8 +35,6 @@ const ContactForm = ({ lng }: LocaleComponentProps) => {
       userSchema,
     );
 
-  console.log(formParams);
-
   const [responseStatus, setResponseStatus] =
     useState<ResponseMessageStatus>('no');
 
