@@ -3,8 +3,13 @@
 .wrapper {
   @include vars.flexCenter;
 
-  height: 100%;
-  width: 100%;
+  background-color: vars.$color-white;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  position: fixed;
 }
 
 .loader {

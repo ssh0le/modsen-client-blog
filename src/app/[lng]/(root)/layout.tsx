@@ -1,8 +1,13 @@
-import { Footer, Header } from '@blocks';
+import { Header } from '@blocks';
 import type { Metadata } from 'next';
+import { lazy, Suspense } from 'react';
+
+import { Loader } from '@/components/UI';
 
 import { BaseLayoutProps } from './interfaces';
 import styles from './layoutStyles.module.scss';
+
+const Footer = lazy(() => import('@/components/blocks/Footer'));
 
 const { wrapper } = styles;
 
@@ -14,7 +19,9 @@ export default async function RootLayout({
     <>
       <Header lng={lng} />
       <main className={wrapper}>{children}</main>
-      <Footer lng={lng} />
+      <Suspense fallback={<Loader />}>
+        <Footer lng={lng} />
+      </Suspense>
     </>
   );
 }

@@ -20,19 +20,19 @@
       margin-bottom: 32px;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: vars.$breakpoint-mobile) {
       padding: 20px;
     }
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: vars.$breakpoint-tablet) {
     p {
       margin-top: 10px;
       margin-bottom: 10px;
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: vars.$breakpoint-mobile) {
     gap: 60px;
     padding-bottom: 60px;
   }

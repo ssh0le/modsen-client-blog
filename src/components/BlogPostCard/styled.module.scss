@@ -25,14 +25,14 @@
       margin-top: 20px;
       margin-bottom: 16px;
 
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: vars.$breakpoint-mobile) {
         margin-top: 10px;
         margin-bottom: 10px;
       }
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: vars.$breakpoint-mobile) {
     flex-direction: column;
 
     .imageContainer {

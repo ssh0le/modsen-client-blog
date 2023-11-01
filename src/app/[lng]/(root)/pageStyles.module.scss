@@ -6,7 +6,7 @@
 
   gap: 128px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: vars.$breakpoint-mobile) {
     gap: 60px;
   }
 }
@@ -16,7 +16,7 @@
   justify-content: space-between;
   align-items: center;
 
-  @media screen and (max-width: 1100px) {
+  @media screen and (max-width: vars.$breakpoint-laptop) {
     flex-wrap: wrap;
     justify-content: center;
     gap: 40px;

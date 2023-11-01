@@ -5,7 +5,7 @@
   padding: 32px 116px 25px 32px;
   gap: 8px;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: vars.$breakpoint-tablet) {
     padding: 32px;
   }
 

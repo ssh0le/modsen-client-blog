@@ -3,7 +3,7 @@
 .body1 {
   line-height: 28px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: vars.$breakpoint-mobile) {
     font-size: 14px;
   }
 }

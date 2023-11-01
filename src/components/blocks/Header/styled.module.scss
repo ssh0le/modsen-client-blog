@@ -4,7 +4,7 @@
   @include vars.flexCenter;
   background-color: vars.$color-black;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: vars.$breakpoint-tablet) {
     position: fixed;
     right: 0;
     top: 0;
@@ -44,11 +44,11 @@
   align-items: center;
   padding: 18px 80px 18px 56px;
 
-  @media screen and (max-width: 1100px) {
+  @media screen and (max-width: vars.$breakpoint-laptop) {
     padding: 10px 30px;
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: vars.$breakpoint-tablet) {
     flex-direction: column;
 
     h4 {
@@ -66,7 +66,7 @@
     gap: 36px;
     align-items: center;
 
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: vars.$breakpoint-tablet) {
       flex-direction: column;
 
       ul {
@@ -87,7 +87,7 @@
 .burgerBadge {
   display: none;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: vars.$breakpoint-tablet) {
     position: fixed;
     display: block;
     right: 0;

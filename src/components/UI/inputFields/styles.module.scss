@@ -13,7 +13,7 @@
     color: vars.$color-black;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: vars.$breakpoint-mobile) {
     padding: 15px;
   }
 }

@@ -1,3 +1,5 @@
+@use '../../styles/variables.scss' as vars;
+
 .container {
   padding: 32px;
   max-width: 296px;
@@ -23,7 +25,7 @@
     background-color: var(--yellow);
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: vars.$breakpoint-mobile) {
     padding: 20px;
     display: flex;
     justify-content: space-around;
@@ -52,7 +54,7 @@
     margin: 0;
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: vars.$breakpoint-tablet) {
     padding: 10px;
     gap: 10px;
   }

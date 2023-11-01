@@ -11,7 +11,7 @@
   h1 {
     @include heading(48px, 64px, -2px);
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: vars.$breakpoint-mobile) {
       @include heading(36px, 48px, -2px);
     }
   }
@@ -19,7 +19,7 @@
   h2 {
     @include heading(36px, 48px, -2px);
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: vars.$breakpoint-mobile) {
       @include heading(28px, 40px, -2px);
     }
   }
@@ -27,7 +27,7 @@
   h3 {
     @include heading(28px, 40px, -2px);
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: vars.$breakpoint-mobile) {
       @include heading(26px, 34px, -2px);
     }
   }
@@ -35,7 +35,7 @@
   h4 {
     @include heading(24px, 32px, normal);
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: vars.$breakpoint-mobile) {
       @include heading(20px, 32px, normal);
     }
   }

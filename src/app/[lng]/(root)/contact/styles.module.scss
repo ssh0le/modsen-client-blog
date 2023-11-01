@@ -11,7 +11,7 @@
     width: 100%;
     max-width: 768px;
 
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: vars.$breakpoint-tablet) {
       padding: 30px 20px;
     }
   }
@@ -47,7 +47,7 @@
       border-bottom: 1px solid vars.$color-light-gray;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: vars.$breakpoint-mobile) {
       flex-wrap: wrap;
 
       & > div {

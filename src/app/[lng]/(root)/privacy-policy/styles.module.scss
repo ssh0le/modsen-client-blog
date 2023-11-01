@@ -8,7 +8,7 @@
   gap: 4px;
   background-color: vars.$color-lavender;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: vars.$breakpoint-tablet) {
     padding: 40px 0;
   }
 }
@@ -26,11 +26,11 @@
     width: 768px;
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: vars.$breakpoint-tablet) {
     padding: 40px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: vars.$breakpoint-mobile) {
     padding: 20px;
 
     h2,

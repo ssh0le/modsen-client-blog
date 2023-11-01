@@ -5,7 +5,7 @@
 
   gap: 128px;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: vars.$breakpoint-tablet) {
     gap: 50px;
   }
 
@@ -34,7 +34,7 @@
       max-width: 477px;
     }
 
-    @media screen and (max-width: 1300px) {
+    @media screen and (max-width: vars.$breakpoint-computer-large) {
       margin-left: 0;
       margin-bottom: 80px;
       z-index: 0;
@@ -55,7 +55,7 @@
   }
 
   .hero {
-    @media screen and (max-width: 1100px) {
+    @media screen and (max-width: vars.$breakpoint-laptop) {
     }
 
     .heroImage {
@@ -63,12 +63,12 @@
       overflow: hidden;
       position: relative;
 
-      @media screen and (max-width: 1100px) {
+      @media screen and (max-width: vars.$breakpoint-laptop) {
         flex-direction: column;
         gap: 40px;
       }
 
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: vars.$breakpoint-mobile) {
         img {
           display: none;
         }
@@ -92,7 +92,7 @@
           @include vars.flexColumn();
         }
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: vars.$breakpoint-mobile) {
           flex-wrap: wrap;
           gap: 20px;
           justify-content: space-between;
@@ -104,7 +104,7 @@
         margin-top: -3px;
       }
 
-      @media screen and (max-width: 1100px) {
+      @media screen and (max-width: vars.$breakpoint-laptop) {
         position: static;
         padding-left: 0;
         margin-bottom: 50px;
@@ -131,11 +131,11 @@
       }
     }
 
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: vars.$breakpoint-computer) {
       padding: 80px;
     }
 
-    @media screen and (max-width: 1100px) {
+    @media screen and (max-width: vars.$breakpoint-laptop) {
       flex-direction: column;
 
       .mission:nth-child(2n) {
@@ -144,7 +144,7 @@
       }
     }
 
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: vars.$breakpoint-tablet) {
       padding: 30px;
 
       .mission:nth-child(n) {
@@ -159,13 +159,13 @@
     justify-content: space-between;
     align-items: center;
 
-    @media screen and (max-width: 1350px) {
+    @media screen and (max-width: vars.$breakpoint-computer-ultra-large) {
       gap: 40px;
       align-items: flex-start;
       flex-direction: row-reverse;
     }
 
-    @media screen and (max-width: 1100px) {
+    @media screen and (max-width: vars.$breakpoint-laptop) {
       flex-direction: column-reverse;
 
       & > div {
@@ -178,7 +178,7 @@
     gap: 64px;
     justify-content: flex-start;
 
-    @media screen and (max-width: 1100px) {
+    @media screen and (max-width: vars.$breakpoint-laptop) {
       flex-direction: column;
     }
   }

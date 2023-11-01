@@ -4,14 +4,14 @@
   gap: 32px;
   display: flex;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: vars.$breakpoint-tablet) {
     @include vars.flexColumn();
 
     align-items: center;
   }
 
   .selectedPost {
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: vars.$breakpoint-tablet) {
       @include vars.flexColumn();
 
       align-items: center;
@@ -41,7 +41,7 @@
           height: auto;
         }
 
-        @media screen and (max-width: 1100px) {
+        @media screen and (max-width: vars.$breakpoint-laptop) {
           max-width: 400px;
           height: fit-content;
         }
@@ -65,7 +65,7 @@
     gap: 32px;
     max-width: 517px;
 
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: vars.$breakpoint-tablet) {
       max-width: none;
     }
 

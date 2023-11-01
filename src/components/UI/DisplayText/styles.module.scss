@@ -8,7 +8,7 @@
   font-family: vars.$font-family-sen;
   text-transform: capitalize;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: vars.$breakpoint-mobile) {
     font-size: 40px;
     line-height: 48px;
   }

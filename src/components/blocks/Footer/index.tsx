@@ -26,7 +26,7 @@ const {
   media,
 } = styles;
 
-export const Footer = async ({ lng }: LocaleComponentProps) => {
+const Footer = async ({ lng }: LocaleComponentProps) => {
   const { t } = await useTranslation(lng, 'footer');
 
   return (
@@ -71,3 +71,5 @@ export const Footer = async ({ lng }: LocaleComponentProps) => {
     </div>
   );
 };
+
+export default Footer;
