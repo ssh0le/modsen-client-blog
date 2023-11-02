@@ -18,12 +18,10 @@ const Comment = ({ author, avatar, message, city }: IComment) => {
       <div className={user}>
         <Image src={avatar} alt={author} />
         <div className={userInfo}>
-          <h4>{author}</h4>
-          <div>
-            <CustomText color="medium-gray" weight="400">
-              {city}
-            </CustomText>
-          </div>
+          <Heading type="h4">{author}</Heading>
+          <CustomText color="medium-gray" weight="400">
+            {city}
+          </CustomText>
         </div>
       </div>
     </div>

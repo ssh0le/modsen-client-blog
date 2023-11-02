@@ -19,7 +19,7 @@
   padding-top: 128px;
   padding-bottom: 128px;
 
-  & > div {
+  & > .textWrapper {
     @include vars.flexColumn();
 
     gap: 32px;

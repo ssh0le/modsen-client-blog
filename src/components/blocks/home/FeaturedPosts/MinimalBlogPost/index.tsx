@@ -7,12 +7,10 @@ const { wrapper } = styles;
 
 const MinimalBlogPost = ({ author, date, title }: MinimalBlogPostProps) => {
   return (
-    <div>
-      <li className={wrapper}>
-        <AuthorAndDate author={author} date={date} color="medium-gray" />
-        <Heading type="h4">{title}</Heading>
-      </li>
-    </div>
+    <li className={wrapper}>
+      <AuthorAndDate author={author} date={date} color="medium-gray" />
+      <Heading type="h4">{title}</Heading>
+    </li>
   );
 };
 

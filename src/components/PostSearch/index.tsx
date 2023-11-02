@@ -31,6 +31,7 @@ const {
   resultsStyle,
   tagsList,
   noPosts,
+  postsList,
 } = styles;
 
 const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
@@ -135,7 +136,7 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
   return (
     <section className={content}>
       {filteredByTagsPosts.length > 0 ? (
-        <div>
+        <div className={postsList}>
           <ListHeading>{t('resultsHeading')}</ListHeading>
           <List
             options={filteredByTagsPosts}

@@ -44,11 +44,7 @@ const SubscribeForm = ({ lng }: LocaleComponentProps) => {
   };
 
   if (isSubscribed) {
-    return (
-      <section>
-        <CustomText color="yellow">{t('subscribedMessage')}</CustomText>
-      </section>
-    );
+    return <CustomText color="yellow">{t('subscribedMessage')}</CustomText>;
   }
 
   return (
@@ -58,7 +54,7 @@ const SubscribeForm = ({ lng }: LocaleComponentProps) => {
           className={input}
           value={formParams.email}
           onChange={handleEmailChange}
-          name="email"
+          name="subscribeEmail"
           type="text"
           placeholder={t('placeholder')}
         />

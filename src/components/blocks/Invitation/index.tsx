@@ -14,13 +14,11 @@ export const Invitation = async ({ lng }: InvitationProps) => {
 
   return (
     <ArticleWrapper contentClass={styles.invitation}>
-      <div>
-        <Heading type="h2">{t('joinInvitation')}</Heading>
-        <BodyText>{defaultSubheading}</BodyText>
-        <Link href={`/${lng}${routePathes.contact}`}>
-          <Button styleType="colored">{t('joinInvitationButton')}</Button>
-        </Link>
-      </div>
+      <Heading type="h2">{t('joinInvitation')}</Heading>
+      <BodyText>{defaultSubheading}</BodyText>
+      <Link href={`/${lng}${routePathes.contact}`}>
+        <Button styleType="colored">{t('joinInvitationButton')}</Button>
+      </Link>
     </ArticleWrapper>
   );
 };

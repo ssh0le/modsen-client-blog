@@ -76,51 +76,49 @@ const ContactForm = ({ lng }: LocaleComponentProps) => {
   };
 
   return (
-    <section>
-      <form className={form} onSubmit={handleFormSubmit}>
-        {contactUsForm.map((formItem, index) => {
-          const { name, placeholder } = formItem;
-          const error = errors[name] ?? '';
+    <form className={form} onSubmit={handleFormSubmit}>
+      {contactUsForm.map((formItem, index) => {
+        const { name, placeholder } = formItem;
+        const error = errors[name] ?? '';
 
-          return (
-            <ErrorWrapper key={index} error={error}>
-              {formItem.type === 'text' && (
-                <InputField
-                  placeholder={t(placeholder)}
-                  onChange={handleFieldChange}
-                  name={name}
-                  value={formParams[name]}
-                />
-              )}
-              {formItem.type === 'select' && (
-                <Select
-                  value={formParams[name]}
-                  placeholder={t(placeholder)}
-                  onChange={handleQueryTopicChange}
-                  options={t(formItem.options, { returnObjects: true })}
-                  name={name}
-                />
-              )}
-              {formItem.type === 'textarea' && (
-                <InputArea
-                  value={formParams[name]}
-                  rows={formItem.rows}
-                  placeholder={t(placeholder)}
-                  onChange={handleFieldChange}
-                  name={name}
-                />
-              )}
-            </ErrorWrapper>
-          );
-        })}
-        <Button type="submit" styleType="colored">
-          {t('sendButtonText')}
-        </Button>
-        <ResponseMessage isActive={responseStatus !== 'no'}>
-          {responseStatus === 'success' ? success : error}
-        </ResponseMessage>
-      </form>
-    </section>
+        return (
+          <ErrorWrapper key={index} error={error}>
+            {formItem.type === 'text' && (
+              <InputField
+                placeholder={t(placeholder)}
+                onChange={handleFieldChange}
+                name={name}
+                value={formParams[name]}
+              />
+            )}
+            {formItem.type === 'select' && (
+              <Select
+                value={formParams[name]}
+                placeholder={t(placeholder)}
+                onChange={handleQueryTopicChange}
+                options={t(formItem.options, { returnObjects: true })}
+                name={name}
+              />
+            )}
+            {formItem.type === 'textarea' && (
+              <InputArea
+                value={formParams[name]}
+                rows={formItem.rows}
+                placeholder={t(placeholder)}
+                onChange={handleFieldChange}
+                name={name}
+              />
+            )}
+          </ErrorWrapper>
+        );
+      })}
+      <Button type="submit" styleType="colored">
+        {t('sendButtonText')}
+      </Button>
+      <ResponseMessage isActive={responseStatus !== 'no'}>
+        {responseStatus === 'success' ? success : error}
+      </ResponseMessage>
+    </form>
   );
 };
 

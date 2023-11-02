@@ -53,6 +53,14 @@
     display: flex;
     align-items: center;
     gap: 4px;
+
+    h4 {
+      text-transform: capitalize;
+    }
+
+    .postInfo {
+      @include vars.flexColumn;
+    }
   }
 
   @media screen and (max-width: vars.$breakpoint-tablet) {

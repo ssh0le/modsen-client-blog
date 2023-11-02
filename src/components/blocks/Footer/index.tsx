@@ -30,44 +30,40 @@ const Footer = async ({ lng }: LocaleComponentProps) => {
   const { t } = await useTranslation(lng, 'footer');
 
   return (
-    <div>
-      <div className={wrapper}>
-        <footer className={footer}>
-          <section className={top}>
-            <Heading type="h4" className={blogNameStyle}>
-              {blogName}
-            </Heading>
-            <LinkList
-              lng={lng}
-              links={createLocaleLinks(
-                footerLinks,
-                t('links', { returnObjects: true }),
-              )}
-            />
-          </section>
-          <section className={body}>
-            <Heading type="h2">
-              <CustomText color="white">{t('heading')}</CustomText>
-            </Heading>
-            <SubscribeForm lng={lng} />
-          </section>
-          <div>
-            <section className={bottom}>
-              <div className={companyInfo}>
-                <BodyText>
-                  <CustomText color="white">{blogAdress}</CustomText>
-                </BodyText>
-                <BodyText>
-                  <CustomText color="white">
-                    {blogEmail} {blogPhone}
-                  </CustomText>
-                </BodyText>
-              </div>
-              <MediaLinkList className={media} />
-            </section>
+    <div className={wrapper}>
+      <footer className={footer}>
+        <section className={top}>
+          <Heading type="h4" className={blogNameStyle}>
+            {blogName}
+          </Heading>
+          <LinkList
+            lng={lng}
+            links={createLocaleLinks(
+              footerLinks,
+              t('links', { returnObjects: true }),
+            )}
+          />
+        </section>
+        <section className={body}>
+          <Heading type="h2">
+            <CustomText color="white">{t('heading')}</CustomText>
+          </Heading>
+          <SubscribeForm lng={lng} />
+        </section>
+        <section className={bottom}>
+          <div className={companyInfo}>
+            <BodyText>
+              <CustomText color="white">{blogAdress}</CustomText>
+            </BodyText>
+            <BodyText>
+              <CustomText color="white">
+                {blogEmail} {blogPhone}
+              </CustomText>
+            </BodyText>
           </div>
-        </footer>
-      </div>
+          <MediaLinkList className={media} />
+        </section>
+      </footer>
     </div>
   );
 };

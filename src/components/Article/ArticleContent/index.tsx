@@ -9,7 +9,7 @@ const { description, heading: headingStyle } = styles;
 
 const ArticleBlock = ({ heading, items }: ArticleBlockProps) => {
   return (
-    <div>
+    <section>
       <Heading type="h2" className={headingStyle}>
         {heading}
       </Heading>
@@ -22,7 +22,7 @@ const ArticleBlock = ({ heading, items }: ArticleBlockProps) => {
           }
         })}
       </div>
-    </div>
+    </section>
   );
 };
 

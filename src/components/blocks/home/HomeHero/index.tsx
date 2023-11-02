@@ -35,14 +35,12 @@ export const HomeHero = async ({ lng }: HomeHeroProps) => {
         <Image placeholder="blur" src={homeHero} alt={altTexts.homeHero} />
       </div>
       <div className={content}>
-        <div>
-          <span className={host}>
-            {t('cap')}
-            <CustomText color="white" weight="900">
-              {categoriesMap.get(categoryId)}
-            </CustomText>
-          </span>
-        </div>
+        <span className={host}>
+          {t('cap')}
+          <CustomText color="white" weight="900">
+            {categoriesMap.get(categoryId)}
+          </CustomText>
+        </span>
         <DisplayText>{title}</DisplayText>
         <AuthorAndDate
           color="white"

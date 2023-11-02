@@ -7,25 +7,25 @@ import { LocaleParams } from '@/types';
 import styles from './styles.module.scss';
 
 const { article, description, heading: headingText } = privacyStatics;
-const { heading, descriptionStyle } = styles;
+const { heading, descriptionStyle, textWrapper } = styles;
 
 const PrivacyPolicy = async ({ params: { lng } }: LocaleParams) => {
   const { t } = await useTranslation(lng, 'privacy');
   return (
-    <div>
+    <>
       <section className={heading}>
         <Heading type="h1">{t('heading')}</Heading>
         <CustomText>{t('lastUpdate')}</CustomText>
       </section>
 
       <section className={descriptionStyle}>
-        <div>
+        <div className={textWrapper}>
           <Heading type="h1">{headingText}</Heading>
           <BodyText>{description}</BodyText>
           <ArticleBlock heading={article.heading} items={article.items} />
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

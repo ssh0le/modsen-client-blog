@@ -25,7 +25,7 @@
       max-width: 160px;
     }
 
-    & > div {
+    .title {
       @include vars.flexColumn;
 
       align-items: center;

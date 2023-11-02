@@ -44,8 +44,7 @@
   }
 
   .arrow.active {
-    @include vars.baseInteractivity;
-
+    cursor: pointer;
     width: 62px;
     height: 62px;
     background-color: var(--black);

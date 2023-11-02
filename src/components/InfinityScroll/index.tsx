@@ -26,7 +26,7 @@ const InfinityScroll = ({ children, margin = '80px' }: InfinityScrollProps) => {
 
   const visibleChildren = useMemo(
     () => children.slice(0, currentBlock),
-    [children],
+    [children, currentBlock],
   );
 
   return (

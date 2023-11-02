@@ -85,7 +85,7 @@ export default async function About({ params: { lng } }: LocaleParams) {
                 {blogResults.map(({ heading, subheading }, index) => (
                   <div className={result} key={index}>
                     <DisplayText>{heading}</DisplayText>
-                    <span>{subheading}</span>
+                    <BodyText>{subheading}</BodyText>
                   </div>
                 ))}
               </div>

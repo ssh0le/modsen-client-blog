@@ -8,7 +8,15 @@ import { BodyText, Cap, CustomText, Heading } from '@UI';
 
 import styles from './styles.module.scss';
 
-const { content, heading, contactInfo, infoHeading, map, contact } = styles;
+const {
+  content,
+  heading,
+  contactInfo,
+  infoHeading,
+  map,
+  contact,
+  contactInfoColumn,
+} = styles;
 
 const Contact = async ({ params: { lng } }: LocaleParams) => {
   const { t } = await useTranslation(lng, 'contact');
@@ -27,23 +35,22 @@ const Contact = async ({ params: { lng } }: LocaleParams) => {
           <BodyText>{contactStatics.subheading}</BodyText>
         </section>
 
-        <div>
-          <section className={contactInfo}>
-            <div>
-              <div className={infoHeading}>{t('workingHoursHeading')}</div>
-              <Heading type="h5">{t('workingHoursDays')}</Heading>
-              <Heading type="h5">{t('workingHoursTime')}</Heading>
-              <BodyText>{t('workingHoursSupport')}</BodyText>
-            </div>
-            <div>
-              <div className={infoHeading}>{t('contactHeading')}</div>
-              <Heading type="h5">{blogPhone}</Heading>
-              <BodyText>{blogEmail}</BodyText>
-            </div>
-          </section>
+        <section className={contactInfo}>
+          <div className={contactInfoColumn}>
+            <div className={infoHeading}>{t('workingHoursHeading')}</div>
+            <Heading type="h5">{t('workingHoursDays')}</Heading>
+            <Heading type="h5">{t('workingHoursTime')}</Heading>
+            <BodyText>{t('workingHoursSupport')}</BodyText>
+          </div>
 
-          <ContactForm lng={lng} />
-        </div>
+          <div className={contactInfoColumn}>
+            <div className={infoHeading}>{t('contactHeading')}</div>
+            <Heading type="h5">{blogPhone}</Heading>
+            <BodyText>{blogEmail}</BodyText>
+          </div>
+        </section>
+
+        <ContactForm lng={lng} />
       </section>
 
       <section className={map}>

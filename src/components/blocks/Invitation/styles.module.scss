@@ -1,22 +1,24 @@
 @use '../../../styles/variables.scss' as vars;
 
 .invitation {
-  margin-bottom: 128px;
+  @include vars.flexCenter();
 
-  div {
-    @include vars.flexCenter();
-    margin: auto;
+  padding-bottom: 128px;
+  margin: auto;
+  flex-direction: column;
+  text-align: center;
+
+  h2,
+  p {
     max-width: 414px;
-    flex-direction: column;
-    text-align: center;
+  }
 
-    p {
-      margin-top: 16px;
-      margin-bottom: 32px;
-    }
+  p {
+    margin-top: 16px;
+    margin-bottom: 32px;
+  }
 
-    a {
-      width: fit-content;
-    }
+  a {
+    width: fit-content;
   }
 }

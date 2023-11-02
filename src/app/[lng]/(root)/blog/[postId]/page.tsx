@@ -30,6 +30,7 @@ const {
   nextReadHeading,
   postblog,
   main,
+  postInfo,
   author: authorStyle,
   heading,
   article,
@@ -68,12 +69,11 @@ async function BlogPost({ params: { lng, postId } }: PostPageProps) {
   return (
     <div className={postblog}>
       <ArticleWrapper contentClass={main}>
-        <div className={innerHeading}>
+        <section className={innerHeading}>
           <div className={authorStyle}>
-            <div>
-              <Image placeholder="blur" src={jonathan} alt={author} />
-            </div>
-            <div>
+            <Image placeholder="blur" src={jonathan} alt={author} />
+
+            <div className={postInfo}>
               <Heading type="h3">
                 <CustomText color="purple">{author}</CustomText>
               </Heading>
@@ -90,24 +90,22 @@ async function BlogPost({ params: { lng, postId } }: PostPageProps) {
             <Image src={getCategoryIcon(categoryId)} alt={postCategory} />
             <Heading type="h4">{postCategory}</Heading>
           </div>
-        </div>
+        </section>
         <div className={heroImageContainer}>
           <Image placeholder="blur" src={blogPostHero} alt={author} />
         </div>
-        <div className={article}>
+        <section className={article}>
           <Article contentBlocks={defaultArticleContent} />
-        </div>
+        </section>
       </ArticleWrapper>
 
       <ArticleWrapper>
-        <div>
-          <ListHeading className={nextReadHeading} align="left">
-            {t('readNextHeading')}
-          </ListHeading>
-          <div className={list}>
-            <List options={nextPosts} renderItem={renderPost} />
-          </div>
-        </div>
+        <ListHeading className={nextReadHeading} align="left">
+          {t('readNextHeading')}
+        </ListHeading>
+        <section className={list}>
+          <List options={nextPosts} renderItem={renderPost} />
+        </section>
       </ArticleWrapper>
 
       <Invitation lng={lng} />

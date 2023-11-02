@@ -21,49 +21,47 @@ import { useTranslation } from '../../i18n';
 
 import styles from './pageStyles.module.scss';
 
-const { sponsors, home } = styles;
+const { sponsors, home, title } = styles;
 
 export default async function Home({ params: { lng } }: LocaleParams) {
   const { t } = await useTranslation(lng, 'home');
 
   return (
-    <>
-      <div className={home}>
-        <InfinityScroll>
-          <HomeHero lng={lng} />
+    <div className={home}>
+      <InfinityScroll>
+        <HomeHero lng={lng} />
 
-          <FeaturedPosts lng={lng} />
+        <FeaturedPosts lng={lng} />
 
-          <Missions lng={lng} />
+        <Missions lng={lng} />
 
-          <CategoryList title={t('categoriesList')} locale={lng} />
+        <CategoryList title={t('categoriesList')} locale={lng} />
 
-          <Reason lng={lng} />
+        <Reason lng={lng} />
 
-          <ArticleWrapper>
-            <ListHeading>{t('authorsHeading')}</ListHeading>
-            <AuthorList authors={authors.slice(0, 4)} />
-          </ArticleWrapper>
+        <ArticleWrapper>
+          <ListHeading>{t('authorsHeading')}</ListHeading>
+          <AuthorList authors={authors.slice(0, 4)} />
+        </ArticleWrapper>
 
-          <ArticleWrapper contentClass={sponsors}>
-            <div>
-              <BodyText type="body2">{t('sponsorsCap')}</BodyText>
-              <Heading type="h4">{t('sponsorsHeading')}</Heading>
-            </div>
-            {logos.map((logo, index) => (
-              <Image
-                key={index}
-                src={logo}
-                alt={`${altTexts.homeSponsorPrfix}${index + 1}`}
-              />
-            ))}
-          </ArticleWrapper>
+        <ArticleWrapper contentClass={sponsors}>
+          <div className={title}>
+            <BodyText type="body2">{t('sponsorsCap')}</BodyText>
+            <Heading type="h4">{t('sponsorsHeading')}</Heading>
+          </div>
+          {logos.map((logo, index) => (
+            <Image
+              key={index}
+              src={logo}
+              alt={`${altTexts.homeSponsorPrfix}${index + 1}`}
+            />
+          ))}
+        </ArticleWrapper>
 
-          <HomeComments lng={lng} />
+        <HomeComments lng={lng} />
 
-          <Invitation lng={lng} />
-        </InfinityScroll>
-      </div>
-    </>
+        <Invitation lng={lng} />
+      </InfinityScroll>
+    </div>
   );
 }
