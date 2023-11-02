@@ -9,9 +9,8 @@ import styles from './styles.module.scss';
 const { media } = styles;
 
 export const MediaLinkList = ({ className }: MediaLinks) => {
-  const extraClass = className ?? '';
   return (
-    <ul className={`${media} ${extraClass}`}>
+    <ul className={`${media} ${className ?? ''}`}>
       {mediaLinks.map(({ title, path }, index) => (
         <li key={index}>
           <Link href={path}>

@@ -9,8 +9,8 @@ export const ArticleWrapper = ({
   contentClass,
 }: SectionWrapperProps) => {
   return (
-    <article className={`${wrapper} ${wrapperClass}`}>
-      <div className={`${content} ${contentClass}`}>{children}</div>
+    <article className={`${wrapper} ${wrapperClass ?? ''}`}>
+      <div className={`${content} ${contentClass ?? ''}`}>{children}</div>
     </article>
   );
 };

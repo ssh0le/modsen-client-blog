@@ -9,10 +9,12 @@ export function List<T>({
   direction,
   className,
 }: ListProps<T>) {
-  const columnClass = direction === 'column' ? column : '';
-  const extraClass = className ?? '';
   return (
-    <section className={`${list} ${columnClass} ${extraClass}`}>
+    <section
+      className={`${list} ${direction === 'column' ? column : ''} ${
+        className ?? ''
+      }`}
+    >
       {options.map(renderItem)}
     </section>
   );
