@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { lazy, Suspense } from 'react';
 
 import { Loader } from '@/components/UI';
+import { metaDataHome } from '@/constants';
 
 import { BaseLayoutProps } from './interfaces';
 import styles from './layoutStyles.module.scss';
@@ -26,7 +27,4 @@ export default async function RootLayout({
   );
 }
 
-export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'Modsen Clien Blog',
-};
+export const metadata: Metadata = metaDataHome;

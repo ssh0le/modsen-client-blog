@@ -2,6 +2,7 @@ import { useTranslation } from '@/app/i18n';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import PostSearch from '@/components/PostSearch';
 import { categories, categoryStatics } from '@/constants';
+import { getLocaleCategories } from '@/helpers';
 import { Category } from '@/types';
 import { BodyText, Cap, DisplayText } from '@UI';
 
@@ -24,18 +25,20 @@ export default async function Category({
   const { t } = await useTranslation(lng, 'category');
   const { t: tCommon } = await useTranslation(lng, 'common');
 
-  const categories: Category[] = tCommon('categories', { returnObjects: true });
+  const categories = getLocaleCategories(
+    tCommon('categories', { returnObjects: true }),
+  );
 
-  const { name } = categories.find(({ id }) => id === categoryId)!;
+  const categoryName = categories.get(categoryId);
 
   return (
     <div className={wrapper}>
       <section className={heading}>
-        <DisplayText>{name}</DisplayText>
+        <DisplayText>{categoryName}</DisplayText>
         <BodyText type="body1">{headingMessage}</BodyText>
         <Cap>
           {t('routePrefix')}
-          {name}
+          {categoryName}
         </Cap>
       </section>
 

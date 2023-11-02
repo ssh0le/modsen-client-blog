@@ -3,9 +3,15 @@ import Link from 'next/link';
 
 import { useTranslation } from '@/app/i18n';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
-import { AuthorAndDate, BodyText, Button, DisplayText } from '@/components/UI';
+import {
+  AuthorAndDate,
+  BodyText,
+  Button,
+  CustomText,
+  DisplayText,
+} from '@/components/UI';
 import { altTexts, images, routePathes } from '@/constants';
-import { getHomePost } from '@/helpers';
+import { getHomePost, getLocaleCategories } from '@/helpers';
 
 import { HomeHeroProps } from './interfaces';
 import styles from './styled.module.scss';
@@ -17,7 +23,10 @@ const { hero, overlay, content, host, image } = styles;
 export const HomeHero = async ({ lng }: HomeHeroProps) => {
   const { t } = await useTranslation(lng, 'home');
   const { t: tCommon } = await useTranslation(lng, 'common');
-  const { description, author, date, id, title } = getHomePost();
+  const { description, author, date, id, title, categoryId } = getHomePost();
+  const categoriesMap = getLocaleCategories(
+    tCommon('categories', { returnObjects: true }),
+  );
 
   return (
     <ArticleWrapper contentClass={hero}>
@@ -29,7 +38,9 @@ export const HomeHero = async ({ lng }: HomeHeroProps) => {
         <div>
           <span className={host}>
             {t('cap')}
-            <span>startup</span>
+            <CustomText color="white" weight="900">
+              {categoriesMap.get(categoryId)}
+            </CustomText>
           </span>
         </div>
         <DisplayText>{title}</DisplayText>

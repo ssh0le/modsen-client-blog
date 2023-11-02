@@ -1,17 +1,16 @@
 'use client';
 
-import { FC, useEffect } from 'react';
+import { useEffect } from 'react';
 
+import { errorPageStatics } from '@/constants';
 import { Button, Heading } from '@UI';
 
 import styles from './error.module.scss';
+import { ErrorPageProps } from './interfaces';
 
-interface ErrorProps {
-  error: Error & { digest?: string };
-  reset: () => void;
-}
+const { message, resetButtonText } = errorPageStatics;
 
-const Error: FC<ErrorProps> = ({ error, reset }) => {
+const Error = ({ error, reset }: ErrorPageProps) => {
   useEffect(() => {
     console.error(error);
   }, [error]);
@@ -22,9 +21,9 @@ const Error: FC<ErrorProps> = ({ error, reset }) => {
 
   return (
     <section className={styles.wrapper}>
-      <Heading type="h1">Something went wrong...</Heading>
+      <Heading type="h1">{message}</Heading>
       <Button styleType="colored" onClick={handleResetClick}>
-        Try to reset
+        {resetButtonText}
       </Button>
     </section>
   );

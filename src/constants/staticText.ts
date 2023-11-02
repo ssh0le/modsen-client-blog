@@ -239,3 +239,18 @@ export const altTexts = {
   leftArrowAlt: 'Left arrow',
   rightArrowAlt: 'rightArrow',
 };
+
+export const notFoundPageStatics = {
+  message: '404',
+  backToHomeButton: 'Back to Home',
+};
+
+export const errorPageStatics = {
+  message: 'Something went wrong...',
+  resetButtonText: 'Try to reset',
+};
+
+export const metaDataHome = {
+  title: 'Blog',
+  description: 'Modsen Client Blog',
+};

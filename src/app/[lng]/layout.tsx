@@ -3,6 +3,8 @@ import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import { Inter, Sen } from 'next/font/google';
 
+import { metaDataHome } from '@/constants';
+
 import { languages } from '../i18n/settings';
 
 import '@/styles/global.scss';
@@ -44,7 +46,4 @@ export default async function RootLayout({
   );
 }
 
-export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'Modsen Clien Blog',
-};
+export const metadata: Metadata = metaDataHome;
