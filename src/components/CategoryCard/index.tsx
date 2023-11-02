@@ -18,15 +18,15 @@ const CategoryCard = ({
   name,
   id,
 }: CategoryCardProps) => {
-  const isMinimal = displayType === 'minimal';
+  const isMinimalDisplayType = displayType === 'minimal';
 
   return (
-    <section className={`${container} ${isMinimal ? minimal : ''}`}>
+    <section className={`${container} ${isMinimalDisplayType ? minimal : ''}`}>
       <div className={image}>
         <Image src={getCategoryIcon(id)} alt={name} />
       </div>
       <Heading type="h3">{name}</Heading>
-      {!isMinimal && <BodyText>{categoryDescription}</BodyText>}
+      {!isMinimalDisplayType && <BodyText>{categoryDescription}</BodyText>}
     </section>
   );
 };
