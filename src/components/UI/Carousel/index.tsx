@@ -1,13 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { memo, useState } from 'react';
 
 import { CarouselProps } from './interfaces';
 import styles from './styles.module.scss';
 
 const { wrapper, slide, displayWindow, slides } = styles;
 
-export const Carousel = <T,>({
+const GenericCarousel = <T,>({
   renderControls,
   renderItem,
   className,
@@ -59,3 +59,5 @@ export const Carousel = <T,>({
     </div>
   );
 };
+
+export const Carousel = memo(GenericCarousel) as typeof GenericCarousel;

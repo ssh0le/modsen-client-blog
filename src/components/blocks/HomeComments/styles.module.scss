@@ -1,4 +1,4 @@
-@use '../../../styles/variables.scss' as vars;
+@use '@/styles/variables.scss' as vars;
 
 .wrapper {
   background-color: vars.$color-light-yellow;
@@ -44,6 +44,8 @@
   }
 
   .arrow.active {
+    @include vars.baseInteractivity;
+
     width: 62px;
     height: 62px;
     background-color: var(--black);

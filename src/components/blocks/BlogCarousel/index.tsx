@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 
 import { useTranslation } from '@/app/i18n/client';
 import BlogPostCard from '@/components/BlogPostCard';
@@ -26,53 +26,68 @@ export const BlogCarousel = ({ lng }: LocaleComponentProps) => {
   const { t: tCommon } = useTranslation(lng, 'common');
   const width = useWindowWidth();
 
-  const categoriesMap = getLocaleCategories(
-    tCommon('categories', { returnObjects: true }),
+  const categoriesMap = useMemo(
+    () => getLocaleCategories(tCommon('categories', { returnObjects: true })),
+    [],
   );
 
   const postPerSlide = getPostAmount(width);
-  const posts = useMemo(() => getPostByPages(postPerSlide), [postPerSlide]);
-
-  const renderPost = (blogpost: BlogPost) => (
-    <BlogPostCard
-      locale={lng}
-      categoryName={categoriesMap.get(blogpost.categoryId)!}
-      key={blogpost.id}
-      {...blogpost}
-    />
+  const groupedByPagesPosts = useMemo(
+    () => getPostByPages(postPerSlide),
+    [postPerSlide],
   );
 
-  const renderSlide = (posts: BlogPost[]) => {
-    return <List direction="column" options={posts} renderItem={renderPost} />;
-  };
+  const renderPost = useCallback(
+    (blogpost: BlogPost) => (
+      <BlogPostCard
+        locale={lng}
+        categoryName={categoriesMap.get(blogpost.categoryId)!}
+        key={blogpost.id}
+        {...blogpost}
+      />
+    ),
+    [categoriesMap, lng],
+  );
 
-  const renderControls = (
-    onNextClick: ClickHandler,
-    onPrevClick: ClickHandler,
-    hasNext: boolean,
-    hasPrev: boolean,
-  ) => {
-    return (
-      <section className={blogpostsControls}>
-        <div className={controlsContainer}>
-          <Heading
-            type="h4"
-            onClick={onPrevClick}
-            className={`${hasPrev ? '' : controlInactive}`}
-          >
-            {t('prevArrow')}
-          </Heading>
-          <Heading
-            type="h4"
-            onClick={onNextClick}
-            className={`${hasNext ? '' : controlInactive}`}
-          >
-            {t('nextArrow')}
-          </Heading>
-        </div>
-      </section>
-    );
-  };
+  const renderSlide = useCallback(
+    (posts: BlogPost[]) => {
+      return (
+        <List direction="column" options={posts} renderItem={renderPost} />
+      );
+    },
+    [renderPost],
+  );
+
+  const renderControls = useCallback(
+    (
+      onNextClick: ClickHandler,
+      onPrevClick: ClickHandler,
+      hasNext: boolean,
+      hasPrev: boolean,
+    ) => {
+      return (
+        <section className={blogpostsControls}>
+          <div className={controlsContainer}>
+            <Heading
+              type="h4"
+              onClick={onPrevClick}
+              className={`${hasPrev ? '' : controlInactive}`}
+            >
+              {t('prevArrow')}
+            </Heading>
+            <Heading
+              type="h4"
+              onClick={onNextClick}
+              className={`${hasNext ? '' : controlInactive}`}
+            >
+              {t('nextArrow')}
+            </Heading>
+          </div>
+        </section>
+      );
+    },
+    [],
+  );
 
   return (
     <ArticleWrapper>
@@ -81,7 +96,7 @@ export const BlogCarousel = ({ lng }: LocaleComponentProps) => {
           {t('postHeader')}
         </ListHeading>
         <Carousel
-          items={posts}
+          items={groupedByPagesPosts}
           renderControls={renderControls}
           renderItem={renderSlide}
           className={''}

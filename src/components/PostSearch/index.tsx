@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ChangeEvent, useEffect, useMemo, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useMemo, useState } from 'react';
 
 import { useTranslation } from '@/app/i18n/client';
 import { blogPosts, tags } from '@/constants';
@@ -65,18 +65,26 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
         )
       : filteredByCategoryPosts;
 
-  const categories = tCommon('categories', {
+  const categoriesArray = tCommon('categories', {
     returnObjects: true,
   }) as Category[];
 
-  const categoriesMap = getLocaleCategories(categories);
+  const categoriesMap = getLocaleCategories(categoriesArray);
 
-  const name = categoriesMap.get(categoryId)!;
+  const categoryName = categoriesMap.get(categoryId)!;
 
   const results = searchTags(query);
 
-  const renderBlogPost = (post: BlogPost) => (
-    <BlogPostCard locale={lng} categoryName={name} key={post.id} {...post} />
+  const renderBlogPost = useCallback(
+    (post: BlogPost) => (
+      <BlogPostCard
+        locale={lng}
+        categoryName={categoryName}
+        key={post.id}
+        {...post}
+      />
+    ),
+    [lng, categoryName],
   );
 
   const handleQueryChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -149,7 +157,7 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
             }
           >
             <section className={categoryList}>
-              {categories.map(({ id, name }) => (
+              {categoriesArray.map(({ id, name }) => (
                 <Link key={id} href={createLinkToCategory(lng, id)}>
                   <CategoryCard id={id} name={name} displayType="minimal" />
                 </Link>
