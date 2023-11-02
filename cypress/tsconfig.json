@@ -8,5 +8,5 @@
     "esModuleInterop": true,
     "jsx": "react-jsx"
   },
-  "include": ["../node_modules/cypress", "./**/*cy.ts"]
+  "include": ["../node_modules/cypress", "./**/*.ts"]
 }
