@@ -4,7 +4,7 @@ import { useTranslation } from '@/app/i18n';
 import { defaultReasonText, postText } from '@/constants';
 import { createLinkToAbout } from '@/helpers';
 import { LocaleComponentProps } from '@/types';
-import { BodyText, Cap, CustomText, Heading, Pattern } from '@UI';
+import { BodyText, Cap, CustomText, DecorationBar, Heading } from '@UI';
 
 import { ArticleWrapper } from '../../ArticleWrapper';
 
@@ -20,7 +20,7 @@ export const Missions = async ({ lng }: LocaleComponentProps) => {
   return (
     <ArticleWrapper contentClass={mission} wrapperClass={wrapper}>
       <div className={pattern}>
-        <Pattern />
+        <DecorationBar />
       </div>
       <section className={missionBody}>
         <section className={missionItem}>

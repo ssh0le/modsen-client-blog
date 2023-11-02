@@ -17,11 +17,11 @@ import { Author, LocaleParams } from '@/types';
 import {
   BodyText,
   Cap,
+  DecorationBar,
   DisplayText,
   Heading,
   List,
   ListHeading,
-  Pattern,
 } from '@UI';
 
 import styles from './styles.module.scss';
@@ -91,7 +91,7 @@ export default async function About({ params: { lng } }: LocaleParams) {
                 ))}
               </section>
               <div className={pattern}>
-                <Pattern direction="reverse" />
+                <DecorationBar direction="reverse" />
               </div>
             </section>
           </section>

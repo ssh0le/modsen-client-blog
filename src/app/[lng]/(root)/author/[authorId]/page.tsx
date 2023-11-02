@@ -14,11 +14,11 @@ import { getLocaleCategories } from '@/helpers';
 import { BlogPost } from '@/types';
 import {
   BodyText,
+  DecorationBar,
   Heading,
   List,
   ListHeading,
   MediaLinkList,
-  Pattern,
 } from '@UI';
 
 import { AuthorPageProps } from './interfaces';
@@ -86,7 +86,7 @@ const AuthorDetails = async ({
             <MediaLinkList className={links} />
           </section>
           <div className={patternContainer}>
-            <Pattern />
+            <DecorationBar />
           </div>
         </section>
       </ArticleWrapper>

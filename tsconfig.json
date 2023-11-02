@@ -1,14 +1,7 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "types": [
-      "jest",
-      "node"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["jest", "node"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -27,15 +20,9 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@blocks": [
-        "./src/components/blocks/index.ts"
-      ],
-      "@UI": [
-        "./src/components/UI/index.ts"
-      ]
+      "@/*": ["./src/*"],
+      "@blocks": ["./src/components/blocks/index.ts"],
+      "@UI": ["./src/components/UI/index.ts"]
     },
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -48,8 +35,5 @@
     "src",
     "__tests__"
   ],
-  "exclude": [
-    "src/*.cy.ts",
-    "node_modules"
-  ]
+  "exclude": ["src/*.cy.ts", "node_modules"]
 }
