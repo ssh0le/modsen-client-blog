@@ -1,10 +1,16 @@
-@use '../../../styles/variables.scss' as vars;
+@use '@/styles/variables.scss' as vars;
+
+$bottom-border-width: 2px;
 
 @mixin button-style($base-back, $hover-back) {
+  @include vars.baseInteractivity();
+
   background-color: $base-back;
+  border-bottom: $bottom-border-width solid transparent;
 
   &:hover {
     background-color: $hover-back;
+    border-bottom: $bottom-border-width solid vars.$color-purple;
   }
 }
 

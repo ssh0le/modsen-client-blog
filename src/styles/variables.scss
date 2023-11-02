@@ -65,3 +65,12 @@ $breakpoint-computer-ultra-large: 1300px;
   font-weight: 700;
   font-family: var(--font-sen);
 }
+
+@mixin baseInteractivity {
+  cursor: pointer;
+  transition: transform 0.3s linear;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
