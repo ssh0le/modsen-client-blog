@@ -11,7 +11,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "cypress:open": "cypress open",
-    "test": "jest"
+    "test": "jest",
+    "prettier": "prettier . -c"
   },
   "resolutions": {
     "jackspeak": "2.1.1"
