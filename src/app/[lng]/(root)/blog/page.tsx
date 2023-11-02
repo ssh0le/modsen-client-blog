@@ -34,7 +34,7 @@ export default async function Blog({ params: { lng } }: LocaleParams) {
           </Link>
         </section>
         <div className={imageContainer}>
-          <Image src={image} alt={title} />
+          <Image placeholder="blur" src={image} alt={title} />
         </div>
       </ArticleWrapper>
 

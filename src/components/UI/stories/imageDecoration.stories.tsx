@@ -5,6 +5,8 @@ import { ImageDecoration } from '..';
 
 import image from './assets/reason1.jpg';
 
+const imageAlt = 'example';
+
 const meta = {
   title: 'Example/ImageDecoration',
   component: ImageDecoration,
@@ -18,7 +20,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const children = <Image src={image} alt="example" />;
+const children = <Image src={image} alt={imageAlt} />;
 
 export const Circle: Story = {
   args: {

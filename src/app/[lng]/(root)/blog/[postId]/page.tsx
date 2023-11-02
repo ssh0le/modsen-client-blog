@@ -71,7 +71,7 @@ async function BlogPost({ params: { lng, postId } }: PostPageProps) {
         <div className={innerHeading}>
           <div className={authorStyle}>
             <div>
-              <Image src={jonathan} alt={author} />
+              <Image placeholder="blur" src={jonathan} alt={author} />
             </div>
             <div>
               <Heading type="h3">
@@ -92,7 +92,7 @@ async function BlogPost({ params: { lng, postId } }: PostPageProps) {
           </div>
         </div>
         <div className={heroImageContainer}>
-          <Image src={blogPostHero} alt={author} />
+          <Image placeholder="blur" src={blogPostHero} alt={author} />
         </div>
         <div className={article}>
           <Article contentBlocks={defaultArticleContent} />

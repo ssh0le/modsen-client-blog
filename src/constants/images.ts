@@ -62,10 +62,10 @@ export const images = {
   blogPostHero,
   post1,
   reason: reasonHome,
-  reason1,
-  reason2,
   aboutHero,
 };
+
+export const reasonImages = [reason1, reason2];
 
 export const authorsAvatars = {
   floyd,

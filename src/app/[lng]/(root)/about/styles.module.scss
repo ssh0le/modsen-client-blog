@@ -153,33 +153,4 @@
       }
     }
   }
-
-  .reason {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    @media screen and (max-width: vars.$breakpoint-computer-ultra-large) {
-      gap: 40px;
-      align-items: flex-start;
-      flex-direction: row-reverse;
-    }
-
-    @media screen and (max-width: vars.$breakpoint-laptop) {
-      flex-direction: column-reverse;
-
-      & > div {
-        align-self: center;
-      }
-    }
-  }
-
-  .reason.alt {
-    gap: 64px;
-    justify-content: flex-start;
-
-    @media screen and (max-width: vars.$breakpoint-laptop) {
-      flex-direction: column;
-    }
-  }
 }

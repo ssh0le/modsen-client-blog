@@ -13,7 +13,7 @@ import Image from 'next/image';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import InfinityScroll from '@/components/InfinityScroll';
 import { BodyText, Heading, ListHeading } from '@/components/UI';
-import { authors } from '@/constants';
+import { altTexts, authors } from '@/constants';
 import { logos } from '@/constants/images';
 import { LocaleParams } from '@/types';
 
@@ -51,7 +51,11 @@ export default async function Home({ params: { lng } }: LocaleParams) {
               <Heading type="h4">{t('sponsorsHeading')}</Heading>
             </div>
             {logos.map((logo, index) => (
-              <Image key={index} src={logo} alt={`logo${index + 1}`} />
+              <Image
+                key={index}
+                src={logo}
+                alt={`${altTexts.homeSponsorPrfix}${index + 1}`}
+              />
             ))}
           </ArticleWrapper>
 

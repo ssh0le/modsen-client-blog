@@ -229,3 +229,13 @@ export const contactUsForm = [
     rows: 5,
   },
 ];
+
+export const altTexts = {
+  homeHero: 'Home hero',
+  homeSponsorPrfix: 'Sponsor ',
+  aboutHero: 'Main reason',
+  aboutTeam: 'Out team',
+  homeReason: 'Why we started',
+  leftArrowAlt: 'Left arrow',
+  rightArrowAlt: 'rightArrow',
+};

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useTranslation } from '@/app/i18n';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import { AuthorAndDate, BodyText, Button, DisplayText } from '@/components/UI';
-import { images, routePathes } from '@/constants';
+import { altTexts, images, routePathes } from '@/constants';
 import { getHomePost } from '@/helpers';
 
 import { HomeHeroProps } from './interfaces';
@@ -23,7 +23,7 @@ export const HomeHero = async ({ lng }: HomeHeroProps) => {
     <ArticleWrapper contentClass={hero}>
       <div className={image}>
         <div className={overlay}></div>
-        <Image src={homeHero} alt="Home hero" />
+        <Image placeholder="blur" src={homeHero} alt={altTexts.homeHero} />
       </div>
       <div className={content}>
         <div>

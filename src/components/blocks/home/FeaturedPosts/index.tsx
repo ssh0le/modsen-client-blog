@@ -31,7 +31,7 @@ export const FeaturedPosts = async ({ lng }: LocaleComponentProps) => {
   const { t } = await useTranslation(lng, 'home');
   const { t: tCommon } = await useTranslation(lng, 'common');
 
-  const { image, title, description, id } = getFeaturedPost();
+  const { image, title, description, id, author, date } = getFeaturedPost();
   const allPosts = getPosts(4, id);
 
   return (
@@ -40,10 +40,10 @@ export const FeaturedPosts = async ({ lng }: LocaleComponentProps) => {
         <Heading type="h2">{t('recommendedPostHeading')}</Heading>
         <section className={selectedPostBody}>
           <div className={imageContainer}>
-            <Image src={image} alt="Post" />
+            <Image placeholder="blur" src={image} alt={title} />
           </div>
           <div className={selectedPostContent}>
-            <AuthorAndDate author="John Doe" date={new Date()} />
+            <AuthorAndDate author={author} date={date} />
             <Heading type="h3">{title}</Heading>
             <BodyText>{description}</BodyText>
           </div>

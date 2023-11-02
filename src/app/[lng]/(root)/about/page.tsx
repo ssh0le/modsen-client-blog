@@ -1,11 +1,17 @@
 import Image from 'next/image';
 
 import { useTranslation } from '@/app/i18n';
+import AboutReason from '@/components/AboutReason';
 import AuthorCard from '@/components/AuthorCard';
 import { Invitation } from '@/components/blocks';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
-import ReasonContent from '@/components/ReasonContent';
-import { aboutStatics, authors, images } from '@/constants';
+import {
+  aboutStatics,
+  altTexts,
+  authors,
+  images,
+  reasonImages,
+} from '@/constants';
 import { createLocaleMissions, createLocaleResults } from '@/helpers';
 import { Author, LocaleParams } from '@/types';
 import {
@@ -13,7 +19,6 @@ import {
   Cap,
   DisplayText,
   Heading,
-  ImageDecoration,
   List,
   ListHeading,
   Pattern,
@@ -23,11 +28,9 @@ import styles from './styles.module.scss';
 
 const {
   about,
-  reason,
   headingContainer,
   heading,
   description,
-  alt,
   missions,
   result,
   hero,
@@ -40,10 +43,12 @@ const {
 
 const { mainHeadingMessage, overview, missionVision, reasons } = aboutStatics;
 
-const { reason1, reason2, aboutHero } = images;
+const { aboutHero } = images;
 
 export default async function About({ params: { lng } }: LocaleParams) {
-  const renderAuthor = (author: Author) => <AuthorCard {...author} />;
+  const renderAuthor = (author: Author) => (
+    <AuthorCard key={author.id} {...author} />
+  );
   const { t } = await useTranslation(lng, 'about');
 
   return (
@@ -60,7 +65,11 @@ export default async function About({ params: { lng } }: LocaleParams) {
         </section>
         <section className={hero}>
           <div className={heroImage}>
-            <Image src={aboutHero} alt="Reason" />
+            <Image
+              placeholder="blur"
+              src={aboutHero}
+              alt={altTexts.aboutHero}
+            />
             <section className={heroContent}>
               <div className={results}>
                 {createLocaleResults(
@@ -94,19 +103,15 @@ export default async function About({ params: { lng } }: LocaleParams) {
         </section>
       </ArticleWrapper>
 
-      <ArticleWrapper contentClass={reason}>
-        <ReasonContent {...reasons[0]} heading={t('reasonHeading1')} />
-        <ImageDecoration type="rectangle">
-          <Image src={reason1} alt="Our team" />
-        </ImageDecoration>
-      </ArticleWrapper>
-
-      <ArticleWrapper contentClass={`${reason} ${alt}`}>
-        <ImageDecoration type="circle">
-          <Image src={reason2} alt="Our team" />
-        </ImageDecoration>
-        <ReasonContent {...reasons[1]} heading={t('reasonHeading2')} />
-      </ArticleWrapper>
+      {reasons.map((reason, index) => (
+        <AboutReason
+          key={reason.heading}
+          image={reasonImages[index]}
+          {...reason}
+          heading={t('reasonHeading1')}
+          isReversed={index % 2 === 0}
+        />
+      ))}
 
       <ArticleWrapper>
         <ListHeading>{t('authorsList')}</ListHeading>

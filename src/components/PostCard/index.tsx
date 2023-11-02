@@ -22,7 +22,12 @@ const PostCard = (props: BlogPost) => {
     <Link href={createLinkToPost(pathname, id)}>
       <div className={wrapper}>
         <section className={imageContainer}>
-          <Image className={postImage} src={image} alt={title} />
+          <Image
+            placeholder="blur"
+            className={postImage}
+            src={image}
+            alt={title}
+          />
         </section>
         <section className={content}>
           <AuthorAndDate author={author} date={date} color={'dark-gray'} />

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { useTranslation } from '@/app/i18n';
-import { defaultReasonText, images } from '@/constants';
+import { altTexts, defaultReasonText, images } from '@/constants';
 import { createLinkToAbout } from '@/helpers';
 import { LocaleComponentProps } from '@/types';
 import { BodyText, Button, Cap, Heading } from '@UI';
@@ -20,7 +20,7 @@ export const Reason = async ({ lng }: LocaleComponentProps) => {
   return (
     <ArticleWrapper contentClass={reasonStyle}>
       <div className={imageContainer}>
-        <Image src={reason} alt="Why we started" />
+        <Image placeholder="blur" src={reason} alt={altTexts.homeReason} />
       </div>
       <section className={message}>
         <div className={messageBody}>

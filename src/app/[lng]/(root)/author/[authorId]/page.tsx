@@ -71,7 +71,7 @@ const AuthorDetails = async ({
       <ArticleWrapper contentClass={heroContent} wrapperClass={heroWrapper}>
         <div className={hero}>
           <div className={heroImage}>
-            <Image src={photo} alt={name} />
+            <Image placeholder="blur" src={photo} alt={name} />
           </div>
           <div className={heroInfo}>
             <Heading type="h1">
