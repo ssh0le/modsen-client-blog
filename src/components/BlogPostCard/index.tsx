@@ -8,8 +8,8 @@ import { createLinkToPostWithLocale } from '@/helpers';
 
 import { BodyText, Cap, CustomText, Heading } from '../UI';
 
-import { BlogPostCardProps } from './interfaces';
 import styles from './styled.module.scss';
+import { BlogPostCardProps } from './types';
 
 const { blogtitle, blogpost, info, imageContainer } = styles;
 
