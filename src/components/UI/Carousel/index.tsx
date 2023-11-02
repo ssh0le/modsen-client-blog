@@ -36,7 +36,7 @@ const GenericCarousel = <T,>({
 
   return (
     <div className={`${wrapper} ${className}`}>
-      <div className={slides}>
+      <section className={slides}>
         <div
           className={displayWindow}
           style={{
@@ -49,7 +49,7 @@ const GenericCarousel = <T,>({
             </div>
           ))}
         </div>
-      </div>
+      </section>
       {renderControls(
         createControlClickHandler('next'),
         createControlClickHandler('prev'),

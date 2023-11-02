@@ -151,7 +151,7 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
       )}
 
       <aside>
-        <div className={search}>
+        <section className={search}>
           <SearchBar lng={lng} onChange={handleQueryChange} value={query} />
           {showResult && query.length !== 0 && (
             <div className={resultsStyle}>
@@ -162,7 +162,7 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
               />
             </div>
           )}
-        </div>
+        </section>
 
         <div className={categoryWrapper}>
           <DropDown

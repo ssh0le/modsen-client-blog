@@ -69,11 +69,11 @@ const AuthorDetails = async ({
   return (
     <div className={author}>
       <ArticleWrapper contentClass={heroContent} wrapperClass={heroWrapper}>
-        <div className={hero}>
+        <section className={hero}>
           <div className={heroImage}>
             <Image placeholder="blur" src={photo} alt={name} />
           </div>
-          <div className={heroInfo}>
+          <section className={heroInfo}>
             <Heading type="h1">
               <Trans
                 t={t}
@@ -84,11 +84,11 @@ const AuthorDetails = async ({
             </Heading>
             <BodyText>{defaultAboutAuthor}</BodyText>
             <MediaLinkList className={links} />
-          </div>
+          </section>
           <div className={patternContainer}>
             <Pattern />
           </div>
-        </div>
+        </section>
       </ArticleWrapper>
 
       <article className={articleWrapper}>

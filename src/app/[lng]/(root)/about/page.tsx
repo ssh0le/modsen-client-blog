@@ -65,35 +65,36 @@ export default async function About({ params: { lng } }: LocaleParams) {
     <div className={about}>
       <ArticleWrapper>
         <section className={headingContainer}>
-          <div className={heading}>
+          <section className={heading}>
             <Cap>{t('headingCap')}</Cap>
             <Heading type="h1">{t('heading')}</Heading>
-          </div>
-          <div className={description}>
+          </section>
+          <section className={description}>
             <BodyText>{mainHeadingMessage}</BodyText>
-          </div>
+          </section>
         </section>
+
         <section className={hero}>
-          <div className={heroImage}>
+          <section className={heroImage}>
             <Image
               placeholder="blur"
               src={aboutHero}
               alt={altTexts.aboutHero}
             />
             <section className={heroContent}>
-              <div className={results}>
+              <section className={results}>
                 {blogResults.map(({ heading, subheading }, index) => (
                   <div className={result} key={index}>
                     <DisplayText>{heading}</DisplayText>
                     <BodyText>{subheading}</BodyText>
                   </div>
                 ))}
-              </div>
+              </section>
               <div className={pattern}>
                 <Pattern direction="reverse" />
               </div>
             </section>
-          </div>
+          </section>
 
           <section className={missionStyles}>
             {missions.map(({ cap, heading, description }, index) => (

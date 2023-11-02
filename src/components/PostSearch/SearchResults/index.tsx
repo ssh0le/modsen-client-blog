@@ -47,7 +47,7 @@ const SearchResults = <T extends Result>({
           })}
         </ul>
       ) : (
-        <div className={noResults}>{t('notFoundTags')}</div>
+        <section className={noResults}>{t('notFoundTags')}</section>
       )}
     </>
   );

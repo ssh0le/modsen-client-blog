@@ -43,11 +43,11 @@ const Contact = async ({ params: { lng } }: LocaleParams) => {
             <BodyText>{t('workingHoursSupport')}</BodyText>
           </div>
 
-          <div className={contactInfoColumn}>
+          <section className={contactInfoColumn}>
             <div className={infoHeading}>{t('contactHeading')}</div>
             <Heading type="h5">{blogPhone}</Heading>
             <BodyText>{blogEmail}</BodyText>
-          </div>
+          </section>
         </section>
 
         <ContactForm lng={lng} />

@@ -70,10 +70,10 @@ async function BlogPost({ params: { lng, postId } }: PostPageProps) {
     <div className={postblog}>
       <ArticleWrapper contentClass={main}>
         <section className={innerHeading}>
-          <div className={authorStyle}>
+          <section className={authorStyle}>
             <Image placeholder="blur" src={jonathan} alt={author} />
 
-            <div className={postInfo}>
+            <section className={postInfo}>
               <Heading type="h3">
                 <CustomText color="purple">{author}</CustomText>
               </Heading>
@@ -81,8 +81,8 @@ async function BlogPost({ params: { lng, postId } }: PostPageProps) {
                 {datePrefix}
                 {getPostFormattedDate(date)}
               </CustomText>
-            </div>
-          </div>
+            </section>
+          </section>
           <Heading type="h1" className={heading}>
             {title}
           </Heading>

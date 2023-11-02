@@ -23,8 +23,8 @@ const Modal = ({ lng }: LocaleComponentProps) => {
     <>
       <Button onClick={toggleModal}>{t('videoButton')}</Button>
       {isVisible && (
-        <section onClick={toggleModal} className={modal}>
-          <div className={content}>
+        <div onClick={toggleModal} className={modal}>
+          <section className={content}>
             <iframe
               src={config.blogVideoUrl}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -32,9 +32,9 @@ const Modal = ({ lng }: LocaleComponentProps) => {
               title={videoTitle}
               className={video}
             />
-          </div>
+          </section>
           <div className={backdrop} />
-        </section>
+        </div>
       )}
     </>
   );
