@@ -254,3 +254,5 @@ export const metaDataHome = {
   title: 'Blog',
   description: 'Modsen Client Blog',
 };
+
+export const videoTitle = 'Video about us';

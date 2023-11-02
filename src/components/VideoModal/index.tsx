@@ -3,12 +3,13 @@
 import { useState } from 'react';
 
 import { useTranslation } from '@/app/i18n/client';
+import { config, videoTitle } from '@/constants';
 import { LocaleComponentProps } from '@/types';
 import { Button } from '@UI';
 
 import styles from './styles.module.scss';
 
-const { button, content, modal, video, backdrop } = styles;
+const { content, modal, video, backdrop } = styles;
 
 const Modal = ({ lng }: LocaleComponentProps) => {
   const { t } = useTranslation(lng, 'header');
@@ -20,22 +21,20 @@ const Modal = ({ lng }: LocaleComponentProps) => {
 
   return (
     <>
-      <div className={button}>
-        <Button onClick={toggleModal}>{t('videoButton')}</Button>
-      </div>
+      <Button onClick={toggleModal}>{t('videoButton')}</Button>
       {isVisible && (
-        <div onClick={toggleModal} className={modal}>
+        <section onClick={toggleModal} className={modal}>
           <div className={content}>
             <iframe
-              src="https://www.youtube.com/embed/Z-pT0XDYvDM"
+              src={config.blogVideoUrl}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              title="video about us"
+              title={videoTitle}
               className={video}
             />
           </div>
           <div className={backdrop} />
-        </div>
+        </section>
       )}
     </>
   );
