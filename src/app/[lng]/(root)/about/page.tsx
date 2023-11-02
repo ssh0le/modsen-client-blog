@@ -31,7 +31,7 @@ const {
   headingContainer,
   heading,
   description,
-  missions,
+  missions: missionStyles,
   result,
   hero,
   mission,
@@ -50,6 +50,16 @@ export default async function About({ params: { lng } }: LocaleParams) {
     <AuthorCard key={author.id} {...author} />
   );
   const { t } = await useTranslation(lng, 'about');
+
+  const blogResults = createLocaleResults(
+    overview,
+    t('results', { returnObjects: true }),
+  );
+
+  const missions = createLocaleMissions(
+    missionVision,
+    t('missions', { returnObjects: true }),
+  );
 
   return (
     <div className={about}>
@@ -72,10 +82,7 @@ export default async function About({ params: { lng } }: LocaleParams) {
             />
             <section className={heroContent}>
               <div className={results}>
-                {createLocaleResults(
-                  overview,
-                  t('results', { returnObjects: true }),
-                ).map(({ heading, subheading }, index) => (
+                {blogResults.map(({ heading, subheading }, index) => (
                   <div className={result} key={index}>
                     <DisplayText>{heading}</DisplayText>
                     <span>{subheading}</span>
@@ -88,11 +95,8 @@ export default async function About({ params: { lng } }: LocaleParams) {
             </section>
           </div>
 
-          <section className={missions}>
-            {createLocaleMissions(
-              missionVision,
-              t('missions', { returnObjects: true }),
-            ).map(({ cap, heading, description }, index) => (
+          <section className={missionStyles}>
+            {missions.map(({ cap, heading, description }, index) => (
               <div className={mission} key={index}>
                 <Cap>{cap}</Cap>
                 <Heading type="h3">{heading}</Heading>

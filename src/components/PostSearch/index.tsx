@@ -58,22 +58,40 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
     [categoryId],
   );
 
-  const filteredByTagsPosts =
-    selectedTags.length > 0
-      ? filteredByCategoryPosts.filter(({ tags }) =>
-          tags.some((tag) => selectedTags.includes(tag)),
-        )
-      : filteredByCategoryPosts;
+  const filteredByTagsPosts = useMemo(
+    () =>
+      selectedTags.length > 0
+        ? filteredByCategoryPosts.filter(({ tags }) =>
+            tags.some((tag) => selectedTags.includes(tag)),
+          )
+        : filteredByCategoryPosts,
+    [filteredByCategoryPosts, selectedTags],
+  );
 
-  const categoriesArray = tCommon('categories', {
-    returnObjects: true,
-  }) as Category[];
+  const categoriesArray = useMemo(
+    () =>
+      tCommon('categories', {
+        returnObjects: true,
+      }) as Category[],
+    [],
+  );
 
-  const categoriesMap = getLocaleCategories(categoriesArray);
+  const categoriesMap = useMemo(
+    () => getLocaleCategories(categoriesArray),
+    [categoriesArray],
+  );
 
-  const categoryName = categoriesMap.get(categoryId)!;
+  const categoryName = useMemo(
+    () => categoriesMap.get(categoryId)!,
+    [categoryId, categoriesMap],
+  );
 
-  const results = searchTags(query);
+  const tagMatches = useMemo(() => searchTags(query), [query]);
+
+  const foundedTags = tagMatches.map((tag) => ({
+    ...tag,
+    isSelected: selectedTags.includes(tag.id),
+  }));
 
   const renderBlogPost = useCallback(
     (post: BlogPost) => (
@@ -137,10 +155,7 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
           {showResult && query.length !== 0 && (
             <div className={resultsStyle}>
               <SearchResults
-                results={results.map((result) => ({
-                  ...result,
-                  isSelected: selectedTags.includes(result.id),
-                }))}
+                results={foundedTags}
                 lng={lng}
                 onClick={handleResultClick}
               />

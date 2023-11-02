@@ -1,11 +1,11 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 
 import { InfinityScrollProps } from './interfaces';
 
 const InfinityScroll = ({ children, margin = '80px' }: InfinityScrollProps) => {
-  const [currentBlock, setCurrentBlock] = useState<number>(0);
+  const [currentBlock, setCurrentBlock] = useState<number>(1);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   const setRef = (node: HTMLDivElement) => {
@@ -24,9 +24,14 @@ const InfinityScroll = ({ children, margin = '80px' }: InfinityScrollProps) => {
     }
   };
 
+  const visibleChildren = useMemo(
+    () => children.slice(0, currentBlock),
+    [children],
+  );
+
   return (
     <>
-      {children.slice(0, currentBlock).map((block, index) => (
+      {visibleChildren.map((block, index) => (
         <section key={index}>{block}</section>
       ))}
       {currentBlock < children.length && <div ref={setRef}></div>}
