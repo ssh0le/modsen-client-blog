@@ -1,4 +1,4 @@
-@use '../../../../styles/variables.scss' as vars;
+@use '@/styles/variables.scss' as vars;
 
 .heading {
   @include vars.flexCenter();
@@ -20,9 +20,8 @@
   padding-bottom: 128px;
 
   & > .textWrapper {
-    @include vars.flexColumn();
+    @include vars.flexColumnWithGap(32px);
 
-    gap: 32px;
     width: 768px;
   }
 

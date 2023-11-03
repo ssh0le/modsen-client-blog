@@ -133,8 +133,8 @@
   }
 
   .corousel {
-    display: flex;
-    flex-direction: column;
+    @include vars.flexColumn;
+
     justify-content: space-between;
     height: 100%;
 

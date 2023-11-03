@@ -12,54 +12,14 @@
   --footer-dark-gray: #2e3040;
 }
 
-@mixin heading($size, $line, $spacing) {
-  font-size: $size;
-  line-height: $line;
-  letter-spacing: $spacing;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-.display,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-sen);
-}
-
 p {
   line-height: 28px;
-}
-
-.w500 {
-  font-weight: 500;
-}
-
-.w600 {
-  font-weight: 600;
-}
-
-.w700 {
-  font-weight: 700;
-}
-
-.display,
-h1 {
-  @include heading(56px, 64px, -2px);
-  line-height: 64px;
-  font-size: 56px;
-  font-weight: 700;
-}
-
-h1 {
-  font-size: 48px;
 }
 
 html,

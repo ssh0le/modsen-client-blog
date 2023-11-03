@@ -22,7 +22,7 @@ $breakpoint-tablet: 1000px;
 $breakpoint-laptop: 1100px;
 $breakpoint-computer: 1200px;
 $breakpoint-computer-large: 1300px;
-$breakpoint-computer-ultra-large: 1300px;
+$breakpoint-computer-ultra-large: 1350px;
 
 @mixin flex() {
   display: flex;
@@ -39,6 +39,17 @@ $breakpoint-computer-ultra-large: 1300px;
   flex-direction: column;
 }
 
+@mixin flexAlignCenterBetween() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flexColumnWithGap($gap) {
+  @include flexColumn();
+  gap: $gap;
+}
+
 @mixin absolute-strecth {
   position: absolute;
   width: 100%;
@@ -47,23 +58,8 @@ $breakpoint-computer-ultra-large: 1300px;
   left: 0;
 }
 
-@mixin heading($size, $line, $spacing) {
-  font-size: $size;
-  line-height: $line;
-  letter-spacing: $spacing;
-}
-
 @mixin basepadding {
   padding: 0 80px;
-}
-
-.display {
-  @include heading(56px, 64px, -2px);
-
-  line-height: 64px;
-  font-size: 56px;
-  font-weight: 700;
-  font-family: var(--font-sen);
 }
 
 @mixin baseInteractivity {

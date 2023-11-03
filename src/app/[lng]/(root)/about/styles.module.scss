@@ -1,9 +1,7 @@
-@use '../../../../styles/variables.scss' as vars;
+@use '@/styles/variables.scss' as vars;
 
 .about {
-  @include vars.flexColumn();
-
-  gap: 128px;
+  @include vars.flexColumnWithGap(128px);
 
   @media screen and (max-width: vars.$breakpoint-tablet) {
     gap: 50px;
@@ -39,7 +37,6 @@
       margin-bottom: 80px;
       z-index: 0;
       flex-direction: column;
-
       text-align: center;
 
       .heading {
@@ -60,6 +57,7 @@
 
     .heroImage {
       @include vars.flexCenter();
+
       overflow: hidden;
       position: relative;
 

@@ -1,4 +1,4 @@
-@use '../../../styles/variables.scss' as vars;
+@use '@/styles/variables.scss' as vars;
 
 .listHeading {
   padding-bottom: 32px;
@@ -6,8 +6,7 @@
 }
 
 .blogposts {
-  @include vars.flexColumn();
-  gap: 64px;
+  @include vars.flexColumnWithGap(64px);
 }
 
 .blogpostsControls {
@@ -21,11 +20,10 @@
   }
 
   .controlsContainer {
+    @include vars.flexAlignCenterBetween;
+
     max-width: 170px;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     font-size: 28px;
   }
 

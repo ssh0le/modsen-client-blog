@@ -1,13 +1,12 @@
-@use '../../../styles/variables.scss' as vars;
+@use '@/styles/variables.scss' as vars;
 
 .wrapper {
   overflow: hidden;
 
   .headingStyle {
     @media screen and (max-width: vars.$breakpoint-mobile) {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      @include vars.flexAlignCenterBetween;
+
       border-bottom: 1px solid vars.$color-black;
       margin-bottom: 20px;
     }

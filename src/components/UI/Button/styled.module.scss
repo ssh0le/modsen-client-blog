@@ -15,15 +15,15 @@ $bottom-border-width: 2px;
 }
 
 .button {
-  @include button-style(var(--white), var(--light-gray));
+  @include button-style(vars.$color-white, vars.$color-light-gray);
 
   padding: 16px 48px;
-  color: var(--black);
+  color: vars.$color-black;
   font-size: 18px;
   font-weight: 700;
   width: fit-content;
 }
 
 .colored {
-  @include button-style(var(--yellow), var(--dark-yellow));
+  @include button-style(vars.$color-yellow, vars.$color-dark-yellow);
 }

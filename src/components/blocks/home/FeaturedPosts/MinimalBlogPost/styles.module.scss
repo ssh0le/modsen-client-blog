@@ -1,9 +1,9 @@
-@use '../../../../../styles/variables.scss' as vars;
+@use '@/styles/variables.scss' as vars;
 
 .wrapper {
-  @include vars.flexColumn;
+  @include vars.flexColumnWithGap(8px);
+
   padding: 32px 116px 25px 32px;
-  gap: 8px;
 
   @media screen and (max-width: vars.$breakpoint-tablet) {
     padding: 32px;

@@ -1,4 +1,4 @@
-@use '../../../../../styles/variables.scss' as vars;
+@use '@/styles/variables.scss' as vars;
 
 .articleWrapper {
   padding: 0 208px;
@@ -13,10 +13,9 @@
 }
 
 .author {
-  display: flex;
+  @include vars.flexColumnWithGap(128px);
+
   align-items: center;
-  flex-direction: column;
-  gap: 128px;
 
   .heroWrapper {
     background-color: vars.$color-lavender;
@@ -32,9 +31,7 @@
         padding-bottom: 128px;
 
         .heroInfo {
-          @include vars.flexColumn();
-
-          gap: 24px;
+          @include vars.flexColumnWithGap(24px);
         }
 
         .links {

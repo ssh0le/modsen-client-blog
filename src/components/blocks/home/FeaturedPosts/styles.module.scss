@@ -1,4 +1,4 @@
-@use '../../../../styles/variables.scss' as vars;
+@use '@/styles/variables.scss' as vars;
 
 .posts {
   gap: 32px;
@@ -14,19 +14,17 @@
     @media screen and (max-width: vars.$breakpoint-tablet) {
       @include vars.flexColumn();
 
-      align-items: center;
-
+      &,
       .selectedPostBody {
         align-items: center;
       }
     }
 
     .selectedPostBody {
-      @include vars.flexColumn;
+      @include vars.flexColumnWithGap(32px);
 
       border: 1px solid rgba(vars.$color-medium-gray, 0.1);
       padding: 32px;
-      gap: 32px;
       margin-top: 32px;
 
       .imageContainer {
@@ -48,9 +46,7 @@
       }
 
       .selectedPostContent {
-        @include vars.flexColumn;
-
-        gap: 16px;
+        @include vars.flexColumnWithGap(16px);
       }
 
       a {
@@ -60,9 +56,8 @@
   }
 
   .allPosts {
-    @include vars.flexColumn;
+    @include vars.flexColumnWithGap(32px);
 
-    gap: 32px;
     max-width: 517px;
 
     @media screen and (max-width: vars.$breakpoint-tablet) {

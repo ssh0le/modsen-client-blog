@@ -1,4 +1,4 @@
-@use '../../../../styles/variables.scss' as vars;
+@use '@/styles/variables.scss' as vars;
 
 .hero {
   position: relative;
@@ -38,13 +38,12 @@
   }
 
   .content {
-    @include vars.flexColumn();
-    max-width: 804px;
+    @include vars.flexColumnWithGap(24px);
 
+    max-width: 804px;
     margin-bottom: 48px;
     position: relative;
     color: vars.$color-white;
-    gap: 24px;
     z-index: 3;
 
     .host {

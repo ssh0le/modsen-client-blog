@@ -1,8 +1,9 @@
-@use '../../styles/variables.scss' as vars;
+@use '@/styles/variables.scss' as vars;
 
 .wrapper {
-  height: 48px;
   @include vars.flexCenter();
+
+  height: 48px;
   font-size: 14px;
   font-family: vars.$font-family-sen;
   border: 2px solid vars.$color-medium-gray;

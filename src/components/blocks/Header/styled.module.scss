@@ -1,7 +1,8 @@
-@use '../../../styles/variables.scss' as vars;
+@use '@/styles/variables.scss' as vars;
 
 .wrapper {
   @include vars.flexCenter;
+
   background-color: vars.$color-black;
 
   @media screen and (max-width: vars.$breakpoint-tablet) {
@@ -37,11 +38,10 @@
 }
 
 .header {
+  @include vars.flexAlignCenterBetween;
+
   width: 100%;
   max-width: 1440px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 18px 80px 18px 56px;
 
   @media screen and (max-width: vars.$breakpoint-laptop) {

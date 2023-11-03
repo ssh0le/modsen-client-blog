@@ -1,14 +1,13 @@
-@use '../../styles/variables.scss' as vars;
+@use '@/styles/variables.scss' as vars;
 
 .container {
+  @include vars.flexColumnWithGap(20px);
+
   background-color: vars.$color-light-gray;
   padding: 40px 28px;
   max-width: 296px;
   width: 100%;
-  display: flex;
   align-items: center;
-  flex-direction: column;
-  gap: 20px;
 
   .avatar {
     height: 128px;
@@ -39,10 +38,9 @@
   @media screen and (max-width: vars.$breakpoint-mobile) {
     padding: 10px 20px;
     display: grid;
-    grid-template-columns: auto 1fr;
     align-items: center;
+    grid-template-columns: auto 1fr;
     grid-template-rows: 1fr 1fr;
-
     max-width: 500px;
 
     .avatar {

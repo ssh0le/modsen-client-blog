@@ -1,9 +1,8 @@
-@use '../../../../../styles/variables.scss' as vars;
+@use '@/styles/variables.scss' as vars;
 
 .wrapper {
-  @include vars.flexColumn();
+  @include vars.flexColumnWithGap(128px);
 
-  gap: 128px;
   padding-bottom: 128px;
 
   .heading {

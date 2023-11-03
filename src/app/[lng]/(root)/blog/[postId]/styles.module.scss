@@ -1,9 +1,7 @@
-@use '../../../../../styles/variables.scss' as vars;
+@use '@/styles/variables.scss' as vars;
 
 .postblog {
-  @include vars.flexColumn();
-
-  gap: 128px;
+  @include vars.flexColumnWithGap(128px);
 
   @media screen and (max-width: vars.$breakpoint-tablet) {
     gap: 50px;
@@ -11,9 +9,8 @@
 }
 
 .main {
-  @include vars.flexColumn();
+  @include vars.flexColumnWithGap(64px);
 
-  gap: 64px;
   align-items: center;
 
   .heroImageContainer {
@@ -65,7 +62,6 @@
 
   @media screen and (max-width: vars.$breakpoint-tablet) {
     align-items: center;
-
     padding-top: 30px;
     margin-bottom: 30px;
     text-align: center;

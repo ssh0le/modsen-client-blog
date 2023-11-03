@@ -1,4 +1,4 @@
-@use '../../../../styles/variables.scss' as vars;
+@use '@/styles/variables.scss' as vars;
 
 .pattern {
   width: 100%;
@@ -49,10 +49,9 @@
     }
 
     .missionItemBody {
-      @include vars.flexColumn();
+      @include vars.flexColumnWithGap(16px);
 
       margin-top: 24px;
-      gap: 16px;
 
       a {
         width: fit-content;

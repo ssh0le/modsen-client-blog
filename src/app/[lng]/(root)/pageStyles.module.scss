@@ -1,10 +1,9 @@
-@use '../../../styles/variables.scss' as vars;
+@use '@/styles/variables.scss' as vars;
 
 .home {
-  @include vars.flexColumn;
-  position: relative;
+  @include vars.flexColumnWithGap(128px);
 
-  gap: 128px;
+  position: relative;
 
   @media screen and (max-width: vars.$breakpoint-mobile) {
     gap: 60px;
@@ -12,9 +11,7 @@
 }
 
 .sponsors {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include vars.flexAlignCenterBetween;
 
   @media screen and (max-width: vars.$breakpoint-laptop) {
     flex-wrap: wrap;

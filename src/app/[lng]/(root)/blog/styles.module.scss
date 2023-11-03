@@ -1,8 +1,7 @@
-@use '../../../../styles/variables.scss' as vars;
+@use '@/styles/variables.scss' as vars;
 
 .blog {
-  @include vars.flexColumn();
-  gap: 128px;
+  @include vars.flexColumnWithGap(128px);
 }
 
 .wrapper {
@@ -10,19 +9,19 @@
 }
 
 .hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include vars.flexAlignCenterBetween;
+
   padding: 80px;
   gap: 20px;
 
   .content {
     @include vars.flexColumn();
+
     max-width: 624px;
 
     .message {
-      @include vars.flexColumn();
-      gap: 16px;
+      @include vars.flexColumnWithGap(16px);
+
       margin-top: 20px;
       margin-bottom: 32px;
     }
@@ -40,6 +39,7 @@
 
     .imageContainer {
       @include vars.flexCenter();
+
       overflow: hidden;
       max-width: 100%;
     }
