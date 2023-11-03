@@ -60,6 +60,10 @@
       @media screen and (max-width: vars.$breakpoint-mobile-small) {
         flex-wrap: wrap;
         align-items: center;
+
+        & > a {
+          min-width: 100%;
+        }
       }
     }
 

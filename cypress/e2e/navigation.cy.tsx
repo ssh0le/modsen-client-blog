@@ -10,11 +10,11 @@ describe('Navigation', () => {
     cy.visit('/');
   });
 
-  it.skip('renders home', () => {
+  it('renders home', () => {
     cy.get('img[alt="Home hero"]').should('exist');
   });
 
-  it.skip('renders blog', () => {
+  it('renders blog', () => {
     naviageToPage(blogRoute);
     cy.get('span')
       .contains('Featured post')
@@ -22,7 +22,7 @@ describe('Navigation', () => {
       .should('have.css', 'text-transform', 'uppercase');
   });
 
-  it.skip('renders about', () => {
+  it('renders about', () => {
     naviageToPage(aboutRoute);
     cy.get('h1')
       .contains('We are a team of content writers who share their learnings')
@@ -34,7 +34,7 @@ describe('Navigation', () => {
     cy.get('h1').contains('Privacy Policy').should('exist');
   });
 
-  it.skip('renders conctact', () => {
+  it('renders conctact', () => {
     naviageToPage(contactRoute);
     cy.get('input[name="userName"]').should('exist');
     cy.get('input[name="userEmail"]').should('exist');
@@ -43,7 +43,7 @@ describe('Navigation', () => {
     cy.get('button[type="submit"]').should('exist');
   });
 
-  it.skip('renders blogPost', () => {
+  it('renders blogPost', () => {
     cy.get('button').contains('Read More >').first().should('exist').click();
 
     cy.get('h1')

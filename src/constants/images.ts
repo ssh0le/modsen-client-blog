@@ -50,9 +50,10 @@ export const mediaIcons = {
 };
 
 export const categoriesIcons = [
+  startup,
+  startup,
   business,
   economy,
-  startup,
   technology,
 ] as const;
 
