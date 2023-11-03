@@ -1,71 +1,25 @@
+import { StyleResolver } from '@/helpers/styleResolver';
+
 import { CustomTextProps } from './interfaces';
 import styles from './styles.module.scss';
 
-const {
-  yellow,
-  purple,
-  black,
-  lightGray,
-  mediumGray,
-  darkGray,
-  white,
-  w500,
-  w600,
-  w700,
-  w900,
-  size14,
-} = styles;
+const styleResolver = new StyleResolver(styles);
 
 export const CustomText = ({
   color = 'black',
   children,
-  size,
-  weight,
+  size = '16',
+  weight = '400',
   ...restProps
 }: CustomTextProps) => {
-  const colorClass = getColor(color);
-  const weightClass = getWeight(weight);
-  const sizeClass = size === '14' ? size14 : '';
   return (
     <span
-      className={`${colorClass} ${weightClass} ${sizeClass}`}
+      className={`${styleResolver.getColor(color)} ${styleResolver.getWeight(
+        weight,
+      )} ${styleResolver.getFontSize(size)}`}
       {...restProps}
     >
       {children}
     </span>
   );
-};
-
-const getColor = (color: CustomTextProps['color']): string => {
-  switch (color) {
-    case 'purple':
-      return purple;
-    case 'yellow':
-      return yellow;
-    case 'light-gray':
-      return lightGray;
-    case 'medium-gray':
-      return mediumGray;
-    case 'dark-gray':
-      return darkGray;
-    case 'white':
-      return white;
-    default:
-      return black;
-  }
-};
-
-const getWeight = (color: CustomTextProps['weight']): string => {
-  switch (color) {
-    case '500':
-      return w500;
-    case '600':
-      return w600;
-    case '700':
-      return w700;
-    case '900':
-      return w900;
-    default:
-      return '';
-  }
 };

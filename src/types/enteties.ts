@@ -70,3 +70,7 @@ export interface ContactFormFields {
   queryTopic: string;
   message: string;
 }
+
+export interface StyleModule {
+  readonly [key: string]: string;
+}
