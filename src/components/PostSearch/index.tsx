@@ -29,7 +29,7 @@ const {
   tagsHeading,
   search,
   resultsStyle,
-  tagsList,
+  tagsList: tagsListStyle,
   noPosts,
   postsList,
 } = styles;
@@ -87,9 +87,9 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
     [categoryId, categoriesMap],
   );
 
-  const tagMatches = useMemo(() => searchTags(query), [query]);
+  const foundedTags = useMemo(() => searchTags(query), [query]);
 
-  const foundedTags = tagMatches.map((tag) => ({
+  const searchResultTagList = foundedTags.map((tag) => ({
     ...tag,
     isSelected: selectedTags.includes(tag.id),
   }));
@@ -156,7 +156,7 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
           {showResult && query.length !== 0 && (
             <div className={resultsStyle}>
               <SearchResults
-                results={foundedTags}
+                results={searchResultTagList}
                 lng={lng}
                 onClick={handleResultClick}
               />
@@ -187,7 +187,7 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
             {t('tagsHeading')}
           </ListHeading>
 
-          <section className={tagsList}>
+          <section className={tagsListStyle}>
             {tags.map((tag) => {
               const { id } = tag;
               return (

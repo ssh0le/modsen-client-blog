@@ -1,3 +1,5 @@
+import { validFormData } from '../mocks';
+
 export const naviageToPage = (route: string) => {
   cy.get(`a[href*="${route}"]`).first().should('exist').click();
 };
@@ -53,4 +55,19 @@ export const typeInInput = (name: string, text: string) => {
 
 export const selectOption = (name: string, option: string) => {
   getSelectField(name).select(option);
+};
+
+export const clickSubmitButton = () => {
+  cy.get('button').contains('Send Message').click();
+};
+
+export const setValidData = () => {
+  typeInInput(...validFormData[0]);
+  typeInInput(...validFormData[1]);
+  selectOption(...validFormData[2]);
+  cy.get('textarea[name="message"]').type(validFormData[3][1]);
+};
+
+export const hasErrorMessage = (message: string) => {
+  cy.get('span').contains(message).should('exist');
 };

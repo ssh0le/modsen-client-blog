@@ -1,43 +1,71 @@
 import {
-  naviageToPage,
+  clickSubmitButton,
+  hasErrorMessage,
   scrollNTimes,
   selectOption,
+  setValidData,
   typeInInput,
 } from './helpers';
-
-const validData = [
-  ['userEmail', 'test@gmail.com'],
-  ['userName', 'Boris'],
-  ['queryTopic', 'Other'],
-  ['messsage', 'e2e test message'],
-] as const;
+import { validFormData } from './mocks';
 
 describe('Validation', () => {
   beforeEach(() => {
-    cy.visit('/');
-  });
-  it('validate empty form', () => {
-    naviageToPage('/contact');
-    scrollNTimes(2);
-    cy.get('button').contains('Send Message').click();
-    cy.get('span')
-      .contains('Your name has wrong length')
-      .should('exist')
-      .should('have.css', 'color', 'rgb(255, 0, 0)');
-    cy.get(`span:contains("This field is required")`).should('have.length', 2);
-    cy.get('span').contains('Message has wrong length').should('exist');
+    cy.visit('/en/contact');
   });
 
-  it('accept only valid data', () => {
-    naviageToPage('/contact');
+  it('validate empty form', () => {
+    typeInInput('userName', '1');
+    clickSubmitButton();
+    hasErrorMessage('Your name has wrong length');
+    cy.get(`span:contains("This field is required")`)
+      .should('have.length', 2)
+      .first()
+      .should('have.css', 'color', 'rgb(255, 0, 0)');
+    hasErrorMessage('Message has wrong length');
+  });
+
+  it('validate name min length', () => {
+    setValidData();
+    typeInInput('userName', '1');
+    clickSubmitButton();
+    cy.get('span').contains('Your name has wrong length').should('exist');
+    typeInInput(...validFormData[0]);
+  });
+
+  it('validate name max length', () => {
+    setValidData();
+    typeInInput('userName', '1'.repeat(31));
+    clickSubmitButton();
+    hasErrorMessage('Your name has wrong length');
+    typeInInput(...validFormData[0]);
+  });
+
+  it('validate wrong email', () => {
+    setValidData();
+    typeInInput('userEmail', 'wrong email');
+    clickSubmitButton();
+    hasErrorMessage('Wrong email format');
+  });
+
+  it('validate message min length', () => {
+    setValidData();
+    cy.get('textarea[name="message"]').clear().type('123');
+    clickSubmitButton();
+    hasErrorMessage('Message has wrong length');
+  });
+
+  it('validate message max length', () => {
     scrollNTimes(2);
-    cy.get('button').contains('Send Message').click();
-    typeInInput(...validData[0]);
-    typeInInput(...validData[1]);
-    selectOption(...validData[2]);
-    cy.get('textarea[name="message"]').type(validData[3][1]);
-    cy.get('span').contains('Your name has wrong length').should('not.exist');
-    cy.get(`span:contains("This field is required")`).should('have.length', 0);
-    cy.get('span').contains('Message has wrong length').should('not.exist');
+    setValidData();
+    cy.get('textarea[name="message"]').type('1'.repeat(101));
+    clickSubmitButton();
+    hasErrorMessage('Message has wrong length');
+  });
+
+  it('validate empty queryTopic', () => {
+    setValidData();
+    selectOption('queryTopic', '');
+    clickSubmitButton();
+    hasErrorMessage('This field is required');
   });
 });
