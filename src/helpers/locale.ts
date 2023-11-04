@@ -55,3 +55,7 @@ export const getLocaleMapMarkers = (
     description: descriptions[index],
   }));
 };
+
+export const createAuthorHeading = (author: string) => {
+  return `Hey there, I’m ${author} and welcome to my Blog`;
+};

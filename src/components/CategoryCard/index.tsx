@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { memo } from 'react';
 
-import { categoryDescription } from '@/constants';
 import { getCategoryIcon } from '@/helpers/getIcon';
 
 import { BodyText, Heading } from '../UI';
@@ -16,6 +15,7 @@ const { container, minimal, image } = styles;
 const CategoryCard = ({
   displayType = 'often',
   name,
+  description,
   id,
 }: CategoryCardProps) => {
   const isMinimalDisplayType = displayType === 'minimal';
@@ -26,7 +26,7 @@ const CategoryCard = ({
         <Image src={getCategoryIcon(id)} alt={name} />
       </div>
       <Heading type="h3">{name}</Heading>
-      {!isMinimalDisplayType && <BodyText>{categoryDescription}</BodyText>}
+      {!isMinimalDisplayType && <BodyText>{description}</BodyText>}
     </section>
   );
 };

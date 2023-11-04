@@ -14,7 +14,7 @@ import {
 import { blogPostStatics } from '@/constants';
 import {
   getCategoryIcon,
-  getLocaleCategories,
+  getCategoryName,
   getPostById,
   getPostFormattedDate,
   getPosts,
@@ -52,18 +52,13 @@ export const dynamicParams = false;
 
 async function BlogPost({ params: { lng: language, postId } }: PostPageProps) {
   const { t } = await useTranslation(language, 'blogPost');
-  const { t: tCommon } = await useTranslation(language, 'common');
-
-  const categoriesMap = getLocaleCategories(
-    tCommon('categories', { returnObjects: true }),
-  );
 
   const renderPost = (post: BlogPost) => {
     return <PostCard key={post.title} {...post} />;
   };
 
   const { title, author, date, id, categoryId } = getPostById(postId);
-  const postCategory = categoriesMap.get(categoryId)!;
+  const postCategory = getCategoryName(categoryId)!;
   const nextPosts = getPosts(nextPostsLength, id);
 
   return (

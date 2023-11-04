@@ -5,6 +5,7 @@ import { useTranslation } from '@/app/i18n';
 import { CategoryList, Invitation } from '@/components/blocks';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import { BlogCarousel } from '@/components/blocks/BlogCarousel';
+import { recommendedPostHeading } from '@/constants';
 import { createLinkToPostWithLocale, getBlogFeaturedPost } from '@/helpers';
 import { LocaleParams } from '@/types';
 import { AuthorAndDate, BodyText, Button, Cap, Heading } from '@UI';
@@ -25,7 +26,7 @@ export default async function Blog({
     <div className={blog}>
       <ArticleWrapper contentClass={hero} wrapperClass={wrapper}>
         <section className={content}>
-          <Cap>{t('recommendedPostHeading')}</Cap>
+          <Cap>{recommendedPostHeading}</Cap>
           <section className={message}>
             <Heading type="h2">{title}</Heading>
             <AuthorAndDate author={author} date={date} authorColor="purple" />

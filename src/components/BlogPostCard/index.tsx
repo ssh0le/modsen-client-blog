@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { memo } from 'react';
 
-import { createLinkToPostWithLocale } from '@/helpers';
+import { createLinkToPostWithLocale, getCategoryName } from '@/helpers';
 
 import { BodyText, Cap, CustomText, Heading } from '../UI';
 
@@ -14,7 +14,7 @@ import { BlogPostCardProps } from './types';
 const { blogtitle, blogpost, info, imageContainer } = styles;
 
 const BlogPostCard = (props: BlogPostCardProps) => {
-  const { image, title, description, categoryName, id, locale } = props;
+  const { image, title, description, categoryId, id, locale } = props;
 
   return (
     <Link href={createLinkToPostWithLocale(locale, id)}>
@@ -25,7 +25,9 @@ const BlogPostCard = (props: BlogPostCardProps) => {
 
         <section className={info}>
           <Cap>
-            <CustomText color="purple">{categoryName}</CustomText>
+            <CustomText color="purple">
+              {getCategoryName(categoryId)}
+            </CustomText>
           </Cap>
           <Heading type="h2" className={blogtitle}>
             {title}

@@ -6,12 +6,7 @@ import { useCallback } from 'react';
 import { useTranslation } from '@/app/i18n/client';
 import Comment from '@/components/blocks/HomeComments/Comment';
 import { BodyText, Cap, Carousel, Heading } from '@/components/UI';
-import {
-  altTexts,
-  comments,
-  controlsIcons,
-  defaultCommentHeading,
-} from '@/constants';
+import { altTexts, comments, controlsIcons } from '@/constants';
 import {
   ClickHandler,
   Comment as IComment,
@@ -44,6 +39,7 @@ export const HomeComments = ({ language }: LocaleComponentProps) => {
   const renderComment = (comment: IComment) => <Comment {...comment} />;
 
   const { t } = useTranslation(language, 'home');
+  const { t: tCommon } = useTranslation(language, 'common');
 
   const renderCarouselControls = useCallback(
     (
@@ -77,7 +73,7 @@ export const HomeComments = ({ language }: LocaleComponentProps) => {
       <section className={description}>
         <Cap>{t('reviewsCap')}</Cap>
         <Heading type="h2">{t('reviewsHeading')}</Heading>
-        <BodyText>{defaultCommentHeading}</BodyText>
+        <BodyText>{tCommon('commonDescription')}</BodyText>
       </section>
       <div className={delimiterContainer}>
         <div className={delimiter}></div>

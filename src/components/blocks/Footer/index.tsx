@@ -1,11 +1,5 @@
 import { useTranslation } from '@/app/i18n';
-import {
-  blogAdress,
-  blogEmail,
-  blogName,
-  blogPhone,
-  footerLinks,
-} from '@/constants';
+import { blogEmail, blogName, blogPhone, footerLinks } from '@/constants';
 import { createLocaleLinks } from '@/helpers';
 import { LocaleComponentProps } from '@/types';
 
@@ -28,6 +22,7 @@ const {
 
 const Footer = async ({ language }: LocaleComponentProps) => {
   const { t } = await useTranslation(language, 'footer');
+  const { t: tCommon } = await useTranslation(language, 'common');
 
   return (
     <div className={wrapper}>
@@ -53,7 +48,7 @@ const Footer = async ({ language }: LocaleComponentProps) => {
         <section className={bottom}>
           <div className={companyInfo}>
             <BodyText>
-              <CustomText color="white">{blogAdress}</CustomText>
+              <CustomText color="white">{tCommon('adress')}</CustomText>
             </BodyText>
             <BodyText>
               <CustomText color="white">

@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { ChangeEvent, useCallback, useEffect, useMemo, useState } from 'react';
 
 import { useTranslation } from '@/app/i18n/client';
-import { blogPosts, tags } from '@/constants';
-import { createLinkToCategory, getLocaleCategories } from '@/helpers';
+import { blogPosts } from '@/constants';
+import { createLinkToCategory } from '@/helpers';
 import { searchTags } from '@/helpers/searchTags';
 import { BlogPost, Category, Tag as ITag } from '@/types';
 
@@ -40,6 +40,8 @@ const PostSearch = ({ language, categoryId }: PostSearchProps) => {
   const [showResult, setShowResults] = useState<boolean>(false);
   const { t } = useTranslation(language, 'category');
   const { t: tCommon } = useTranslation(language, 'common');
+
+  const localeTags = t('tags', { returnObjects: true }) as ITag[];
 
   useEffect(() => {
     const hideResults = () => {
@@ -77,17 +79,7 @@ const PostSearch = ({ language, categoryId }: PostSearchProps) => {
     [],
   );
 
-  const categoriesMap = useMemo(
-    () => getLocaleCategories(categoriesArray),
-    [categoriesArray],
-  );
-
-  const categoryName = useMemo(
-    () => categoriesMap.get(categoryId)!,
-    [categoryId, categoriesMap],
-  );
-
-  const foundedTags = useMemo(() => searchTags(query), [query]);
+  const foundedTags = useMemo(() => searchTags(localeTags, query), [query]);
 
   const searchResultTagList = foundedTags.map((tag) => ({
     ...tag,
@@ -96,14 +88,9 @@ const PostSearch = ({ language, categoryId }: PostSearchProps) => {
 
   const renderBlogPost = useCallback(
     (post: BlogPost) => (
-      <BlogPostCard
-        locale={language}
-        categoryName={categoryName}
-        key={post.id}
-        {...post}
-      />
+      <BlogPostCard locale={language} key={post.id} {...post} />
     ),
-    [language, categoryName],
+    [language],
   );
 
   const handleQueryChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -192,7 +179,7 @@ const PostSearch = ({ language, categoryId }: PostSearchProps) => {
           </ListHeading>
 
           <section className={tagsListStyle}>
-            {tags.map((tag) => {
+            {localeTags.map((tag) => {
               const { id } = tag;
               return (
                 <Tag

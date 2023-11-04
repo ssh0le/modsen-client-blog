@@ -1,7 +1,7 @@
 import { useTranslation } from '@/app/i18n';
 import ContactForm from '@/components/ContactForm';
 import Map from '@/components/Map';
-import { blogEmail, blogPhone, contactStatics, mapConfig } from '@/constants';
+import { blogEmail, blogPhone, mapConfig } from '@/constants';
 import { getLocaleMapMarkers } from '@/helpers';
 import { LocaleParams } from '@/types';
 import { BodyText, Cap, CustomText, Heading } from '@UI';
@@ -20,6 +20,7 @@ const {
 
 const Contact = async ({ params: { lng: language } }: LocaleParams) => {
   const { t } = await useTranslation(language, 'contact');
+  const { t: tCommon } = await useTranslation(language, 'common');
   const markers = getLocaleMapMarkers(
     mapConfig.markers,
     t('markerDescription', { returnObjects: true }),
@@ -32,7 +33,7 @@ const Contact = async ({ params: { lng: language } }: LocaleParams) => {
             <CustomText weight="900">{t('headingCap')}</CustomText>
           </Cap>
           <Heading type="h1">{t('heading')}</Heading>
-          <BodyText>{contactStatics.subheading}</BodyText>
+          <BodyText>{tCommon('commonDescription')}</BodyText>
         </section>
 
         <section className={contactInfo}>

@@ -6,5 +6,13 @@
   "routePrefix": "Блог > ",
   "notFoundMessage": "Посты не найдены",
   "notFoundTags": "Теги не найдены",
-  "resultsHeading": "Результаты"
+  "resultsHeading": "Результаты",
+  "tags": [
+    { "name": "Бизнес", "id": "1" },
+    { "name": "Опыт", "id": "2" },
+    { "name": "Экран", "id": "3" },
+    { "name": "Технологии", "id": "4" },
+    { "name": "Маркетинг", "id": "5" },
+    { "name": "Жизнь", "id": "6" }
+  ]
 }

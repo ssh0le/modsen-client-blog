@@ -17,9 +17,7 @@ const LanguageSwitch = ({ language }: { language: string }) => {
       {languages.map((supportedLanguage, index) => {
         return (
           <Fragment key={index}>
-            {index > 0 && (
-              <div key={supportedLanguage} className={delimeter}></div>
-            )}
+            {index > 0 && <div className={delimeter}></div>}
             <span
               key={supportedLanguage}
               className={`${language === supportedLanguage ? active : ''}`}

@@ -52,6 +52,7 @@ export default async function About({
     <AuthorCard key={author.id} {...author} />
   );
   const { t } = await useTranslation(language, 'about');
+  const { t: tCommon } = await useTranslation(language, 'common');
 
   const blogResults = createLocaleResults(
     overview,
@@ -62,6 +63,8 @@ export default async function About({
     missionVision,
     t('missions', { returnObjects: true }),
   );
+
+  const misionSubheading = tCommon('commonDescription');
 
   return (
     <div className={about}>
@@ -116,6 +119,7 @@ export default async function About({
           image={reasonImages[index]}
           {...reason}
           heading={t('reasonHeading1')}
+          subheading={misionSubheading}
           isReversed={index % 2 === 0}
         />
       ))}

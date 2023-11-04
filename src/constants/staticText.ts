@@ -153,10 +153,6 @@ export const defaultAboutAuthor = `Lorem ipsum dolor sit amet, consectetur
  aliqua. Non blandit massa enim nec. Scelerisque viverra mauris in aliquam sem. 
  At risus viverra adipiscing at in tellus.`;
 
-export const contactStatics = {
-  subheading: defaultSubheading,
-};
-
 export const privacyStatics = {
   heading: 'Lorem ipsum dolor sit amet',
   description: staticParagraph + staticParagraph,
@@ -256,3 +252,7 @@ export const metaDataHome = {
 };
 
 export const videoTitle = 'Video about us';
+
+export const homeCap = 'POSTED ON ';
+
+export const recommendedPostHeading = 'Featured post';

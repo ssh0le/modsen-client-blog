@@ -1,16 +1,10 @@
 import Image from 'next/image';
-import { Trans } from 'react-i18next/TransWithoutContext';
 
 import { useTranslation } from '@/app/i18n';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import BlogPostCard from '@/components/BlogPostCard';
-import {
-  authors,
-  blogPosts,
-  defaultAboutAuthor,
-  defaultAuthorIntroduction,
-} from '@/constants';
-import { getLocaleCategories } from '@/helpers';
+import { authors, blogPosts, defaultAboutAuthor } from '@/constants';
+import { createAuthorHeading } from '@/helpers';
 import { BlogPost } from '@/types';
 import {
   BodyText,
@@ -47,23 +41,13 @@ const AuthorDetails = async ({
   params: { lng: language, authorId },
 }: AuthorPageProps) => {
   const { t } = await useTranslation(language, 'author');
-  const { t: tCommon } = await useTranslation(language, 'common');
-
-  const categories = getLocaleCategories(
-    tCommon('categories', { returnObjects: true }),
-  );
 
   const authorPosts = blogPosts.slice(2);
 
   const { name, photo } = authors.find((author) => author.id === authorId)!;
 
   const renderBlogPost = (post: BlogPost) => (
-    <BlogPostCard
-      locale={language}
-      categoryName={categories.get(post.categoryId)!}
-      key={post.title}
-      {...post}
-    />
+    <BlogPostCard locale={language} key={post.title} {...post} />
   );
 
   return (
@@ -74,14 +58,7 @@ const AuthorDetails = async ({
             <Image placeholder="blur" src={photo} alt={name} />
           </div>
           <section className={heroInfo}>
-            <Heading type="h1">
-              <Trans
-                t={t}
-                i18nKey={'greeting'}
-                values={{ name }}
-                defaults={defaultAuthorIntroduction}
-              />
-            </Heading>
+            <Heading type="h1">{createAuthorHeading(name)}</Heading>
             <BodyText>{defaultAboutAuthor}</BodyText>
             <MediaLinkList className={links} />
           </section>

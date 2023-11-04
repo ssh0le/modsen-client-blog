@@ -5,7 +5,7 @@ import { useCallback, useMemo } from 'react';
 import { useTranslation } from '@/app/i18n/client';
 import BlogPostCard from '@/components/BlogPostCard';
 import { Carousel, Heading, List, ListHeading } from '@/components/UI';
-import { getLocaleCategories, getPostAmount, getPostByPages } from '@/helpers';
+import { getPostAmount, getPostByPages } from '@/helpers';
 import { useWindowWidth } from '@/hooks/useWindowWidth';
 import { BlogPost, ClickHandler, LocaleComponentProps } from '@/types';
 
@@ -23,13 +23,7 @@ const {
 
 export const BlogCarousel = ({ language }: LocaleComponentProps) => {
   const { t } = useTranslation(language, 'blog');
-  const { t: tCommon } = useTranslation(language, 'common');
   const width = useWindowWidth();
-
-  const categoriesMap = useMemo(
-    () => getLocaleCategories(tCommon('categories', { returnObjects: true })),
-    [],
-  );
 
   const postPerSlide = getPostAmount(width);
   const groupedByPagesPosts = useMemo(
@@ -39,14 +33,9 @@ export const BlogCarousel = ({ language }: LocaleComponentProps) => {
 
   const renderPost = useCallback(
     (blogpost: BlogPost) => (
-      <BlogPostCard
-        locale={language}
-        categoryName={categoriesMap.get(blogpost.categoryId)!}
-        key={blogpost.id}
-        {...blogpost}
-      />
+      <BlogPostCard locale={language} key={blogpost.id} {...blogpost} />
     ),
-    [categoriesMap, language],
+    [language],
   );
 
   const renderSlide = useCallback(

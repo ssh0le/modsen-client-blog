@@ -22,11 +22,12 @@ export const CategoryList = ({
 }: CategoryListProps) => {
   const { t } = useTranslation(locale, 'common');
   const categories: Category[] = t('categories', { returnObjects: true });
+  const categoryDescription = t('commonDescription');
 
   const renderCategory = ({ id, name }: Category) => {
     return (
       <Link key={id} href={createLinkToCategory(locale, id)}>
-        <CategoryCard id={id} name={name} />
+        <CategoryCard id={id} name={name} description={categoryDescription} />
       </Link>
     );
   };

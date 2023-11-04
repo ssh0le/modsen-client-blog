@@ -1,3 +1,4 @@
+export * from './getCategoryName';
 export * from './getIcon';
 export * from './links';
 export * from './locale';
