@@ -11,8 +11,8 @@ import styles from './styles.module.scss';
 
 const { content, modal, video, backdrop } = styles;
 
-const Modal = ({ lng }: LocaleComponentProps) => {
-  const { t } = useTranslation(lng, 'header');
+const Modal = ({ language }: LocaleComponentProps) => {
+  const { t } = useTranslation(language, 'header');
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const toggleModal = (): void => {

@@ -17,9 +17,9 @@ const { emailKey, emailServiceId, subscribeEmailTemplateId } = config;
 
 const { input, form: formStyle } = styles;
 
-const SubscribeForm = ({ lng }: LocaleComponentProps) => {
+const SubscribeForm = ({ language }: LocaleComponentProps) => {
   const [isSubscribed, setIsSubscribed] = useState<boolean>(false);
-  const { t } = useTranslation(lng, 'footer');
+  const { t } = useTranslation(language, 'footer');
   const formRef = useRef<HTMLFormElement | null>(null);
   const { errors, handleSubmit, dispatch, formParams } = useForm(
     { email: '' },

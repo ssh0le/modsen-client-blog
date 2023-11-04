@@ -27,9 +27,9 @@ const {
   imageContainer,
 } = styles;
 
-export const FeaturedPosts = async ({ lng }: LocaleComponentProps) => {
-  const { t } = await useTranslation(lng, 'home');
-  const { t: tCommon } = await useTranslation(lng, 'common');
+export const FeaturedPosts = async ({ language }: LocaleComponentProps) => {
+  const { t } = await useTranslation(language, 'home');
+  const { t: tCommon } = await useTranslation(language, 'common');
 
   const { image, title, description, id, author, date } = getFeaturedPost();
   const allPosts = getPosts(4, id);
@@ -47,7 +47,7 @@ export const FeaturedPosts = async ({ lng }: LocaleComponentProps) => {
             <Heading type="h3">{title}</Heading>
             <BodyText>{description}</BodyText>
           </div>
-          <Link href={`${lng}${routePathes.blog}/${id}`}>
+          <Link href={`${language}${routePathes.blog}/${id}`}>
             <Button styleType="colored">{tCommon('readMoreButton')}</Button>
           </Link>
         </section>
@@ -56,13 +56,13 @@ export const FeaturedPosts = async ({ lng }: LocaleComponentProps) => {
       <section className={allPostsStyle}>
         <div className={allPostsHeading}>
           <Heading type="h2">{t('allPosts')}</Heading>
-          <Link href={`${lng}${routePathes.blog}`}>
+          <Link href={`${language}${routePathes.blog}`}>
             <CustomText color="purple">{t('showAll')}</CustomText>
           </Link>
         </div>
         <ul className={postsList}>
           {allPosts.map(({ author, date, title, id }) => (
-            <Link key={id} href={createLinkToPostWithLocale(lng, id)}>
+            <Link key={id} href={createLinkToPostWithLocale(language, id)}>
               <MinimalBlogPost author={author} date={date} title={title} />
             </Link>
           ))}

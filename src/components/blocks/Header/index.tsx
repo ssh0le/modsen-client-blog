@@ -24,8 +24,8 @@ const {
   burgerBadge,
 } = styles;
 
-export const Header = ({ lng }: LocaleComponentProps) => {
-  const { t } = useTranslation(lng, 'header');
+export const Header = ({ language }: LocaleComponentProps) => {
+  const { t } = useTranslation(language, 'header');
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleMenu = () => {
@@ -43,15 +43,15 @@ export const Header = ({ lng }: LocaleComponentProps) => {
         <div className={controls}>
           <nav>
             <LinkList
-              lng={lng}
+              language={language}
               links={createLocaleLinks(
                 headerLinks,
                 t('links', { returnObjects: true }),
               )}
             />
           </nav>
-          <Modal lng={lng} />
-          <LanguageSwitcher lng={lng} />
+          <Modal language={language} />
+          <LanguageSwitcher language={language} />
         </div>
       </header>
       <div className={burgerBadge} onClick={toggleMenu}>

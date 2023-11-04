@@ -14,14 +14,14 @@ const { wrapper } = styles;
 
 export default async function RootLayout({
   children,
-  params: { lng },
+  params: { lng: language },
 }: BaseLayoutProps) {
   return (
     <>
-      <Header lng={lng} />
+      <Header language={language} />
       <main className={wrapper}>{children}</main>
       <Suspense fallback={<Loader />}>
-        <Footer lng={lng} />
+        <Footer language={language} />
       </Suspense>
     </>
   );

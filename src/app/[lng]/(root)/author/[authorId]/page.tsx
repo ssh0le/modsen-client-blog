@@ -44,10 +44,10 @@ export async function generateStaticParams() {
 export const dynamicParams = false;
 
 const AuthorDetails = async ({
-  params: { lng, authorId },
+  params: { lng: language, authorId },
 }: AuthorPageProps) => {
-  const { t } = await useTranslation(lng, 'author');
-  const { t: tCommon } = await useTranslation(lng, 'common');
+  const { t } = await useTranslation(language, 'author');
+  const { t: tCommon } = await useTranslation(language, 'common');
 
   const categories = getLocaleCategories(
     tCommon('categories', { returnObjects: true }),
@@ -59,7 +59,7 @@ const AuthorDetails = async ({
 
   const renderBlogPost = (post: BlogPost) => (
     <BlogPostCard
-      locale={lng}
+      locale={language}
       categoryName={categories.get(post.categoryId)!}
       key={post.title}
       {...post}

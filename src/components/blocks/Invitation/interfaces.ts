@@ -1,3 +1,3 @@
 export interface InvitationProps {
-  lng: string;
+  language: string;
 }

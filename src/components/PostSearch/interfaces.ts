@@ -1,4 +1,4 @@
 export interface PostSearchProps {
-  lng: string;
+  language: string;
   categoryId: string;
 }

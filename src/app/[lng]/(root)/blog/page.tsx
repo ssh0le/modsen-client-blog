@@ -13,9 +13,11 @@ import styles from './styles.module.scss';
 
 const { message, content, hero, blog, imageContainer, wrapper } = styles;
 
-export default async function Blog({ params: { lng } }: LocaleParams) {
-  const { t } = await useTranslation(lng, 'blog');
-  const { t: tCommon } = await useTranslation(lng, 'common');
+export default async function Blog({
+  params: { lng: language },
+}: LocaleParams) {
+  const { t } = await useTranslation(language, 'blog');
+  const { t: tCommon } = await useTranslation(language, 'common');
 
   const { title, description, image, author, date, id } = getBlogFeaturedPost();
 
@@ -29,7 +31,7 @@ export default async function Blog({ params: { lng } }: LocaleParams) {
             <AuthorAndDate author={author} date={date} authorColor="purple" />
             <BodyText>{description}</BodyText>
           </section>
-          <Link href={createLinkToPostWithLocale(lng, id)}>
+          <Link href={createLinkToPostWithLocale(language, id)}>
             <Button styleType="colored">{tCommon('readMoreButton')}</Button>
           </Link>
         </section>
@@ -38,15 +40,15 @@ export default async function Blog({ params: { lng } }: LocaleParams) {
         </div>
       </ArticleWrapper>
 
-      <BlogCarousel lng={lng} />
+      <BlogCarousel language={language} />
 
       <CategoryList
         title={t('categoriesHeader')}
         headingAlign="left"
-        locale={lng}
+        locale={language}
       />
 
-      <Invitation lng={lng} />
+      <Invitation language={language} />
     </div>
   );
 }

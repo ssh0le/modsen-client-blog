@@ -40,10 +40,10 @@ const {
 const { rightArrow } = controlsIcons;
 const { leftArrowAlt, rightArrowAlt } = altTexts;
 
-export const HomeComments = ({ lng }: LocaleComponentProps) => {
+export const HomeComments = ({ language }: LocaleComponentProps) => {
   const renderComment = (comment: IComment) => <Comment {...comment} />;
 
-  const { t } = useTranslation(lng, 'home');
+  const { t } = useTranslation(language, 'home');
 
   const renderCarouselControls = useCallback(
     (

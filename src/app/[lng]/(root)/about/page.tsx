@@ -45,11 +45,13 @@ const { mainHeadingMessage, overview, missionVision, reasons } = aboutStatics;
 
 const { aboutHero } = images;
 
-export default async function About({ params: { lng } }: LocaleParams) {
+export default async function About({
+  params: { lng: language },
+}: LocaleParams) {
   const renderAuthor = (author: Author) => (
     <AuthorCard key={author.id} {...author} />
   );
-  const { t } = await useTranslation(lng, 'about');
+  const { t } = await useTranslation(language, 'about');
 
   const blogResults = createLocaleResults(
     overview,
@@ -123,7 +125,7 @@ export default async function About({ params: { lng } }: LocaleParams) {
         <List options={authors.slice(0, 8)} renderItem={renderAuthor} />
       </ArticleWrapper>
 
-      <Invitation lng={lng} />
+      <Invitation language={language} />
     </div>
   );
 }

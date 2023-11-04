@@ -18,8 +18,8 @@ const {
   contactInfoColumn,
 } = styles;
 
-const Contact = async ({ params: { lng } }: LocaleParams) => {
-  const { t } = await useTranslation(lng, 'contact');
+const Contact = async ({ params: { lng: language } }: LocaleParams) => {
+  const { t } = await useTranslation(language, 'contact');
   const markers = getLocaleMapMarkers(
     mapConfig.markers,
     t('markerDescription', { returnObjects: true }),
@@ -50,7 +50,7 @@ const Contact = async ({ params: { lng } }: LocaleParams) => {
           </section>
         </section>
 
-        <ContactForm lng={lng} />
+        <ContactForm language={language} />
       </section>
 
       <section className={map}>

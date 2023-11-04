@@ -26,8 +26,8 @@ const {
   media,
 } = styles;
 
-const Footer = async ({ lng }: LocaleComponentProps) => {
-  const { t } = await useTranslation(lng, 'footer');
+const Footer = async ({ language }: LocaleComponentProps) => {
+  const { t } = await useTranslation(language, 'footer');
 
   return (
     <div className={wrapper}>
@@ -37,7 +37,7 @@ const Footer = async ({ lng }: LocaleComponentProps) => {
             {blogName}
           </Heading>
           <LinkList
-            lng={lng}
+            language={language}
             links={createLocaleLinks(
               footerLinks,
               t('links', { returnObjects: true }),
@@ -48,7 +48,7 @@ const Footer = async ({ lng }: LocaleComponentProps) => {
           <Heading type="h2">
             <CustomText color="white">{t('heading')}</CustomText>
           </Heading>
-          <SubscribeForm lng={lng} />
+          <SubscribeForm language={language} />
         </section>
         <section className={bottom}>
           <div className={companyInfo}>

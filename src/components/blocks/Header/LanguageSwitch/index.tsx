@@ -10,17 +10,22 @@ import styles from './styles.module.scss';
 
 const { wrapper, active, delimeter } = styles;
 
-const LanguageSwitch = ({ lng }: { lng: string }) => {
+const LanguageSwitch = ({ language }: { language: string }) => {
   const pathname = usePathname().slice(3);
   return (
     <div className={wrapper}>
-      {languages.map((l, index) => {
+      {languages.map((supportedLanguage, index) => {
         return (
           <Fragment key={index}>
-            {index > 0 && <div key={l + index} className={delimeter}></div>}
-            <span key={index + l} className={`${lng === l ? active : ''}`}>
-              <Link replace href={`/${l}${pathname}`}>
-                {l}
+            {index > 0 && (
+              <div key={supportedLanguage} className={delimeter}></div>
+            )}
+            <span
+              key={supportedLanguage}
+              className={`${language === supportedLanguage ? active : ''}`}
+            >
+              <Link replace href={`/${supportedLanguage}${pathname}`}>
+                {supportedLanguage}
               </Link>
             </span>
           </Fragment>

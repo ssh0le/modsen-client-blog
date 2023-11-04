@@ -5,6 +5,6 @@ export interface LocaleParams {
 }
 
 export interface LocaleComponentProps {
-  lng: string;
+  language: string;
   results?: string[];
 }

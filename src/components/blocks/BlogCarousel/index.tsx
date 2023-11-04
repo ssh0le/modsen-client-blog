@@ -21,9 +21,9 @@ const {
   controlsContainer,
 } = styles;
 
-export const BlogCarousel = ({ lng }: LocaleComponentProps) => {
-  const { t } = useTranslation(lng, 'blog');
-  const { t: tCommon } = useTranslation(lng, 'common');
+export const BlogCarousel = ({ language }: LocaleComponentProps) => {
+  const { t } = useTranslation(language, 'blog');
+  const { t: tCommon } = useTranslation(language, 'common');
   const width = useWindowWidth();
 
   const categoriesMap = useMemo(
@@ -40,13 +40,13 @@ export const BlogCarousel = ({ lng }: LocaleComponentProps) => {
   const renderPost = useCallback(
     (blogpost: BlogPost) => (
       <BlogPostCard
-        locale={lng}
+        locale={language}
         categoryName={categoriesMap.get(blogpost.categoryId)!}
         key={blogpost.id}
         {...blogpost}
       />
     ),
-    [categoriesMap, lng],
+    [categoriesMap, language],
   );
 
   const renderSlide = useCallback(

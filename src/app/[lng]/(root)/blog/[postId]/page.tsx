@@ -50,9 +50,9 @@ export async function generateStaticParams() {
 
 export const dynamicParams = false;
 
-async function BlogPost({ params: { lng, postId } }: PostPageProps) {
-  const { t } = await useTranslation(lng, 'blogPost');
-  const { t: tCommon } = await useTranslation(lng, 'common');
+async function BlogPost({ params: { lng: language, postId } }: PostPageProps) {
+  const { t } = await useTranslation(language, 'blogPost');
+  const { t: tCommon } = await useTranslation(language, 'common');
 
   const categoriesMap = getLocaleCategories(
     tCommon('categories', { returnObjects: true }),
@@ -108,7 +108,7 @@ async function BlogPost({ params: { lng, postId } }: PostPageProps) {
         </section>
       </ArticleWrapper>
 
-      <Invitation lng={lng} />
+      <Invitation language={language} />
     </div>
   );
 }

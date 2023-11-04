@@ -1,7 +1,7 @@
 export interface SearchResultsProps<T> {
   results?: T[];
   onClick: (result: T) => void;
-  lng: string;
+  language: string;
 }
 
 export interface Result {

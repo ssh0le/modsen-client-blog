@@ -7,8 +7,8 @@ import styles from './styles.module.scss';
 
 const { wrapper } = styles;
 
-const SearchBar = ({ lng, ...remainedProps }: SearchBarProps) => {
-  const { t } = useTranslation(lng, 'category');
+const SearchBar = ({ language, ...remainedProps }: SearchBarProps) => {
+  const { t } = useTranslation(language, 'category');
 
   const handleMouseDown = (event: MouseEvent<HTMLInputElement>) => {
     event.stopPropagation();

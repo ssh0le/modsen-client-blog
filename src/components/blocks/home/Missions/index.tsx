@@ -13,9 +13,9 @@ import styles from './styles.module.scss';
 const { wrapper, mission, pattern, missionItem, missionItemBody, missionBody } =
   styles;
 
-export const Missions = async ({ lng }: LocaleComponentProps) => {
-  const { t } = await useTranslation(lng, 'home');
-  const { t: tCommon } = await useTranslation(lng, 'common');
+export const Missions = async ({ language }: LocaleComponentProps) => {
+  const { t } = await useTranslation(language, 'home');
+  const { t: tCommon } = await useTranslation(language, 'common');
 
   return (
     <ArticleWrapper contentClass={mission} wrapperClass={wrapper}>
@@ -28,7 +28,7 @@ export const Missions = async ({ lng }: LocaleComponentProps) => {
           <div className={missionItemBody}>
             <Heading type="h2">{t('aboutHeading')}</Heading>
             <BodyText>{postText}</BodyText>
-            <Link href={createLinkToAbout(lng)}>
+            <Link href={createLinkToAbout(language)}>
               <CustomText color="purple" weight="700">
                 {tCommon('readMoreButton')}
               </CustomText>

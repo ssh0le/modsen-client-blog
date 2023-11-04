@@ -38,17 +38,20 @@ jest.mock('../src/app/i18n/client', () => ({
   },
 }));
 
+const language = 'en';
+const categoryID = '1';
+
 describe('PostSearch', () => {
   it('should render the component', () => {
     const { getByPlaceholderText } = render(
-      <PostSearch lng="en" categoryId="1" />,
+      <PostSearch language={language} categoryId={categoryID} />,
     );
     expect(getByPlaceholderText('Search for tag...')).toBeInTheDocument();
   });
 
   it('displays search results', () => {
     const { getByPlaceholderText, container } = render(
-      <PostSearch lng="en" categoryId="1" />,
+      <PostSearch language={language} categoryId={categoryID} />,
     );
 
     const userInput = 'e';
@@ -66,7 +69,7 @@ describe('PostSearch', () => {
 
   it('select tag on result click', () => {
     const { getByPlaceholderText, getByText, container } = render(
-      <PostSearch lng="en" categoryId="1" />,
+      <PostSearch language={language} categoryId={categoryID} />,
     );
 
     const userInput = 'busines';

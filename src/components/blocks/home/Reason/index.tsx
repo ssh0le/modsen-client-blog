@@ -14,8 +14,8 @@ import styles from './styles.module.scss';
 const { reason } = images;
 const { reason: reasonStyle, message, messageBody, imageContainer } = styles;
 
-export const Reason = async ({ lng }: LocaleComponentProps) => {
-  const { t } = await useTranslation(lng, 'home');
+export const Reason = async ({ language }: LocaleComponentProps) => {
+  const { t } = await useTranslation(language, 'home');
 
   return (
     <ArticleWrapper contentClass={reasonStyle}>
@@ -27,7 +27,7 @@ export const Reason = async ({ lng }: LocaleComponentProps) => {
           <Cap>{t('blogReasonCap')}</Cap>
           <Heading type="h1">{t('blogReasonHeading')}</Heading>
           <BodyText>{defaultReasonText}</BodyText>
-          <Link href={createLinkToAbout(lng)}>
+          <Link href={createLinkToAbout(language)}>
             <Button styleType="colored">{t('blogReasonButton')}</Button>
           </Link>
         </div>

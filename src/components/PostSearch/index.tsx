@@ -34,12 +34,12 @@ const {
   postsList,
 } = styles;
 
-const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
+const PostSearch = ({ language, categoryId }: PostSearchProps) => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [query, setQuery] = useState<string>('');
   const [showResult, setShowResults] = useState<boolean>(false);
-  const { t } = useTranslation(lng, 'category');
-  const { t: tCommon } = useTranslation(lng, 'common');
+  const { t } = useTranslation(language, 'category');
+  const { t: tCommon } = useTranslation(language, 'common');
 
   useEffect(() => {
     const hideResults = () => {
@@ -97,13 +97,13 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
   const renderBlogPost = useCallback(
     (post: BlogPost) => (
       <BlogPostCard
-        locale={lng}
+        locale={language}
         categoryName={categoryName}
         key={post.id}
         {...post}
       />
     ),
-    [lng, categoryName],
+    [language, categoryName],
   );
 
   const handleQueryChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -152,12 +152,16 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
 
       <aside>
         <section className={search}>
-          <SearchBar lng={lng} onChange={handleQueryChange} value={query} />
+          <SearchBar
+            language={language}
+            onChange={handleQueryChange}
+            value={query}
+          />
           {showResult && query.length !== 0 && (
             <div className={resultsStyle}>
               <SearchResults
                 results={searchResultTagList}
-                lng={lng}
+                language={language}
                 onClick={handleResultClick}
               />
             </div>
@@ -174,7 +178,7 @@ const PostSearch = ({ lng, categoryId }: PostSearchProps) => {
           >
             <section className={categoryList}>
               {categoriesArray.map(({ id, name }) => (
-                <Link key={id} href={createLinkToCategory(lng, id)}>
+                <Link key={id} href={createLinkToCategory(language, id)}>
                   <CategoryCard id={id} name={name} displayType="minimal" />
                 </Link>
               ))}

@@ -9,8 +9,8 @@ import styles from './styles.module.scss';
 const { article, description, heading: headingText } = privacyStatics;
 const { heading, descriptionStyle, textWrapper } = styles;
 
-const PrivacyPolicy = async ({ params: { lng } }: LocaleParams) => {
-  const { t } = await useTranslation(lng, 'privacy');
+const PrivacyPolicy = async ({ params: { lng: language } }: LocaleParams) => {
+  const { t } = await useTranslation(language, 'privacy');
   return (
     <>
       <section className={heading}>

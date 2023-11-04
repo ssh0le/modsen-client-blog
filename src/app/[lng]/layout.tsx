@@ -23,7 +23,7 @@ const sen = Sen({
 });
 
 export async function generateStaticParams() {
-  return languages.map((lng) => ({ lng }));
+  return languages.map((language) => ({ lng: language }));
 }
 
 export const dynamicParams = false;

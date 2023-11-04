@@ -21,8 +21,8 @@ const { form } = styles;
 
 const { emailKey, emailServiceId, supportEmailTemplateId } = config;
 
-const ContactForm = ({ lng }: LocaleComponentProps) => {
-  const { t } = useTranslation(lng, 'contact');
+const ContactForm = ({ language }: LocaleComponentProps) => {
+  const { t } = useTranslation(language, 'contact');
 
   const { errors, handleSubmit, dispatch, formParams } =
     useForm<ContactFormFields>(

@@ -23,21 +23,23 @@ import styles from './pageStyles.module.scss';
 
 const { sponsors, home, title } = styles;
 
-export default async function Home({ params: { lng } }: LocaleParams) {
-  const { t } = await useTranslation(lng, 'home');
+export default async function Home({
+  params: { lng: language },
+}: LocaleParams) {
+  const { t } = await useTranslation(language, 'home');
 
   return (
     <div className={home}>
       <InfinityScroll>
-        <HomeHero lng={lng} />
+        <HomeHero language={language} />
 
-        <FeaturedPosts lng={lng} />
+        <FeaturedPosts language={language} />
 
-        <Missions lng={lng} />
+        <Missions language={language} />
 
-        <CategoryList title={t('categoriesList')} locale={lng} />
+        <CategoryList title={t('categoriesList')} locale={language} />
 
-        <Reason lng={lng} />
+        <Reason language={language} />
 
         <ArticleWrapper>
           <ListHeading>{t('authorsHeading')}</ListHeading>
@@ -58,9 +60,9 @@ export default async function Home({ params: { lng } }: LocaleParams) {
           ))}
         </ArticleWrapper>
 
-        <HomeComments lng={lng} />
+        <HomeComments language={language} />
 
-        <Invitation lng={lng} />
+        <Invitation language={language} />
       </InfinityScroll>
     </div>
   );

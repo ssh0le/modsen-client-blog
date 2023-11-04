@@ -16,9 +16,9 @@ const {
 const SearchResults = <T extends Result>({
   results,
   onClick,
-  lng,
+  language,
 }: SearchResultsProps<T>) => {
-  const { t } = useTranslation(lng, 'category');
+  const { t } = useTranslation(language, 'category');
   if (!results) {
     return null;
   }

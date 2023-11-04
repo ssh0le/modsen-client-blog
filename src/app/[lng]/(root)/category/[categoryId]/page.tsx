@@ -20,10 +20,10 @@ export async function generateStaticParams() {
 export const dynamicParams = false;
 
 export default async function Category({
-  params: { lng, categoryId },
+  params: { language, categoryId },
 }: CategoryPageProps) {
-  const { t } = await useTranslation(lng, 'category');
-  const { t: tCommon } = await useTranslation(lng, 'common');
+  const { t } = await useTranslation(language, 'category');
+  const { t: tCommon } = await useTranslation(language, 'common');
 
   const categories = getLocaleCategories(
     tCommon('categories', { returnObjects: true }),
@@ -43,7 +43,7 @@ export default async function Category({
       </section>
 
       <ArticleWrapper>
-        <PostSearch lng={lng} categoryId={categoryId} />
+        <PostSearch language={language} categoryId={categoryId} />
       </ArticleWrapper>
     </div>
   );

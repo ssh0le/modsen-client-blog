@@ -20,9 +20,9 @@ const { homeHero } = images;
 
 const { hero, overlay, content, host, image } = styles;
 
-export const HomeHero = async ({ lng }: HomeHeroProps) => {
-  const { t } = await useTranslation(lng, 'home');
-  const { t: tCommon } = await useTranslation(lng, 'common');
+export const HomeHero = async ({ language }: HomeHeroProps) => {
+  const { t } = await useTranslation(language, 'home');
+  const { t: tCommon } = await useTranslation(language, 'common');
   const { description, author, date, id, title, categoryId } = getHomePost();
   const categoriesMap = getLocaleCategories(
     tCommon('categories', { returnObjects: true }),
@@ -51,7 +51,7 @@ export const HomeHero = async ({ lng }: HomeHeroProps) => {
         />
         <BodyText>{description}</BodyText>
       </div>
-      <Link href={`${lng}/${routePathes.blog}/${id}`}>
+      <Link href={`${language}/${routePathes.blog}/${id}`}>
         <Button styleType="colored">{tCommon('readMoreButton')}</Button>
       </Link>
     </ArticleWrapper>
