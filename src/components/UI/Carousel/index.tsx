@@ -7,6 +7,10 @@ import styles from './styles.module.scss';
 
 const { wrapper, slide, displayWindow, slides } = styles;
 
+const createCarouselStyle = (currentSlide: number) => ({
+  transform: `translateX(-${currentSlide * 100}%)`,
+});
+
 const GenericCarousel = <T,>({
   renderControls,
   renderItem,
@@ -39,9 +43,7 @@ const GenericCarousel = <T,>({
       <section className={slides}>
         <div
           className={displayWindow}
-          style={{
-            transform: `translateX(-${currentSlide * 100}%)`,
-          }}
+          style={createCarouselStyle(currentSlide)}
         >
           {items.map((item, index) => (
             <div key={index} className={slide}>
