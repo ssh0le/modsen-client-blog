@@ -1,5 +1,7 @@
 import { validFormData } from '../mocks';
 
+import { LocaleTestsProps } from './interfaces';
+
 export const naviageToPage = (route: string) => {
   cy.get(`a[href*="${route}"]`).first().should('exist').click();
 };
@@ -12,19 +14,14 @@ export const scrollNTimes = (amount: number) => {
   }
 };
 
-export const testI18N = (locale: {
-  homeLink: string;
-  featuredPost: string;
-  readMoreButton: string;
-  aboutHeading: string;
-  contactHeading: string;
-}) => {
+export const testI18N = (locale: LocaleTestsProps) => {
   const {
     homeLink,
     featuredPost,
     readMoreButton,
     aboutHeading,
     contactHeading,
+    blogHeading,
   } = locale;
 
   cy.get(`a`).contains(homeLink).should('exist');
@@ -34,7 +31,7 @@ export const testI18N = (locale: {
   cy.get('h2').contains(featuredPost).should('exist');
 
   naviageToPage('/blog');
-  cy.get('span').contains(featuredPost).should('exist');
+  cy.get('h2').contains(blogHeading).should('exist');
   cy.get('button').contains(readMoreButton).should('exist');
 
   naviageToPage('/about');

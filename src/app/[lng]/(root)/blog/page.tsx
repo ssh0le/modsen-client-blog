@@ -1,13 +1,10 @@
-import {
-  ArticleWrapper,
-  BlogCarousel,
-  CategoryList,
-  Invitation,
-} from '@blocks';
+import { ArticleWrapper, Invitation } from '@blocks';
 import { useTranslation } from '@i18n/index';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import BlogCarousel from '@/components/BlogCarousel';
+import CategoryList from '@/components/CategoryList';
 import { recommendedPostHeading } from '@/constants';
 import { createLinkToPostWithLocale, getBlogFeaturedPost } from '@/helpers';
 import { LocaleParams } from '@/types';

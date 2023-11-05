@@ -1,9 +1,7 @@
 import {
   ArticleWrapper,
   AuthorList,
-  CategoryList,
   FeaturedPosts,
-  HomeComments,
   HomeHero,
   Invitation,
   Missions,
@@ -12,6 +10,8 @@ import {
 import { useTranslation } from '@i18n/index';
 import Image from 'next/image';
 
+import CategoryList from '@/components/CategoryList';
+import HomeComments from '@/components/HomeComments';
 import InfinityScroll from '@/components/InfinityScroll';
 import { altTexts, authors, logos } from '@/constants';
 import { LocaleParams } from '@/types';

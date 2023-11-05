@@ -5,7 +5,6 @@ import { useTranslation } from '@i18n/client';
 import Image from 'next/image';
 import { useCallback } from 'react';
 
-import Comment from '@/components/blocks/HomeComments/Comment';
 import { altTexts, comments, controlsIcons } from '@/constants';
 import {
   ClickHandler,
@@ -14,6 +13,7 @@ import {
 } from '@/types';
 import { BodyText, Cap, Carousel, Heading } from '@UI';
 
+import Comment from './Comment';
 import styles from './styles.module.scss';
 
 const {
@@ -34,7 +34,7 @@ const {
 const { rightArrow } = controlsIcons;
 const { leftArrowAlt, rightArrowAlt } = altTexts;
 
-export const HomeComments = ({ language }: LocaleComponentProps) => {
+const HomeComments = ({ language }: LocaleComponentProps) => {
   const { t } = useTranslation(language, 'home');
   const { t: tCommon } = useTranslation(language, 'common');
 
@@ -91,3 +91,5 @@ export const HomeComments = ({ language }: LocaleComponentProps) => {
     </ArticleWrapper>
   );
 };
+
+export default HomeComments;

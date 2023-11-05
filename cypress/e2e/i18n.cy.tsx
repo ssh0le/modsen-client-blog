@@ -20,6 +20,7 @@ describe('i18n', () => {
       aboutHeading:
         'We are a team of content writers who share their learnings',
       contactHeading: 'Let’s Start a Conversation',
+      blogHeading: 'All posts',
     });
   });
 
@@ -31,6 +32,7 @@ describe('i18n', () => {
       readMoreButton: 'Узнать больше >',
       aboutHeading: 'Мы - команда контент-писателей, делящихся своими знаниями',
       contactHeading: 'Начнем разговор',
+      blogHeading: 'Все посты',
     });
   });
 });

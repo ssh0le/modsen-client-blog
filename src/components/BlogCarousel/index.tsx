@@ -20,7 +20,7 @@ const {
   controlsContainer,
 } = styles;
 
-export const BlogCarousel = ({ language }: LocaleComponentProps) => {
+const BlogCarousel = ({ language }: LocaleComponentProps) => {
   const { t } = useTranslation(language, 'blog');
   const width = useWindowWidth();
 
@@ -93,3 +93,5 @@ export const BlogCarousel = ({ language }: LocaleComponentProps) => {
     </ArticleWrapper>
   );
 };
+
+export default BlogCarousel;

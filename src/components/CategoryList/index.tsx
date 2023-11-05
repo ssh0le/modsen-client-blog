@@ -15,11 +15,7 @@ import styles from './styles.module.scss';
 
 const { heading } = styles;
 
-export const CategoryList = ({
-  title,
-  headingAlign,
-  locale,
-}: CategoryListProps) => {
+const CategoryList = ({ title, headingAlign, locale }: CategoryListProps) => {
   const { t } = useTranslation(locale, 'common');
   const categories: Category[] = t('categories', { returnObjects: true });
   const categoryDescription = t('commonDescription');
@@ -43,3 +39,5 @@ export const CategoryList = ({
     </ArticleWrapper>
   );
 };
+
+export default CategoryList;

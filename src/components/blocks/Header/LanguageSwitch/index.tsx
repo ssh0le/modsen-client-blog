@@ -28,7 +28,7 @@ const LanguageSwitch = ({ language }: { language: string }) => {
         </Fragment>
       );
     },
-    [language],
+    [language, pathname],
   );
   return <div className={wrapper}>{languages.map(renderLanguage)}</div>;
 };

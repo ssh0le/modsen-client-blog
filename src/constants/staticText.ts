@@ -120,11 +120,6 @@ export const aboutStatics = {
   ],
 };
 
-export const categoryStatics = {
-  headingMessage:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
-};
-
 export const blogName = 'Modsen Client Blog';
 
 const defaultComment: Comment = {
