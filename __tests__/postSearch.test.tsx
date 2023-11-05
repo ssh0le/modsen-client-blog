@@ -30,6 +30,15 @@ jest.mock('../src/app/i18n/client', () => ({
           ];
         } else if (name === 'searchPlaceholder') {
           return 'Search for tag...';
+        } else if (name === 'tags') {
+          return [
+            { name: 'Business', id: '1' },
+            { name: 'Experience', id: '2' },
+            { name: 'Screen', id: '3' },
+            { name: 'Technology', id: '4' },
+            { name: 'Marketing', id: '5' },
+            { name: 'Life', id: '6' },
+          ];
         } else {
           return name;
         }
@@ -68,7 +77,7 @@ describe('PostSearch', () => {
   });
 
   it('select tag on result click', () => {
-    const { getByPlaceholderText, getByText, container } = render(
+    const { getByPlaceholderText, container } = render(
       <PostSearch language={language} categoryId={categoryID} />,
     );
 
@@ -78,7 +87,7 @@ describe('PostSearch', () => {
     fireEvent.change(searchInput, { target: { value: userInput } });
     fireEvent.click(container.querySelectorAll('ul > li')[0]);
 
-    const selectedTag = getByText('Business').closest('b')?.closest('div');
+    const selectedTag = container.querySelector('.tagsList')?.childNodes[0];
     expect(selectedTag).toHaveClass('active');
 
     fireEvent.change(searchInput, { target: { value: userInput } });
