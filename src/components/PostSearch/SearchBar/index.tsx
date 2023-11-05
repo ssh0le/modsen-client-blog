@@ -1,5 +1,3 @@
-import { MouseEvent } from 'react';
-
 import { useTranslation } from '@/app/i18n/client';
 
 import { SearchBarProps } from './interfaces';
@@ -10,12 +8,8 @@ const { wrapper } = styles;
 const SearchBar = ({ language, ...remainedProps }: SearchBarProps) => {
   const { t } = useTranslation(language, 'category');
 
-  const handleMouseDown = (event: MouseEvent<HTMLInputElement>) => {
-    event.stopPropagation();
-  };
-
   return (
-    <div className={wrapper} onMouseUp={handleMouseDown}>
+    <div className={wrapper}>
       <input
         {...remainedProps}
         placeholder={t('searchPlaceholder')}

@@ -43,7 +43,6 @@ export default async function Category({
       </section>
 
       <ArticleWrapper>
-        <div></div>
         <PostSearch language={language} categoryId={categoryId} />
       </ArticleWrapper>
     </div>

@@ -1,7 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { ChangeEvent, useCallback, useEffect, useMemo, useState } from 'react';
+import {
+  ChangeEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
 import { useTranslation } from '@/app/i18n/client';
 import { blogPosts } from '@/constants';
@@ -41,16 +48,24 @@ const PostSearch = ({ language, categoryId }: PostSearchProps) => {
   const { t } = useTranslation(language, 'category');
   const { t: tCommon } = useTranslation(language, 'common');
 
+  const resultsDropDownRef = useRef<HTMLDivElement | null>(null);
+
   const localeTags = t('tags', { returnObjects: true }) as ITag[];
 
   useEffect(() => {
-    const hideResults = () => {
+    const handleBodyClick: EventListenerOrEventListenerObject = (event) => {
+      const resultsDropdown = resultsDropDownRef.current;
+      if (resultsDropdown && resultsDropdown.contains(event.target as Node)) {
+        return;
+      }
       setShowResults(false);
     };
 
-    document.addEventListener('click', hideResults);
+    document.body.addEventListener('click', handleBodyClick);
 
-    return () => document.removeEventListener('click', hideResults);
+    return () => {
+      document.body.removeEventListener('click', handleBodyClick);
+    };
   }, []);
 
   const filteredByCategoryPosts = useMemo(
@@ -98,8 +113,6 @@ const PostSearch = ({ language, categoryId }: PostSearchProps) => {
     setQuery(value);
     if (value.length > 0) {
       setShowResults(true);
-    } else {
-      setShowResults(false);
     }
   };
 
@@ -117,7 +130,10 @@ const PostSearch = ({ language, categoryId }: PostSearchProps) => {
 
   const handleResultClick = (tag: ITag) => {
     toggleTag(tag);
-    setQuery('');
+  };
+
+  const handleSearchFocus = () => {
+    setShowResults(true);
   };
 
   return (
@@ -138,11 +154,12 @@ const PostSearch = ({ language, categoryId }: PostSearchProps) => {
       )}
 
       <aside>
-        <section className={search}>
+        <section className={search} ref={resultsDropDownRef}>
           <SearchBar
             language={language}
             onChange={handleQueryChange}
             value={query}
+            onMouseUp={handleSearchFocus}
           />
           {showResult && query.length !== 0 && (
             <div className={resultsStyle}>
