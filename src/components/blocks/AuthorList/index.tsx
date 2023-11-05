@@ -1,6 +1,6 @@
 import AuthorCard from '@/components/AuthorCard';
-import { List } from '@/components/UI';
 import { Author } from '@/types';
+import { List } from '@UI';
 
 import { AuthorListProps } from './interfaces';
 

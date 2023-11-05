@@ -1,8 +1,8 @@
 'use client';
 
+import { useTranslation } from '@i18n/client';
 import { useState } from 'react';
 
-import { useTranslation } from '@/app/i18n/client';
 import { config, videoTitle } from '@/constants';
 import { LocaleComponentProps } from '@/types';
 import { Button } from '@UI';

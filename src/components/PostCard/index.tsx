@@ -6,8 +6,7 @@ import { usePathname } from 'next/navigation';
 
 import { createLinkToPost } from '@/helpers';
 import { BlogPost } from '@/types';
-
-import { AuthorAndDate, BodyText, Heading } from '../UI';
+import { AuthorAndDate, BodyText, Heading } from '@UI';
 
 import styles from './styles.module.scss';
 

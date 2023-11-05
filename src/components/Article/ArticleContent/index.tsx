@@ -1,4 +1,4 @@
-import { Heading } from '@/components/UI';
+import { Heading } from '@UI';
 
 import ArticleList from './ArticleList';
 import ArticleParagraph from './ArticleParagraph';

@@ -1,4 +1,4 @@
-import { AuthorAndDate, Heading } from '@/components/UI';
+import { AuthorAndDate, Heading } from '@UI';
 
 import { MinimalBlogPostProps } from './interfaces';
 import styles from './styles.module.scss';

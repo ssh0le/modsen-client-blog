@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslation } from '@/app/i18n/client';
+import { useTranslation } from '@i18n/client';
 
 import { Result, SearchResultsProps } from './interfaces';
 import styles from './styles.module.scss';

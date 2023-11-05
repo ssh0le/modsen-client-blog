@@ -1,11 +1,10 @@
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { languages } from '@i18n/settings';
 import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import { Inter, Sen } from 'next/font/google';
 
 import { metaDataHome } from '@/constants';
-
-import { languages } from '../i18n/settings';
 
 import '@/styles/global.scss';
 import { AppLayoutProps } from './interfaces';

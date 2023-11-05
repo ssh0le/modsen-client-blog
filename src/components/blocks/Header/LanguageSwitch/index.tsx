@@ -1,10 +1,9 @@
 'use client';
 
+import { languages } from '@i18n/settings';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Fragment } from 'react';
-
-import { languages } from '@/app/i18n/settings';
 
 import styles from './styles.module.scss';
 

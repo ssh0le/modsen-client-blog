@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { CustomText } from '@/components/UI';
+import { CustomText } from '@UI';
 
 import { DropDownProps } from './interfaces';
 import styles from './styles.module.scss';

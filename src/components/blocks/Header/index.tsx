@@ -1,9 +1,9 @@
 'use client';
 
+import { useTranslation } from '@i18n/client';
 import Link from 'next/link';
 import { useState } from 'react';
 
-import { useTranslation } from '@/app/i18n/client';
 import LinkList from '@/components/LinkList';
 import Modal from '@/components/VideoModal';
 import { blogName, headerLinks, routePathes } from '@/constants';

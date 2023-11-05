@@ -1,17 +1,11 @@
+import { useTranslation } from '@i18n/index';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { useTranslation } from '@/app/i18n';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
-import {
-  AuthorAndDate,
-  BodyText,
-  Button,
-  CustomText,
-  DisplayText,
-} from '@/components/UI';
 import { altTexts, homeCap, images, routePathes } from '@/constants';
 import { getCategoryName, getHomePost } from '@/helpers';
+import { AuthorAndDate, BodyText, Button, CustomText, DisplayText } from '@UI';
 
 import { HomeHeroProps } from './interfaces';
 import styles from './styled.module.scss';

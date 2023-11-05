@@ -2,8 +2,8 @@ import { Header } from '@blocks';
 import type { Metadata } from 'next';
 import { lazy, Suspense } from 'react';
 
-import { Loader } from '@/components/UI';
 import { metaDataHome } from '@/constants';
+import { Loader } from '@UI';
 
 import { BaseLayoutProps } from './interfaces';
 import styles from './layoutStyles.module.scss';

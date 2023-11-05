@@ -1,15 +1,13 @@
 'use client';
 
 import emailjs from '@emailjs/browser';
+import { useTranslation } from '@i18n/client';
 import { ChangeEvent, FormEvent, useRef, useState } from 'react';
 
-import { useTranslation } from '@/app/i18n/client';
-import { Button, CustomText } from '@/components/UI';
-import ErrorWrapper from '@/components/UI/inputFields/ErrorWrapper';
-import { config } from '@/constants';
-import { emailSchema } from '@/constants/validation';
+import { config, emailSchema } from '@/constants';
 import { useForm } from '@/hooks/useForm';
 import { LocaleComponentProps } from '@/types';
+import { Button, CustomText, ErrorWrapper } from '@UI';
 
 import styles from './styles.module.scss';
 

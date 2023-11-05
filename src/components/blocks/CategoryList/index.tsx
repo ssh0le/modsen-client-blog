@@ -1,14 +1,13 @@
 'use client';
 
+import { ArticleWrapper } from '@blocks';
+import { useTranslation } from '@i18n/client';
 import Link from 'next/link';
 
-import { useTranslation } from '@/app/i18n/client';
 import CategoryCard from '@/components/CategoryCard';
 import { createLinkToCategory } from '@/helpers';
 import { Category } from '@/types';
 import { List, ListHeading } from '@UI';
-
-import { ArticleWrapper } from '../ArticleWrapper';
 
 import { CategoryListProps } from './interfaces';
 import styles from './styles.module.scss';

@@ -1,13 +1,12 @@
+import { ArticleWrapper } from '@blocks';
+import { useTranslation } from '@i18n/index';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { useTranslation } from '@/app/i18n';
 import { altTexts, defaultReasonText, images } from '@/constants';
 import { createLinkToAbout } from '@/helpers';
 import { LocaleComponentProps } from '@/types';
 import { BodyText, Button, Cap, Heading } from '@UI';
-
-import { ArticleWrapper } from '../../ArticleWrapper';
 
 import styles from './styles.module.scss';
 

@@ -1,11 +1,11 @@
-import { CustomText } from '../..';
+import { CustomText } from '@UI';
 
 import { ErrorWrapperProps } from './interfaces';
 import styles from './styles.module.scss';
 
 const { wrapper, error: errorWrapper } = styles;
 
-const ErrorWrapper = ({ children, error }: ErrorWrapperProps) => {
+export const ErrorWrapper = ({ children, error }: ErrorWrapperProps) => {
   return (
     <div className={wrapper}>
       {children}
@@ -15,5 +15,3 @@ const ErrorWrapper = ({ children, error }: ErrorWrapperProps) => {
     </div>
   );
 };
-
-export default ErrorWrapper;

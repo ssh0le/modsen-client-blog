@@ -1,4 +1,4 @@
-import { Heading } from '@/components/UI';
+import { Heading } from '@UI';
 
 import { ResponseMessageProps } from './interfaces';
 import styles from './styles.module.scss';

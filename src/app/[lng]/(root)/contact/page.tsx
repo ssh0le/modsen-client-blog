@@ -1,4 +1,5 @@
-import { useTranslation } from '@/app/i18n';
+import { useTranslation } from '@i18n/index';
+
 import ContactForm from '@/components/ContactForm';
 import Map from '@/components/Map';
 import { blogEmail, blogPhone, mapConfig } from '@/constants';

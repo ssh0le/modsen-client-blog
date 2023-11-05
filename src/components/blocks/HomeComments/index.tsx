@@ -1,19 +1,18 @@
 'use client';
 
+import { ArticleWrapper } from '@blocks';
+import { useTranslation } from '@i18n/client';
 import Image from 'next/image';
 import { useCallback } from 'react';
 
-import { useTranslation } from '@/app/i18n/client';
 import Comment from '@/components/blocks/HomeComments/Comment';
-import { BodyText, Cap, Carousel, Heading } from '@/components/UI';
 import { altTexts, comments, controlsIcons } from '@/constants';
 import {
   ClickHandler,
   Comment as IComment,
   LocaleComponentProps,
 } from '@/types';
-
-import { ArticleWrapper } from '../ArticleWrapper';
+import { BodyText, Cap, Carousel, Heading } from '@UI';
 
 import styles from './styles.module.scss';
 

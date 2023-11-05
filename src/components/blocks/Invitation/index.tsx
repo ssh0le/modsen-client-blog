@@ -1,10 +1,9 @@
+import { ArticleWrapper } from '@blocks';
+import { useTranslation } from '@i18n/index';
 import Link from 'next/link';
 
-import { useTranslation } from '@/app/i18n';
-import { BodyText, Button, Heading } from '@/components/UI';
 import { routePathes } from '@/constants';
-
-import { ArticleWrapper } from '../ArticleWrapper';
+import { BodyText, Button, Heading } from '@UI';
 
 import { InvitationProps } from './interfaces';
 import styles from './styles.module.scss';

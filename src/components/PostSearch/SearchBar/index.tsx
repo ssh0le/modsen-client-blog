@@ -1,4 +1,4 @@
-import { useTranslation } from '@/app/i18n/client';
+import { useTranslation } from '@i18n/client';
 
 import { SearchBarProps } from './interfaces';
 import styles from './styles.module.scss';

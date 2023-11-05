@@ -1,7 +1,8 @@
+import { ArticleWrapper } from '@blocks';
+import { useTranslation } from '@i18n/index';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { useTranslation } from '@/app/i18n';
 import { routePathes } from '@/constants';
 import {
   createLinkToPostWithLocale,
@@ -10,8 +11,6 @@ import {
 } from '@/helpers';
 import { LocaleComponentProps } from '@/types';
 import { AuthorAndDate, BodyText, Button, CustomText, Heading } from '@UI';
-
-import { ArticleWrapper } from '../../ArticleWrapper';
 
 import MinimalBlogPost from './MinimalBlogPost';
 import styles from './styles.module.scss';

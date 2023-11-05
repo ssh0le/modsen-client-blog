@@ -1,9 +1,8 @@
+import { ArticleWrapper } from '@blocks';
 import Image from 'next/image';
 
 import { altTexts } from '@/constants';
-
-import { ArticleWrapper } from '../blocks/ArticleWrapper';
-import { BodyText, Heading, ImageDecoration } from '../UI';
+import { BodyText, Heading, ImageDecoration } from '@UI';
 
 import { AboutReasonProps } from './interfaces';
 import styles from './styles.module.scss';

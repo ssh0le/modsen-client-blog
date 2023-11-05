@@ -1,10 +1,9 @@
+import { ArticleWrapper, Invitation } from '@blocks';
+import { useTranslation } from '@i18n/index';
 import Image from 'next/image';
 
-import { useTranslation } from '@/app/i18n';
 import AboutReason from '@/components/AboutReason';
 import AuthorCard from '@/components/AuthorCard';
-import { Invitation } from '@/components/blocks';
-import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import {
   aboutStatics,
   altTexts,

@@ -1,15 +1,14 @@
 'use client';
 
+import { ArticleWrapper } from '@blocks';
+import { useTranslation } from '@i18n/client';
 import { useCallback, useMemo } from 'react';
 
-import { useTranslation } from '@/app/i18n/client';
 import BlogPostCard from '@/components/BlogPostCard';
-import { Carousel, Heading, List, ListHeading } from '@/components/UI';
 import { getPostAmount, getPostByPages } from '@/helpers';
 import { useWindowWidth } from '@/hooks/useWindowWidth';
 import { BlogPost, ClickHandler, LocaleComponentProps } from '@/types';
-
-import { ArticleWrapper } from '../ArticleWrapper';
+import { Carousel, Heading, List, ListHeading } from '@UI';
 
 import styles from './styles.module.scss';
 

@@ -4,8 +4,7 @@ import Image from 'next/image';
 import { memo } from 'react';
 
 import { Comment as IComment } from '@/types';
-
-import { CustomText, Heading } from '../../../UI';
+import { CustomText, Heading } from '@UI';
 
 import styles from './styles.module.scss';
 

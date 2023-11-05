@@ -5,8 +5,7 @@ import Link from 'next/link';
 import { memo } from 'react';
 
 import { createLinkToPostWithLocale, getCategoryName } from '@/helpers';
-
-import { BodyText, Cap, CustomText, Heading } from '../UI';
+import { BodyText, Cap, CustomText, Heading } from '@UI';
 
 import styles from './styled.module.scss';
 import { BlogPostCardProps } from './types';

@@ -1,4 +1,4 @@
-import { Heading } from '@/components/UI';
+import { Heading } from '@UI';
 
 import styles from './styles.module.scss';
 import { ArticleListProps } from './types';

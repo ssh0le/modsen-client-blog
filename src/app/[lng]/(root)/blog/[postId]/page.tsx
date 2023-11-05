@@ -1,6 +1,6 @@
+import { useTranslation } from '@i18n/index';
 import Image from 'next/image';
 
-import { useTranslation } from '@/app/i18n';
 import Article from '@/components/Article';
 import { Invitation } from '@/components/blocks';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
@@ -8,10 +8,10 @@ import PostCard from '@/components/PostCard';
 import {
   authorsAvatars,
   blogPosts,
+  blogPostStatics,
   defaultArticleContent,
   images,
 } from '@/constants';
-import { blogPostStatics } from '@/constants';
 import {
   getCategoryIcon,
   getCategoryName,

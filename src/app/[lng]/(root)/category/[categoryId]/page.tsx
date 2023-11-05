@@ -1,4 +1,5 @@
-import { useTranslation } from '@/app/i18n';
+import { useTranslation } from '@i18n/index';
+
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import PostSearch from '@/components/PostSearch';
 import { categories, categoryStatics } from '@/constants';

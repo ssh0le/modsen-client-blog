@@ -1,4 +1,4 @@
-import { BodyText } from '@/components/UI';
+import { BodyText } from '@UI';
 
 import { ArticleParagraphProps } from './types';
 

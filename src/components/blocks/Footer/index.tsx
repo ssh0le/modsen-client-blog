@@ -1,10 +1,10 @@
-import { useTranslation } from '@/app/i18n';
+import { useTranslation } from '@i18n/index';
+
+import LinkList from '@/components/LinkList';
 import { blogEmail, blogName, blogPhone, footerLinks } from '@/constants';
 import { createLocaleLinks } from '@/helpers';
 import { LocaleComponentProps } from '@/types';
-
-import LinkList from '../../LinkList';
-import { BodyText, CustomText, Heading, MediaLinkList } from '../../UI';
+import { BodyText, CustomText, Heading, MediaLinkList } from '@UI';
 
 import styles from './styled.module.scss';
 import SubscribeForm from './SubscribeForm';

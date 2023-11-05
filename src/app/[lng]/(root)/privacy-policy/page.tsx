@@ -1,8 +1,9 @@
-import { useTranslation } from '@/app/i18n';
+import { useTranslation } from '@i18n/index';
+
 import ArticleBlock from '@/components/Article/ArticleContent';
-import { BodyText, CustomText, Heading } from '@/components/UI';
 import { privacyStatics } from '@/constants';
 import { LocaleParams } from '@/types';
+import { BodyText, CustomText, Heading } from '@UI';
 
 import styles from './styles.module.scss';
 

@@ -1,4 +1,4 @@
-import { StyleResolver } from '@/helpers/styleResolver';
+import { StyleResolver } from '@/helpers';
 
 import { CustomTextProps } from './interfaces';
 import styles from './styles.module.scss';

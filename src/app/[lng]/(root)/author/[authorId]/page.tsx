@@ -1,6 +1,6 @@
+import { useTranslation } from '@i18n/index';
 import Image from 'next/image';
 
-import { useTranslation } from '@/app/i18n';
 import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import BlogPostCard from '@/components/BlogPostCard';
 import { authors, blogPosts, defaultAboutAuthor } from '@/constants';

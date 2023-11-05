@@ -7,3 +7,4 @@ export * from './map';
 export * from './posts';
 export * from './routePaths';
 export * from './staticText';
+export * from './validation';

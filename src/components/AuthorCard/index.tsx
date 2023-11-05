@@ -7,8 +7,7 @@ import { usePathname } from 'next/navigation';
 import { mediaIcons } from '@/constants';
 import { createLinkToAuthor } from '@/helpers';
 import { Author } from '@/types';
-
-import { BodyText, Heading } from '../UI';
+import { BodyText, Heading } from '@UI';
 
 import styles from './styles.module.scss';
 

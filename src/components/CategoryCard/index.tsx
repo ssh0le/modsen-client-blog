@@ -3,9 +3,8 @@
 import Image from 'next/image';
 import { memo } from 'react';
 
-import { getCategoryIcon } from '@/helpers/getIcon';
-
-import { BodyText, Heading } from '../UI';
+import { getCategoryIcon } from '@/helpers';
+import { BodyText, Heading } from '@UI';
 
 import { CategoryCardProps } from './interfaces';
 import styles from './styled.module.scss';

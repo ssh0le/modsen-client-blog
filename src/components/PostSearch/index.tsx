@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslation } from '@i18n/client';
 import Link from 'next/link';
 import {
   ChangeEvent,
@@ -10,16 +11,14 @@ import {
   useState,
 } from 'react';
 
-import { useTranslation } from '@/app/i18n/client';
+import BlogPostCard from '@/components/BlogPostCard';
+import CategoryCard from '@/components/CategoryCard';
 import { blogPosts } from '@/constants';
-import { createLinkToCategory } from '@/helpers';
-import { searchTags } from '@/helpers/searchTags';
+import { createLinkToCategory, searchTags } from '@/helpers';
 import { BlogPost, Category, Tag as ITag } from '@/types';
+import { CustomText, List, ListHeading } from '@UI';
 
-import BlogPostCard from '../BlogPostCard';
-import CategoryCard from '../CategoryCard';
 import Tag from '../Tag';
-import { CustomText, List, ListHeading } from '../UI';
 
 import DropDown from './DropDown';
 import { PostSearchProps } from './interfaces';

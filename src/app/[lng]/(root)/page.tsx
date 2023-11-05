@@ -1,4 +1,6 @@
 import {
+  ArticleWrapper,
+  AuthorList,
   CategoryList,
   FeaturedPosts,
   HomeComments,
@@ -7,17 +9,13 @@ import {
   Missions,
   Reason,
 } from '@blocks';
-import { AuthorList } from '@blocks';
+import { useTranslation } from '@i18n/index';
 import Image from 'next/image';
 
-import { ArticleWrapper } from '@/components/blocks/ArticleWrapper';
 import InfinityScroll from '@/components/InfinityScroll';
-import { BodyText, Heading, ListHeading } from '@/components/UI';
-import { altTexts, authors } from '@/constants';
-import { logos } from '@/constants/images';
+import { altTexts, authors, logos } from '@/constants';
 import { LocaleParams } from '@/types';
-
-import { useTranslation } from '../../i18n';
+import { BodyText, Heading, ListHeading } from '@UI';
 
 import styles from './pageStyles.module.scss';
 
