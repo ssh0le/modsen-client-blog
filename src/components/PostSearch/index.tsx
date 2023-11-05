@@ -127,10 +127,6 @@ const PostSearch = ({ language, categoryId }: PostSearchProps) => {
     toggleTag(tag);
   };
 
-  const handleResultClick = (tag: ITag) => {
-    toggleTag(tag);
-  };
-
   const handleSearchFocus = () => {
     setShowResults(true);
   };
@@ -165,7 +161,7 @@ const PostSearch = ({ language, categoryId }: PostSearchProps) => {
               <SearchResults
                 results={searchResultTagList}
                 language={language}
-                onClick={handleResultClick}
+                onClick={handleTagClick}
               />
             </div>
           )}

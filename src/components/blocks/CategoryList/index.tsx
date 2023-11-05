@@ -3,6 +3,7 @@
 import { ArticleWrapper } from '@blocks';
 import { useTranslation } from '@i18n/client';
 import Link from 'next/link';
+import { useCallback } from 'react';
 
 import CategoryCard from '@/components/CategoryCard';
 import { createLinkToCategory } from '@/helpers';
@@ -23,13 +24,16 @@ export const CategoryList = ({
   const categories: Category[] = t('categories', { returnObjects: true });
   const categoryDescription = t('commonDescription');
 
-  const renderCategory = ({ id, name }: Category) => {
-    return (
-      <Link key={id} href={createLinkToCategory(locale, id)}>
-        <CategoryCard id={id} name={name} description={categoryDescription} />
-      </Link>
-    );
-  };
+  const renderCategory = useCallback(
+    ({ id, name }: Category) => {
+      return (
+        <Link key={id} href={createLinkToCategory(locale, id)}>
+          <CategoryCard id={id} name={name} description={categoryDescription} />
+        </Link>
+      );
+    },
+    [locale],
+  );
   return (
     <ArticleWrapper>
       <ListHeading className={heading} align={headingAlign}>

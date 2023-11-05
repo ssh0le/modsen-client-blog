@@ -2,7 +2,7 @@
 
 import { useTranslation } from '@i18n/client';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import LinkList from '@/components/LinkList';
 import Modal from '@/components/VideoModal';
@@ -28,9 +28,9 @@ export const Header = ({ language }: LocaleComponentProps) => {
   const { t } = useTranslation(language, 'header');
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const toggleMenu = () => {
+  const toggleMenu = useCallback(() => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
-  };
+  }, []);
 
   return (
     <section className={`${wrapper} ${isOpen ? active : ''}`}>

@@ -19,7 +19,8 @@ const { emailKey, emailServiceId, supportEmailTemplateId } = config;
 
 const ContactForm = ({ language }: LocaleComponentProps) => {
   const { t } = useTranslation(language, 'contact');
-
+  const [responseStatus, setResponseStatus] =
+    useState<ResponseMessageStatus>('no');
   const { errors, handleSubmit, dispatch, formParams } =
     useForm<ContactFormFields>(
       {
@@ -30,9 +31,6 @@ const ContactForm = ({ language }: LocaleComponentProps) => {
       },
       userSchema,
     );
-
-  const [responseStatus, setResponseStatus] =
-    useState<ResponseMessageStatus>('no');
 
   const { error, success } = t('responseMessgaes', {
     returnObjects: true,

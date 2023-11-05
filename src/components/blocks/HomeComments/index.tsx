@@ -35,10 +35,13 @@ const { rightArrow } = controlsIcons;
 const { leftArrowAlt, rightArrowAlt } = altTexts;
 
 export const HomeComments = ({ language }: LocaleComponentProps) => {
-  const renderComment = (comment: IComment) => <Comment {...comment} />;
-
   const { t } = useTranslation(language, 'home');
   const { t: tCommon } = useTranslation(language, 'common');
+
+  const renderComment = useCallback(
+    (comment: IComment) => <Comment {...comment} />,
+    [],
+  );
 
   const renderCarouselControls = useCallback(
     (
