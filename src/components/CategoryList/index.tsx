@@ -28,7 +28,7 @@ const CategoryList = ({ title, headingAlign, locale }: CategoryListProps) => {
         </Link>
       );
     },
-    [locale],
+    [locale, categoryDescription],
   );
   return (
     <ArticleWrapper>
