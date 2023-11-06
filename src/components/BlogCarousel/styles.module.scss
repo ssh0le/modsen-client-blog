@@ -1,0 +1,34 @@
+@use '@/styles/variables.scss' as vars;
+
+.listHeading {
+  padding-bottom: 32px;
+  border-bottom: 1px solid vars.$color-medium-gray;
+}
+
+.blogposts {
+  @include vars.flexColumnWithGap(64px);
+}
+
+.blogpostsControls {
+  display: flex;
+  justify-content: center;
+  gap: 17px;
+  margin-top: 64px;
+
+  @media screen and (max-width: vars.$breakpoint-mobile) {
+    margin-top: 30px;
+  }
+
+  .controlsContainer {
+    @include vars.flexAlignCenterBetween;
+
+    max-width: 170px;
+    width: 100%;
+    font-size: 28px;
+  }
+
+  .controlInactive {
+    color: vars.$color-medium-gray;
+    transform: scale(0.9);
+  }
+}

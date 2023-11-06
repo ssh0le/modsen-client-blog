@@ -1,0 +1,63 @@
+@use '@/styles/variables.scss' as vars;
+
+.contact {
+  @include vars.flexColumn();
+  @include vars.flexCenter();
+
+  .content {
+    padding-top: 128px;
+    width: 100%;
+    max-width: 768px;
+
+    @media screen and (max-width: vars.$breakpoint-tablet) {
+      padding: 30px 20px;
+    }
+  }
+
+  .heading {
+    text-align: center;
+
+    h1 {
+      margin-top: 12px;
+      margin-bottom: 24px;
+    }
+  }
+
+  .contactInfo {
+    margin-top: 64px;
+    display: flex;
+    padding: 48px 64px;
+    background-color: vars.$color-purple;
+    gap: 42px;
+    color: vars.$color-white;
+
+    p,
+    .infoHeading {
+      opacity: 60%;
+    }
+
+    & > .contactInfoColumn {
+      flex: 1 1 0px;
+    }
+
+    .infoHeading {
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid vars.$color-light-gray;
+    }
+
+    @media screen and (max-width: vars.$breakpoint-mobile) {
+      flex-wrap: wrap;
+
+      & > .contactInfoColumn {
+        flex: none;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+.map {
+  height: 355px;
+  width: 100%;
+}

@@ -1,0 +1,23 @@
+@use '@/styles/variables.scss' as vars;
+
+.wrapper {
+  padding: 5px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+
+  .delimeter {
+    width: 2px;
+    background-color: vars.$color-light-gray;
+  }
+
+  span {
+    padding: 5px 8px;
+    border-radius: 4px;
+    color: vars.$color-light-gray;
+  }
+
+  span.active {
+    color: vars.$color-yellow;
+  }
+}

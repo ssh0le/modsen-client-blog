@@ -1,0 +1,53 @@
+@use '@/styles/variables.scss' as vars;
+
+.blogpost {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  &:hover {
+    transition: transform 0.4s linear;
+    transform: scale(1.01);
+  }
+
+  .imageContainer {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    max-width: 490px;
+  }
+
+  .info {
+    @include vars.flexColumn();
+
+    max-width: 624px;
+
+    .blogtitle {
+      margin-top: 20px;
+      margin-bottom: 16px;
+
+      @media screen and (max-width: vars.$breakpoint-mobile) {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  @media screen and (max-width: vars.$breakpoint-mobile) {
+    flex-direction: column;
+
+    .imageContainer {
+      @include vars.flexCenter;
+
+      height: fit-content;
+
+      overflow: hidden;
+      width: 100%;
+
+      img {
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+}

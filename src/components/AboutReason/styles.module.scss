@@ -1,0 +1,39 @@
+@use '@/styles/variables.scss' as vars;
+
+.reason {
+  @include vars.flexAlignCenterBetween;
+
+  @media screen and (max-width: vars.$breakpoint-computer-ultra-large) {
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  @media screen and (max-width: vars.$breakpoint-laptop) {
+    flex-direction: column-reverse;
+
+    & > div {
+      align-self: center;
+    }
+  }
+
+  .content {
+    @include vars.flexColumnWithGap(16px);
+
+    max-width: 519px;
+
+    @media screen and (max-width: vars.$breakpoint-laptop) {
+      width: 100%;
+      max-width: none;
+    }
+  }
+
+  &.alt {
+    gap: 64px;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+
+    @media screen and (max-width: vars.$breakpoint-laptop) {
+      flex-direction: column-reverse;
+    }
+  }
+}

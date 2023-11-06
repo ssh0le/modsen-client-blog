@@ -1,0 +1,83 @@
+@use '@/styles/variables.scss' as vars;
+
+.postblog {
+  @include vars.flexColumnWithGap(128px);
+
+  @media screen and (max-width: vars.$breakpoint-tablet) {
+    gap: 50px;
+  }
+}
+
+.main {
+  @include vars.flexColumnWithGap(64px);
+
+  align-items: center;
+
+  .heroImageContainer {
+    width: 100%;
+    height: fit-content;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @media screen and (max-width: vars.$breakpoint-tablet) {
+    gap: 20px;
+  }
+}
+
+.innerHeading {
+  @include vars.flexColumn();
+
+  max-width: 768px;
+  padding-top: 128px;
+  margin-bottom: 64px;
+
+  .author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .heading {
+    margin-top: 24px;
+    margin-bottom: 34px;
+  }
+
+  .category {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    h4 {
+      text-transform: capitalize;
+    }
+
+    .postInfo {
+      @include vars.flexColumn;
+    }
+  }
+
+  @media screen and (max-width: vars.$breakpoint-tablet) {
+    align-items: center;
+    padding-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+}
+
+.article {
+  max-width: 843px;
+}
+
+h2.nextReadHeading {
+  margin-bottom: 0;
+}
+
+.list {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid rgba(vars.$color-medium-gray, 0.3);
+}

@@ -1,0 +1,47 @@
+@use '@/styles/variables.scss' as vars;
+
+.blog {
+  @include vars.flexColumnWithGap(128px);
+}
+
+.wrapper {
+  background-color: vars.$color-lavender;
+}
+
+.hero {
+  @include vars.flexAlignCenterBetween;
+
+  padding: 80px;
+  gap: 20px;
+
+  .content {
+    @include vars.flexColumn();
+
+    max-width: 624px;
+
+    .message {
+      @include vars.flexColumnWithGap(16px);
+
+      margin-top: 20px;
+      margin-bottom: 32px;
+    }
+
+    @media screen and (max-width: vars.$breakpoint-mobile) {
+      * {
+        text-align: center;
+      }
+    }
+  }
+
+  @media screen and (max-width: vars.$breakpoint-tablet) {
+    flex-direction: column-reverse;
+    padding: 20px;
+
+    .imageContainer {
+      @include vars.flexCenter();
+
+      overflow: hidden;
+      max-width: 100%;
+    }
+  }
+}

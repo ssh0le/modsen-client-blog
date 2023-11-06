@@ -1,0 +1,72 @@
+$color-black: #232536;
+$color-white: #fff;
+$color-dark-yellow: #edc14a;
+$color-yellow: #ffd050;
+$color-light-yellow: #fbf6ea;
+$color-purple: #592ea9;
+$color-dark-gray: #4c4c4c;
+$color-medium-gray: #6d6e76;
+$color-light-gray: #f4f4f4;
+$color-lavender: #f4f0f8;
+$color-gray: #9497a1;
+$color-footer-dark-gray: #2e3040;
+$color-light-black: #494a53;
+$color-red: #f00;
+
+$font-family-sen: var(--font-sen);
+$font-family-inter: var(--font-inter);
+
+$breakpoint-mobile-small: 600px;
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1000px;
+$breakpoint-laptop: 1100px;
+$breakpoint-computer: 1200px;
+$breakpoint-computer-large: 1300px;
+$breakpoint-computer-ultra-large: 1350px;
+
+@mixin flex() {
+  display: flex;
+}
+
+@mixin flexCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexColumn() {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flexAlignCenterBetween() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flexColumnWithGap($gap) {
+  @include flexColumn();
+  gap: $gap;
+}
+
+@mixin absolute-strecth {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin basepadding {
+  padding: 0 80px;
+}
+
+@mixin baseInteractivity {
+  cursor: pointer;
+  transition: transform 0.3s linear;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

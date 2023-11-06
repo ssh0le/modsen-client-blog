@@ -1,0 +1,7 @@
+{
+  "links": ["Home", "Blog", "About Us", "Contact us", "Privacy Policy"],
+  "heading": "Subscribe to our news letter to get latest updates and news",
+  "placeholder": "Enter Your Email",
+  "subscribeButton": "Subscribe",
+  "subscribedMessage": "Check your email!"
+}

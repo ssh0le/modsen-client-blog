@@ -1,0 +1,8 @@
+@use '@/styles/variables.scss' as vars;
+
+.rootWrapper {
+  @include vars.flexColumn;
+
+  min-height: 100%;
+  height: auto;
+}

@@ -1,0 +1,40 @@
+@use '@/styles/variables.scss' as vars;
+
+.wrapper,
+.noResults {
+  background-color: vars.$color-white;
+  width: 100%;
+  border: 1px solid vars.$color-medium-gray;
+  z-index: 100;
+
+  .resultWrapper {
+    padding: 0 5px;
+    cursor: pointer;
+
+    .result {
+      padding: 10px;
+      border-bottom: 1px solid rgba(vars.$color-medium-gray, 0.5);
+      display: flex;
+      justify-content: space-between;
+
+      &.selected::after {
+        content: 'Selected';
+        display: flex;
+        align-items: center;
+        color: rgba(vars.$color-medium-gray, 0.7);
+      }
+    }
+
+    &:hover {
+      background-color: vars.$color-light-yellow;
+    }
+  }
+
+  & .resultWrapper:last-child .result {
+    border-bottom: none;
+  }
+}
+
+.noResults {
+  padding: 10px;
+}

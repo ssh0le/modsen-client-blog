@@ -1,0 +1,77 @@
+@use '@/styles/variables.scss' as vars;
+
+.posts {
+  gap: 32px;
+  display: flex;
+
+  @media screen and (max-width: vars.$breakpoint-tablet) {
+    @include vars.flexColumn();
+
+    align-items: center;
+  }
+
+  .selectedPost {
+    @media screen and (max-width: vars.$breakpoint-tablet) {
+      @include vars.flexColumn();
+
+      &,
+      .selectedPostBody {
+        align-items: center;
+      }
+    }
+
+    .selectedPostBody {
+      @include vars.flexColumnWithGap(32px);
+
+      border: 1px solid rgba(vars.$color-medium-gray, 0.1);
+      padding: 32px;
+      margin-top: 32px;
+
+      .imageContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        width: 100%;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+
+        @media screen and (max-width: vars.$breakpoint-laptop) {
+          max-width: 400px;
+          height: fit-content;
+        }
+      }
+
+      .selectedPostContent {
+        @include vars.flexColumnWithGap(16px);
+      }
+
+      a {
+        width: fit-content;
+      }
+    }
+  }
+
+  .allPosts {
+    @include vars.flexColumnWithGap(32px);
+
+    max-width: 517px;
+
+    @media screen and (max-width: vars.$breakpoint-tablet) {
+      max-width: none;
+    }
+
+    .allPostsHeading {
+      @include vars.flexCenter;
+
+      justify-content: space-between;
+    }
+
+    .postsList {
+      @include vars.flexColumn;
+    }
+  }
+}

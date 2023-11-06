@@ -1,0 +1,52 @@
+@use '@/styles/variables.scss' as vars;
+
+.wrapper {
+  position: relative;
+  display: flex;
+}
+
+.imageWrapper {
+  @media screen and (max-width: vars.$breakpoint-laptop) {
+    width: 100%;
+    height: fit-content;
+    overflow: hidden;
+
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+}
+
+.circle {
+  position: absolute;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background-color: vars.$color-purple;
+  bottom: 0;
+  left: 107px;
+  transform: translateY(50%);
+
+  @media screen and (max-width: vars.$breakpoint-tablet) {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.rectange {
+  position: absolute;
+  background-color: vars.$color-yellow;
+  width: 103px;
+  height: 116px;
+  left: 0;
+  top: 114px;
+  transform: translateX(-57px);
+  border-top-left-radius: 43px;
+
+  @media screen and (max-width: vars.$breakpoint-tablet) {
+    transform: translateX(-20px);
+    width: 70px;
+    height: 90px;
+  }
+}

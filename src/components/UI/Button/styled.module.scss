@@ -1,0 +1,29 @@
+@use '@/styles/variables.scss' as vars;
+
+$bottom-border-width: 2px;
+
+@mixin button-style($base-back, $hover-back) {
+  @include vars.baseInteractivity();
+
+  background-color: $base-back;
+  border-bottom: $bottom-border-width solid transparent;
+
+  &:hover {
+    background-color: $hover-back;
+    border-bottom: $bottom-border-width solid vars.$color-purple;
+  }
+}
+
+.button {
+  @include button-style(vars.$color-white, vars.$color-light-gray);
+
+  padding: 16px 48px;
+  color: vars.$color-black;
+  font-size: 18px;
+  font-weight: 700;
+  width: fit-content;
+}
+
+.colored {
+  @include button-style(vars.$color-yellow, vars.$color-dark-yellow);
+}

@@ -1,0 +1,98 @@
+@use '@/styles/variables.scss' as vars;
+
+.wrapper {
+  @include vars.flexCenter;
+
+  background-color: vars.$color-black;
+
+  @media screen and (max-width: vars.$breakpoint-tablet) {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    bottom: 0;
+    z-index: 10;
+    justify-content: flex-end;
+    margin-right: -300px;
+    transition: margin 0.2s ease-out;
+
+    &.active {
+      margin-right: 0;
+    }
+
+    .backdrop {
+      display: none;
+    }
+
+    .backdrop.active {
+      position: fixed;
+      display: block;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(vars.$color-black, 0.5);
+      z-index: -100;
+    }
+  }
+}
+
+.header {
+  @include vars.flexAlignCenterBetween;
+
+  width: 100%;
+  max-width: 1440px;
+  padding: 18px 80px 18px 56px;
+
+  @media screen and (max-width: vars.$breakpoint-laptop) {
+    padding: 10px 30px;
+  }
+
+  @media screen and (max-width: vars.$breakpoint-tablet) {
+    flex-direction: column;
+
+    h4 {
+      margin-bottom: 40px;
+    }
+  }
+
+  .blogName {
+    color: vars.$color-white;
+    text-align: center;
+  }
+
+  .controls {
+    display: flex;
+    gap: 36px;
+    align-items: center;
+
+    @media screen and (max-width: vars.$breakpoint-tablet) {
+      flex-direction: column;
+
+      ul {
+        flex-direction: column;
+
+        li {
+          text-align: center;
+        }
+      }
+
+      button {
+        order: 3;
+      }
+    }
+  }
+}
+
+.burgerBadge {
+  display: none;
+
+  @media screen and (max-width: vars.$breakpoint-tablet) {
+    position: fixed;
+    display: block;
+    right: 0;
+    top: 0;
+    padding: 20px;
+    padding-bottom: 0;
+  }
+}

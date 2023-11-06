@@ -1,0 +1,15 @@
+@use '@/styles/variables.scss' as vars;
+
+.display {
+  font-weight: 700;
+  font-size: 56px;
+  letter-spacing: -2px;
+  line-height: 64px;
+  font-family: vars.$font-family-sen;
+  text-transform: capitalize;
+
+  @media screen and (max-width: vars.$breakpoint-mobile) {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}

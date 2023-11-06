@@ -1,0 +1,19 @@
+@use '@/styles/variables.scss' as vars;
+
+.list {
+  li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: vars.$color-light-black;
+  }
+
+  & li::before {
+    content: '';
+    width: 5px;
+    display: flex;
+    height: 5px;
+    border-radius: 50%;
+    background-color: vars.$color-light-black;
+  }
+}

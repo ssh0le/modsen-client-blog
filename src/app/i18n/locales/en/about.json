@@ -1,0 +1,18 @@
+{
+  "headingCap": "ABOUT US",
+  "heading": "We are a team of content writers who share their learnings",
+  "results": ["Blogs Published", "Views on Finsweet", "Total active Users"],
+  "missions": [
+    {
+      "cap": "Our mision",
+      "heading": "Creating valuable content for creatives all around the world"
+    },
+    {
+      "cap": "Our Vision",
+      "heading": "A platform that empowers individuals to improve"
+    }
+  ],
+  "reasonHeading1": "Our team of creatives",
+  "reasonHeading2": "Why we started this Blog",
+  "authorsList": "List of Authors"
+}

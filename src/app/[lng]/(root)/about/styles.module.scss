@@ -1,0 +1,154 @@
+@use '@/styles/variables.scss' as vars;
+
+.about {
+  @include vars.flexColumnWithGap(128px);
+
+  @media screen and (max-width: vars.$breakpoint-tablet) {
+    gap: 50px;
+  }
+
+  .headingContainer {
+    display: flex;
+    position: relative;
+    gap: 32px;
+    padding-top: 80px;
+    margin-left: 109px;
+    margin-bottom: -60px;
+    z-index: 100;
+
+    .heading {
+      padding: 64px;
+      max-width: 624px;
+      width: 100%;
+      background-color: vars.$color-white;
+
+      h1 {
+        margin-top: 16px;
+      }
+    }
+
+    .description {
+      padding-top: 102px;
+      max-width: 477px;
+    }
+
+    @media screen and (max-width: vars.$breakpoint-computer-large) {
+      margin-left: 0;
+      margin-bottom: 80px;
+      z-index: 0;
+      flex-direction: column;
+      text-align: center;
+
+      .heading {
+        max-width: none;
+        padding: 0;
+      }
+
+      .description {
+        padding-top: 0;
+        max-width: none;
+      }
+    }
+  }
+
+  .hero {
+    @media screen and (max-width: vars.$breakpoint-laptop) {
+    }
+
+    .heroImage {
+      @include vars.flexCenter();
+
+      overflow: hidden;
+      position: relative;
+
+      @media screen and (max-width: vars.$breakpoint-laptop) {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      @media screen and (max-width: vars.$breakpoint-mobile) {
+        img {
+          display: none;
+        }
+      }
+    }
+
+    .heroContent {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding-left: 109px;
+
+      .results {
+        display: flex;
+        gap: 68px;
+        padding: 32px 48px;
+        background-color: vars.$color-yellow;
+        width: fit-content;
+
+        .result {
+          @include vars.flexColumn();
+        }
+
+        @media screen and (max-width: vars.$breakpoint-mobile) {
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: space-between;
+        }
+      }
+
+      .pattern {
+        width: 100%;
+        margin-top: -3px;
+      }
+
+      @media screen and (max-width: vars.$breakpoint-laptop) {
+        position: static;
+        padding-left: 0;
+        margin-bottom: 50px;
+      }
+    }
+  }
+
+  .missions {
+    display: flex;
+    padding: 128px 108px 64px;
+    background-color: vars.$color-lavender;
+    justify-content: center;
+    gap: 32px;
+
+    .mission {
+      @include vars.flexColumn();
+
+      max-width: 516px;
+      flex: 1 1 0px;
+
+      h3 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+      }
+    }
+
+    @media screen and (max-width: vars.$breakpoint-computer) {
+      padding: 80px;
+    }
+
+    @media screen and (max-width: vars.$breakpoint-laptop) {
+      flex-direction: column;
+
+      .mission:nth-child(2n) {
+        align-self: flex-end;
+        text-align: end;
+      }
+    }
+
+    @media screen and (max-width: vars.$breakpoint-tablet) {
+      padding: 30px;
+
+      .mission:nth-child(n) {
+        align-self: center;
+        text-align: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+@use '@/styles/variables.scss' as vars;
+
+.yellow {
+  color: vars.$color-yellow;
+}
+
+.purple {
+  color: vars.$color-purple;
+}
+
+.black {
+  color: vars.$color-black;
+}
+
+.lightGray {
+  color: vars.$color-light-gray;
+}
+
+.mediumGray {
+  color: vars.$color-medium-gray;
+}
+
+.darkGray {
+  color: vars.$color-dark-gray;
+}
+
+.white {
+  color: vars.$color-white;
+}
+
+.w500 {
+  font-weight: 500;
+}
+
+.w600 {
+  font-weight: 600;
+}
+
+.w700 {
+  font-weight: 700;
+}
+
+.w900 {
+  font-weight: 900;
+}
+
+.size14 {
+  font-size: 14px;
+}

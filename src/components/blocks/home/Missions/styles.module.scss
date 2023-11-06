@@ -1,0 +1,65 @@
+@use '@/styles/variables.scss' as vars;
+
+.pattern {
+  width: 100%;
+  padding-left: 200px;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(-100%);
+
+  @media screen and (max-width: vars.$breakpoint-laptop) {
+    padding-right: 20px;
+  }
+}
+
+.wrapper {
+  background-color: vars.$color-lavender;
+}
+
+.mission {
+  position: relative;
+  padding: 96px 108px 96px 80px;
+
+  .missionBody {
+    display: flex;
+    justify-content: space-between;
+    gap: 61px;
+
+    @media screen and (max-width: vars.$breakpoint-laptop) {
+      flex-wrap: wrap;
+
+      & > * {
+        text-align: center;
+        width: 100%;
+      }
+    }
+
+    .missionItem {
+      max-width: 515px;
+      flex: 1 1 0px;
+
+      @media screen and (max-width: vars.$breakpoint-laptop) {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .missionItemBody {
+      @include vars.flexColumnWithGap(16px);
+
+      margin-top: 24px;
+
+      a {
+        width: fit-content;
+      }
+
+      @media screen and (max-width: vars.$breakpoint-laptop) {
+        align-items: center;
+      }
+    }
+  }
+}

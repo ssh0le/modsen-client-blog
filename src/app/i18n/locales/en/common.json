@@ -1,0 +1,26 @@
+{
+  "authorPrefix": "By ",
+  "readMoreButton": "Read More >",
+  "joinInvitation": "Join our team to be a part of our story",
+  "joinInvitationButton": "Join now",
+  "adress": "Finstreet 118 2561 Fintown",
+  "commonDescription": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+  "categories": [
+    {
+      "id": "1",
+      "name": "startup"
+    },
+    {
+      "id": "2",
+      "name": "business"
+    },
+    {
+      "id": "3",
+      "name": "economy"
+    },
+    {
+      "id": "4",
+      "name": "technology"
+    }
+  ]
+}

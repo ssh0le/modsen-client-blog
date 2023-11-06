@@ -1,0 +1,105 @@
+@use '@/styles/variables.scss' as vars;
+
+.wrapper {
+  @include vars.flexCenter;
+
+  background-color: vars.$color-black;
+}
+
+.footer {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  padding: 59px 80px 56px;
+  gap: 48px;
+
+  @media screen and (max-width: vars.$breakpoint-mobile) {
+    padding: 20px 0;
+  }
+
+  .top,
+  .body,
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @media screen and (max-width: vars.$breakpoint-mobile) {
+      padding: 10px;
+    }
+  }
+
+  .top {
+    align-items: center;
+
+    @media screen and (max-width: vars.$breakpoint-tablet) {
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: baseline;
+
+      & > div {
+        h4 {
+          text-align: center;
+        }
+
+        min-width: 100%;
+        flex-grow: 1;
+        margin-bottom: 50px;
+      }
+
+      ul {
+        flex-wrap: wrap;
+      }
+
+      li {
+        text-align: center;
+      }
+    }
+  }
+
+  .blogName,
+  .message {
+    color: vars.$color-white;
+  }
+
+  .body {
+    padding: 80px 64px;
+    gap: 64px;
+    align-items: center;
+    background-color: vars.$color-footer-dark-gray;
+
+    @media screen and (max-width: vars.$breakpoint-laptop) {
+      flex-direction: column;
+
+      h2 {
+        text-align: center;
+      }
+    }
+
+    @media screen and (max-width: vars.$breakpoint-mobile) {
+      padding: 40px 30px;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    gap: 24px;
+    color: vars.$color-white;
+
+    @media screen and (max-width: vars.$breakpoint-mobile) {
+      ul {
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  .companyInfo {
+    opacity: 70%;
+  }
+
+  .media {
+    display: flex;
+    gap: 27px;
+  }
+}

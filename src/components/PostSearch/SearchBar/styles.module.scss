@@ -1,0 +1,36 @@
+@use '@/styles/variables.scss' as vars;
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid vars.$color-gray;
+  border-radius: 6px;
+  height: 54px;
+  gap: 10px;
+  padding-left: 25px;
+
+  * {
+    font-family: vars.$font-family-sen;
+  }
+
+  &:focus-within {
+    border: 1px solid black;
+  }
+
+  input {
+    font-size: 14px;
+    border: none;
+    outline: none;
+    width: 100%;
+  }
+
+  button {
+    border-radius: 6px;
+    height: inherit;
+    width: 84px;
+    background-color: vars.$color-yellow;
+    margin-right: -1px;
+    cursor: pointer;
+  }
+}

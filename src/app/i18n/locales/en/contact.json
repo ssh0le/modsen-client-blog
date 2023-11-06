@@ -1,0 +1,37 @@
+{
+  "headingCap": "Contact us",
+  "heading": "Let’s Start a Conversation",
+  "workingHoursHeading": "Working hours",
+  "workingHoursDays": "Monday To Friday",
+  "workingHoursTime": "9:00 AM to 8:00 PM ",
+  "workingHoursSupport": "Our Support Team is available 24/7",
+  "contactHeading": "Contact us",
+  "formUserName": "Full Name",
+  "formUserEmail": "Your Email",
+  "formQuery": "Query Related",
+  "formQueryOptions": [
+    {
+      "key": "1",
+      "value": "Safety"
+    },
+    {
+      "key": "2",
+      "value": "Partnership"
+    },
+    {
+      "key": "3",
+      "value": "Other"
+    }
+  ],
+  "formMessage": "Message",
+  "sendButtonText": "Send Message",
+  "markerDescription": [
+    "Our office in Czech",
+    "Our office in Poland",
+    "Our office in Belarus"
+  ],
+  "responseMessgaes": {
+    "success": "Your message is being processed",
+    "error": "Something went wrong..."
+  }
+}
